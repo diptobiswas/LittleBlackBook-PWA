@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-littleblackbookpwa-staging-202237-authRole",
+      "UnauthRoleArn": "arn:aws:iam::136578765318:role/amplify-littleblackbookpwa-staging-202237-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::136578765318:role/amplify-littleblackbookpwa-staging-202237-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-littleblackbookpwa-staging-202237-deployment",
+      "UnauthRoleName": "amplify-littleblackbookpwa-staging-202237-unauthRole",
+      "StackName": "amplify-littleblackbookpwa-staging-202237",
+      "StackId": "arn:aws:cloudformation:ca-central-1:136578765318:stack/amplify-littleblackbookpwa-staging-202237/0273b3c0-9cee-11ed-ac56-0276651026dc",
+      "AmplifyAppId": "d2abavuw5al0im"
+    }
+  }
+}
