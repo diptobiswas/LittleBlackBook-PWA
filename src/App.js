@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { Flex, View, useBreakpointValue } from '@aws-amplify/ui-react'
+import { NavbarDesktop, NavBarMobile, TopbarMobile } from './ui-components'
+
+
 function App() {
+
+  const variant = useBreakpointValue({
+    small: <TopbarMobile width={'100vw'}></TopbarMobile>,
+    large: <NavbarDesktop width={'100vw'}></NavbarDesktop>,
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {variant}
     </div>
   );
 }
