@@ -6,16 +6,16 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TopicIconOverridesProps = {
-    TopicIcon?: PrimitiveOverrideProps<ViewProps>;
-    icon?: PrimitiveOverrideProps<ViewProps>;
+    TopicIcon?: PrimitiveOverrideProps<FlexProps>;
+    icon?: PrimitiveOverrideProps<FlexProps>;
     background?: PrimitiveOverrideProps<ViewProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
     Topic_Name?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type TopicIconProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type TopicIconProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: TopicIconOverridesProps | undefined | null;
 }>;
 export default function TopicIcon(props: TopicIconProps): React.ReactElement;

@@ -7,17 +7,17 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Text, View } from "@aws-amplify/ui-react";
+import { Flex, Text, View } from "@aws-amplify/ui-react";
 export default function DiscoverMobile(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="340px"
-      height="40px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="14px"
+      direction="row"
+      width="unset"
+      height="unset"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "DiscoverMobile")}
@@ -37,17 +37,14 @@ export default function DiscoverMobile(props) {
         height="unset"
         gap="unset"
         alignItems="unset"
-        position="absolute"
-        top="10%"
-        bottom="10%"
-        left="0%"
-        right="76.76%"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Discover&#xA;resources"
         {...getOverrideProps(overrides, "Discover resources")}
       ></Text>
-      <View
+      <Flex
         padding="0px 0px 0px 0px"
         width="85px"
         height="40px"
@@ -55,11 +52,8 @@ export default function DiscoverMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="27.06%"
-        right="47.94%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Group 28")}
       >
         <View
@@ -104,8 +98,8 @@ export default function DiscoverMobile(props) {
           children="By Topic"
           {...getOverrideProps(overrides, "By Topic")}
         ></Text>
-      </View>
-      <View
+      </Flex>
+      <Flex
         padding="0px 0px 0px 0px"
         width="149px"
         height="40px"
@@ -113,11 +107,8 @@ export default function DiscoverMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="56.18%"
-        right="0%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Group 29")}
       >
         <View
@@ -162,7 +153,7 @@ export default function DiscoverMobile(props) {
           children="By Organization"
           {...getOverrideProps(overrides, "By Organization")}
         ></Text>
-      </View>
-    </View>
+      </Flex>
+    </Flex>
   );
 }

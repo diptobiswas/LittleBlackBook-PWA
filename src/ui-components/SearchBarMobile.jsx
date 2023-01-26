@@ -7,40 +7,25 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function SearchBarMobile(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="340px"
-      height="46px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="12px"
+      direction="row"
+      width="unset"
+      height="unset"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
-      padding="0px 0px 0px 0px"
+      boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
+      borderRadius="10px"
+      padding="9px 16px 9px 16px"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "SearchBarMobile")}
       {...rest}
     >
-      <View
-        width="340px"
-        height="46px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
-        borderRadius="10px"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "SearchBar")}
-      ></View>
       <Text
         fontFamily="Inter"
         fontSize="16px"
@@ -56,11 +41,8 @@ export default function SearchBarMobile(props) {
         height="16px"
         gap="unset"
         alignItems="unset"
-        position="absolute"
-        top="32.61%"
-        bottom="32.61%"
-        left="5.59%"
-        right="16.18%"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Placeholder for Search"
@@ -86,13 +68,10 @@ export default function SearchBarMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="19.57%"
-        bottom="20.83%"
-        left="87.35%"
-        right="4.58%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Vector")}
       ></Icon>
-    </View>
+    </Flex>
   );
 }

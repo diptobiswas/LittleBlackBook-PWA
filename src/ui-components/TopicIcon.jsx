@@ -7,23 +7,23 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function TopicIcon(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="120px"
-      height="158px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="11px"
+      direction="column"
+      width="unset"
+      height="unset"
+      justifyContent="flex-start"
+      alignItems="flex-end"
       position="relative"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "TopicIcon")}
       {...rest}
     >
-      <View
+      <Flex
         padding="0px 0px 0px 0px"
         width="120px"
         height="120px"
@@ -31,9 +31,8 @@ export default function TopicIcon(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="0px"
-        left="0px"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "icon")}
       >
         <View
@@ -76,7 +75,7 @@ export default function TopicIcon(props) {
           right="16.67%"
           {...getOverrideProps(overrides, "Vector")}
         ></Icon>
-      </View>
+      </Flex>
       <Text
         fontFamily="Inter"
         fontSize="16px"
@@ -92,16 +91,13 @@ export default function TopicIcon(props) {
         height="unset"
         gap="unset"
         alignItems="unset"
-        position="absolute"
-        top="82.91%"
-        bottom="6.96%"
-        left="10.83%"
-        right="10.83%"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Topic_Name"
         {...getOverrideProps(overrides, "Topic_Name")}
       ></Text>
-    </View>
+    </Flex>
   );
 }

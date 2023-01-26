@@ -6,14 +6,14 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type SearchResultIconMobileOverridesProps = {
-    SearchResultIconMobile?: PrimitiveOverrideProps<ViewProps>;
-    background?: PrimitiveOverrideProps<ViewProps>;
-    TextGroup?: PrimitiveOverrideProps<ViewProps>;
+    SearchResultIconMobile?: PrimitiveOverrideProps<FlexProps>;
+    TextGroup?: PrimitiveOverrideProps<FlexProps>;
     "Name of Service and Location36552832"?: PrimitiveOverrideProps<TextProps>;
     "Name of Service and Location36753073"?: PrimitiveOverrideProps<TextProps>;
+    "Group 41"?: PrimitiveOverrideProps<FlexProps>;
     PhoneLink?: PrimitiveOverrideProps<ViewProps>;
     WebButton?: PrimitiveOverrideProps<ViewProps>;
     Vector36753374?: PrimitiveOverrideProps<IconProps>;
@@ -21,7 +21,7 @@ export declare type SearchResultIconMobileOverridesProps = {
     PhoneButton?: PrimitiveOverrideProps<ViewProps>;
     Vector36753369?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type SearchResultIconMobileProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type SearchResultIconMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: SearchResultIconMobileOverridesProps | undefined | null;
 }>;
 export default function SearchResultIconMobile(props: SearchResultIconMobileProps): React.ReactElement;

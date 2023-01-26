@@ -6,15 +6,14 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type SearchBarMobileOverridesProps = {
-    SearchBarMobile?: PrimitiveOverrideProps<ViewProps>;
-    SearchBar?: PrimitiveOverrideProps<ViewProps>;
+    SearchBarMobile?: PrimitiveOverrideProps<FlexProps>;
     "Placeholder for Search"?: PrimitiveOverrideProps<TextProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type SearchBarMobileProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type SearchBarMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: SearchBarMobileOverridesProps | undefined | null;
 }>;
 export default function SearchBarMobile(props: SearchBarMobileProps): React.ReactElement;

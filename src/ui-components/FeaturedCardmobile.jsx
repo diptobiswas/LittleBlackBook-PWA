@@ -7,34 +7,31 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
 export default function FeaturedCardmobile(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="340px"
-      height="300px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="0"
+      direction="column"
+      width="unset"
+      height="unset"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "FeaturedCardmobile")}
       {...rest}
     >
       <Image
-        width="100%"
-        height="100%"
+        width="340px"
+        height="300px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
+        shrink="0"
+        position="relative"
         boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
         borderRadius="10px"
         padding="0px 0px 0px 0px"
@@ -56,17 +53,14 @@ export default function FeaturedCardmobile(props) {
         height="72px"
         gap="unset"
         alignItems="unset"
-        position="absolute"
-        top="60.33%"
-        bottom="15.67%"
-        left="5.88%"
-        right="5.88%"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Featured_Title"
         {...getOverrideProps(overrides, "Featured_Title")}
       ></Text>
-      <View
+      <Flex
         padding="0px 0px 0px 0px"
         width="106.97px"
         height="24px"
@@ -74,9 +68,8 @@ export default function FeaturedCardmobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="259px"
-        left="20px"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "FeaturedLink")}
       >
         <Icon
@@ -133,7 +126,7 @@ export default function FeaturedCardmobile(props) {
           children="Learn More"
           {...getOverrideProps(overrides, "Learn More")}
         ></Text>
-      </View>
-    </View>
+      </Flex>
+    </Flex>
   );
 }

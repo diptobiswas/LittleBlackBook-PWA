@@ -4,6 +4,7 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
+export { default as TopicIconCollection } from "./TopicIconCollection";
 export { default as FeaturedCardDesktop } from "./FeaturedCardDesktop";
 export { default as NavBarMobile } from "./NavBarMobile";
 export { default as EventCardExpanded } from "./EventCardExpanded";
@@ -17,6 +18,8 @@ export { default as EventCardDefault } from "./EventCardDefault";
 export { default as EmergencyButtonDesktop } from "./EmergencyButtonDesktop";
 export { default as EmergencyTitleMobile } from "./EmergencyTitleMobile";
 export { default as FeaturedCardmobile } from "./FeaturedCardmobile";
+export { default as EventCardExpandedCollection } from "./EventCardExpandedCollection";
+export { default as EventCardDefaultCollection } from "./EventCardDefaultCollection";
 export { default as NavbarDesktop } from "./NavbarDesktop";
 export { default as TopicIcon } from "./TopicIcon";
 export { default as SearchResultIconMobileExpanded } from "./SearchResultIconMobileExpanded";
