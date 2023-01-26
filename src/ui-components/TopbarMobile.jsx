@@ -16,7 +16,7 @@ export default function TopbarMobile(props) {
       gap="10px"
       direction="row"
       width="unset"
-      height="unset"
+      height="95px"
       justifyContent="flex-start"
       alignItems="flex-end"
       position="relative"
@@ -28,7 +28,7 @@ export default function TopbarMobile(props) {
       <Flex
         padding="0px 0px 0px 0px"
         width="390px"
-        height="98px"
+        height="95px"
         display="block"
         gap="unset"
         alignItems="unset"
@@ -39,7 +39,7 @@ export default function TopbarMobile(props) {
       >
         <View
           width="390px"
-          height="98px"
+          height="95px"
           display="block"
           gap="unset"
           alignItems="unset"
@@ -59,8 +59,8 @@ export default function TopbarMobile(props) {
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="56px"
-          left="20px"
+          top="36px"
+          left="45px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(0,0,0,1)"
           {...getOverrideProps(overrides, "logo")}

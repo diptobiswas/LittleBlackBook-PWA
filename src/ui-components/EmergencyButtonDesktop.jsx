@@ -7,90 +7,25 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function EmergencyButtonDesktop(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="500px"
-      height="160px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="44px"
+      direction="row"
+      width="unset"
+      height="unset"
+      justifyContent="flex-start"
+      alignItems="center"
       position="relative"
-      padding="0px 0px 0px 0px"
+      boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
+      borderRadius="20px"
+      padding="30px 31px 30px 50px"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "EmergencyButtonDesktop")}
       {...rest}
     >
-      <View
-        width="500px"
-        height="160px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
-        borderRadius="20px"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "MainButton")}
-      ></View>
-      <Text
-        fontFamily="Inter"
-        fontSize="28px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="24px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        letterSpacing="0.13px"
-        width="229px"
-        height="20px"
-        gap="unset"
-        alignItems="unset"
-        position="absolute"
-        top="26.88%"
-        bottom="60.62%"
-        left="35.6%"
-        right="18.6%"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Name of service"
-        {...getOverrideProps(overrides, "Name of service")}
-      ></Text>
-      <Text
-        fontFamily="Inter"
-        fontSize="42px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="42px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        letterSpacing="0.27px"
-        width="291px"
-        height="39px"
-        gap="unset"
-        alignItems="unset"
-        position="absolute"
-        top="50.63%"
-        bottom="25%"
-        left="35.6%"
-        right="6.2%"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="905-111-1111"
-        {...getOverrideProps(overrides, "Phone#")}
-      ></Text>
       <Icon
         width="81.37px"
         height="100px"
@@ -106,13 +41,73 @@ export default function EmergencyButtonDesktop(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="18.75%"
-        bottom="18.75%"
-        left="10.56%"
-        right="73.16%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Vector")}
       ></Icon>
-    </View>
+      <Flex
+        padding="0px 0px 0px 0px"
+        width="291px"
+        height="77px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        shrink="0"
+        position="relative"
+        {...getOverrideProps(overrides, "Group 37")}
+      >
+        <Text
+          fontFamily="Inter"
+          fontSize="28px"
+          fontWeight="400"
+          color="rgba(0,0,0,1)"
+          lineHeight="24px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.13px"
+          width="229px"
+          height="20px"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="0%"
+          bottom="74.03%"
+          left="0%"
+          right="21.31%"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Name of service"
+          {...getOverrideProps(overrides, "Name of service")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="42px"
+          fontWeight="400"
+          color="rgba(0,0,0,1)"
+          lineHeight="42px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.27px"
+          width="291px"
+          height="39px"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="49.35%"
+          bottom="0%"
+          left="0%"
+          right="0%"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="905-111-1111"
+          {...getOverrideProps(overrides, "Phone#")}
+        ></Text>
+      </Flex>
+    </Flex>
   );
 }

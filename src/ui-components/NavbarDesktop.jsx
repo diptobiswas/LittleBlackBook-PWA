@@ -16,7 +16,7 @@ export default function NavbarDesktop(props) {
       gap="56px"
       direction="row"
       width="unset"
-      height="unset"
+      height="95px"
       justifyContent="center"
       alignItems="center"
       position="relative"

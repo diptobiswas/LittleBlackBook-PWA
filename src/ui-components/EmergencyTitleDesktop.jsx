@@ -7,40 +7,25 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function EmergencyTitleDesktop(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="1120px"
-      height="244px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="10px"
+      direction="column"
+      width="unset"
+      height="unset"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
-      padding="0px 0px 0px 0px"
+      borderRadius="24.352941513061523px"
+      padding="47px 101px 47px 101px"
+      backgroundColor="rgba(212,0,0,1)"
       {...getOverrideProps(overrides, "EmergencyTitleDesktop")}
       {...rest}
     >
-      <View
-        width="1120px"
-        height="244px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        borderRadius="24.352941513061523px"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(212,0,0,1)"
-        {...getOverrideProps(overrides, "Rectangle 1169")}
-      ></View>
-      <View
+      <Flex
         padding="0px 0px 0px 0px"
         width="917px"
         height="150px"
@@ -48,9 +33,8 @@ export default function EmergencyTitleDesktop(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="47px"
-        left="101px"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Group 35")}
       >
         <Icon
@@ -100,7 +84,7 @@ export default function EmergencyTitleDesktop(props) {
           children="24/7 Emergency&#xA;& Crisis Helplines"
           {...getOverrideProps(overrides, "24/7 Emergency & Crisis Helplines")}
         ></Text>
-      </View>
-    </View>
+      </Flex>
+    </Flex>
   );
 }

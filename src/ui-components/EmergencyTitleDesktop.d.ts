@@ -6,16 +6,15 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EmergencyTitleDesktopOverridesProps = {
-    EmergencyTitleDesktop?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 1169"?: PrimitiveOverrideProps<ViewProps>;
-    "Group 35"?: PrimitiveOverrideProps<ViewProps>;
+    EmergencyTitleDesktop?: PrimitiveOverrideProps<FlexProps>;
+    "Group 35"?: PrimitiveOverrideProps<FlexProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
     "24/7 Emergency & Crisis Helplines"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type EmergencyTitleDesktopProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type EmergencyTitleDesktopProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EmergencyTitleDesktopOverridesProps | undefined | null;
 }>;
 export default function EmergencyTitleDesktop(props: EmergencyTitleDesktopProps): React.ReactElement;

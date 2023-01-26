@@ -7,55 +7,24 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Image, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Image } from "@aws-amplify/ui-react";
 export default function NavBarMobile(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="390px"
-      height="90px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="39px"
+      direction="row"
+      width="unset"
+      height="unset"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
-      padding="0px 0px 0px 0px"
+      boxShadow="0px -4px 15px rgba(0, 0, 0, 0.10000000149011612)"
+      padding="10px 28px 10px 28px"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "NavBarMobile")}
       {...rest}
     >
-      <View
-        width="390px"
-        height="90px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        boxShadow="0px -4px 15px rgba(0, 0, 0, 0.10000000149011612)"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "Rectangle 1164")}
-      ></View>
-      <Image
-        width="11.05%"
-        height="47.88%"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="14.44%"
-        bottom="37.67%"
-        left="81.79%"
-        right="7.15%"
-        padding="0px 0px 0px 0px"
-        objectFit="contain"
-        {...getOverrideProps(overrides, "ProfileIcon")}
-      ></Image>
       <Icon
         width="36px"
         height="32px"
@@ -71,11 +40,8 @@ export default function NavBarMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="21.11%"
-        bottom="43.33%"
-        left="7.18%"
-        right="83.59%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Vector36754104")}
       ></Icon>
       <Icon
@@ -93,14 +59,11 @@ export default function NavBarMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="24.44%"
-        bottom="45.56%"
-        left="26.41%"
-        right="66.67%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Vector36754071")}
       ></Icon>
-      <View
+      <Flex
         padding="0px 0px 0px 0px"
         width="50px"
         height="50px"
@@ -108,11 +71,8 @@ export default function NavBarMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="11.11%"
-        bottom="33.33%"
-        left="43.33%"
-        right="43.85%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Group 32")}
       >
         <Icon
@@ -159,7 +119,7 @@ export default function NavBarMobile(props) {
           right="17.19%"
           {...getOverrideProps(overrides, "Vector36754197")}
         ></Icon>
-      </View>
+      </Flex>
       <Icon
         width="22.84px"
         height="27px"
@@ -175,13 +135,23 @@ export default function NavBarMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="24.44%"
-        bottom="45.56%"
-        left="66.15%"
-        right="27.99%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Vector36754275")}
       ></Icon>
-    </View>
+      <Image
+        width="43.1px"
+        height="43.1px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        shrink="0"
+        position="relative"
+        padding="0px 0px 0px 0px"
+        objectFit="contain"
+        {...getOverrideProps(overrides, "ProfileIcon")}
+      ></Image>
+    </Flex>
   );
 }

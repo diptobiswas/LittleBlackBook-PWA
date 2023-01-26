@@ -6,13 +6,20 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ImageProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type FeaturedCardDesktopOverridesProps = {
-    FeaturedCardDesktop?: PrimitiveOverrideProps<ViewProps>;
-    background?: PrimitiveOverrideProps<ImageProps>;
+    FeaturedCardDesktop?: PrimitiveOverrideProps<FlexProps>;
+    "Group 40"?: PrimitiveOverrideProps<FlexProps>;
+    background37122943?: PrimitiveOverrideProps<ImageProps>;
+    "Group 39"?: PrimitiveOverrideProps<ViewProps>;
+    background37223116?: PrimitiveOverrideProps<ViewProps>;
+    FeaturedLink?: PrimitiveOverrideProps<ViewProps>;
+    "Learn More"?: PrimitiveOverrideProps<TextProps>;
+    Vector?: PrimitiveOverrideProps<IconProps>;
+    Featured_Title?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type FeaturedCardDesktopProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type FeaturedCardDesktopProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: FeaturedCardDesktopOverridesProps | undefined | null;
 }>;
 export default function FeaturedCardDesktop(props: FeaturedCardDesktopProps): React.ReactElement;

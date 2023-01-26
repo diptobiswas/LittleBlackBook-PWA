@@ -6,16 +6,15 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EmergencyButtonMobileOverridesProps = {
-    EmergencyButtonMobile?: PrimitiveOverrideProps<ViewProps>;
-    background?: PrimitiveOverrideProps<ViewProps>;
-    "Group 34"?: PrimitiveOverrideProps<ViewProps>;
+    EmergencyButtonMobile?: PrimitiveOverrideProps<FlexProps>;
+    "Group 34"?: PrimitiveOverrideProps<FlexProps>;
     Service_Name?: PrimitiveOverrideProps<TextProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type EmergencyButtonMobileProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type EmergencyButtonMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EmergencyButtonMobileOverridesProps | undefined | null;
 }>;
 export default function EmergencyButtonMobile(props: EmergencyButtonMobileProps): React.ReactElement;

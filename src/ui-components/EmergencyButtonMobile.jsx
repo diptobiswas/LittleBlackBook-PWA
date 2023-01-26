@@ -7,41 +7,26 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function EmergencyButtonMobile(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="340px"
-      height="84px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="10px"
+      direction="row"
+      width="unset"
+      height="unset"
+      justifyContent="center"
+      alignItems="center"
       position="relative"
-      padding="0px 0px 0px 0px"
+      boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
+      borderRadius="10px"
+      padding="12px 29px 12px 29px"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "EmergencyButtonMobile")}
       {...rest}
     >
-      <View
-        width="340px"
-        height="84px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
-        borderRadius="10px"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "background")}
-      ></View>
-      <View
+      <Flex
         padding="0px 0px 0px 0px"
         width="280.84px"
         height="60px"
@@ -49,11 +34,8 @@ export default function EmergencyButtonMobile(props) {
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        position="absolute"
-        top="14.29%"
-        bottom="14.29%"
-        left="8.87%"
-        right="8.53%"
+        shrink="0"
+        position="relative"
         {...getOverrideProps(overrides, "Group 34")}
       >
         <Text
@@ -103,7 +85,7 @@ export default function EmergencyButtonMobile(props) {
           right="82.62%"
           {...getOverrideProps(overrides, "Vector")}
         ></Icon>
-      </View>
-    </View>
+      </Flex>
+    </Flex>
   );
 }
