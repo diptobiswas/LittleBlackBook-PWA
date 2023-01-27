@@ -10,14 +10,17 @@ import awsconfig from './aws-exports';
 
 import "@aws-amplify/ui-react/styles.css";
 import { studioTheme } from "./ui-components";
+import { BrowserRouter } from 'react-router-dom';
 
 Amplify.configure(awsconfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider theme={studioTheme}>
-    <App />
-  </ThemeProvider>
+  <BrowserRouter> 
+    <ThemeProvider theme={studioTheme}>
+        <App />
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

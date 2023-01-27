@@ -6,11 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import Logo from "./Logo";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavbarDesktop(props) {
   const { overrides, ...rest } = props;
+  const vectorThreeSixSevenFiveThreeNineFourFourOnClick = useNavigateAction({
+    type: "url",
+    url: "",
+  });
   return (
     <Flex
       gap="56px"
@@ -170,6 +177,9 @@ export default function NavbarDesktop(props) {
           bottom="24.52%"
           left="17.19%"
           right="17.19%"
+          onClick={() => {
+            vectorThreeSixSevenFiveThreeNineFourFourOnClick();
+          }}
           {...getOverrideProps(overrides, "Vector36753944")}
         ></Icon>
       </Flex>

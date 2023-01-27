@@ -7,13 +7,13 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
+import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function FeaturedCardmobile(props) {
   const { overrides, ...rest } = props;
   return (
     <Flex
-      gap="0"
-      direction="column"
+      gap="10px"
+      direction="row"
       width="unset"
       height="unset"
       justifyContent="center"
@@ -23,7 +23,8 @@ export default function FeaturedCardmobile(props) {
       {...getOverrideProps(overrides, "FeaturedCardmobile")}
       {...rest}
     >
-      <Image
+      <Flex
+        padding="0px 0px 0px 0px"
         width="340px"
         height="300px"
         display="block"
@@ -32,100 +33,143 @@ export default function FeaturedCardmobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
-        boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
-        borderRadius="10px"
-        padding="0px 0px 0px 0px"
-        objectFit="cover"
-        {...getOverrideProps(overrides, "background")}
-      ></Image>
-      <Text
-        fontFamily="Inter"
-        fontSize="32px"
-        fontWeight="700"
-        color="rgba(255,255,255,1)"
-        lineHeight="28px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        letterSpacing="0.17px"
-        width="300px"
-        height="72px"
-        gap="unset"
-        alignItems="unset"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Featured_Title"
-        {...getOverrideProps(overrides, "Featured_Title")}
-      ></Text>
-      <Flex
-        padding="0px 0px 0px 0px"
-        width="106.97px"
-        height="24px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        shrink="0"
-        position="relative"
-        {...getOverrideProps(overrides, "FeaturedLink")}
+        {...getOverrideProps(overrides, "Group 43")}
       >
-        <Icon
-          width="12px"
-          height="12px"
-          viewBox={{
-            minX: 0,
-            minY: 0,
-            width: 16.970703125,
-            height: 16.970458984375,
-          }}
-          paths={[
-            {
-              d: "M12 6L10.9425 4.9425L6.75 9.1275L6.75 0L5.25 0L5.25 9.1275L1.065 4.935L0 6L6 12L12 6Z",
-              fill: "rgba(255,255,255,1)",
-              fillRule: "nonzero",
-            },
-          ]}
+        <Image
+          width="340px"
+          height="300px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="87.38%"
-          bottom="-37.38%"
-          left="92.07%"
-          right="-3.29%"
-          transformOrigin="top left"
-          transform="rotate(-135deg)"
-          {...getOverrideProps(overrides, "Vector")}
-        ></Icon>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(255,255,255,1)"
-          lineHeight="24px"
-          textAlign="left"
+          top="0px"
+          left="0px"
+          boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
+          borderRadius="10px"
+          padding="0px 0px 0px 0px"
+          objectFit="cover"
+          {...getOverrideProps(overrides, "background")}
+        ></Image>
+        <View
+          width="340px"
+          height="300px"
           display="block"
-          direction="column"
+          gap="unset"
+          alignItems="unset"
           justifyContent="unset"
-          letterSpacing="0.01px"
+          position="absolute"
+          top="0px"
+          left="0px"
+          boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
+          borderRadius="10px"
+          padding="0px 0px 0px 0px"
+          backgroundImage="linear-gradient(-90deg, rgba(0,0,0,0), rgba(0,0,0,1))"
+          {...getOverrideProps(overrides, "gradient")}
+        ></View>
+        <Flex
+          gap="12px"
+          direction="column"
           width="unset"
           height="unset"
-          gap="unset"
-          alignItems="unset"
+          justifyContent="flex-start"
+          alignItems="flex-start"
           position="absolute"
-          top="0%"
-          bottom="0%"
-          left="0%"
-          right="17.73%"
+          top="215px"
+          left="20px"
           padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Learn More"
-          {...getOverrideProps(overrides, "Learn More")}
-        ></Text>
+          {...getOverrideProps(overrides, "Frame 42")}
+        >
+          <Text
+            fontFamily="Inter"
+            fontSize="32px"
+            fontWeight="700"
+            color="rgba(255,255,255,1)"
+            lineHeight="28px"
+            textAlign="left"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            letterSpacing="0.17px"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="Featured_Title"
+            {...getOverrideProps(overrides, "Featured_Title")}
+          ></Text>
+          <Flex
+            padding="0px 0px 0px 0px"
+            width="114.51px"
+            height="23.51px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            shrink="0"
+            position="relative"
+            {...getOverrideProps(overrides, "FeaturedLink")}
+          >
+            <Text
+              fontFamily="Inter"
+              fontSize="16px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.01px"
+              width="88px"
+              height="18.18px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="21.27%"
+              bottom="1.41%"
+              left="0%"
+              right="23.15%"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children="Learn More"
+              {...getOverrideProps(overrides, "Learn More")}
+            ></Text>
+            <Icon
+              width="16.63px"
+              height="16.63px"
+              viewBox={{
+                minX: 0,
+                minY: 0,
+                width: 23.5146484375,
+                height: 23.5146484375,
+              }}
+              paths={[
+                {
+                  d: "M16.6274 8.31372L15.1621 6.84843L9.35293 12.6472L9.35293 0L7.2745 0L7.2745 12.6472L1.47569 6.83804L0 8.31372L8.31372 16.6274L16.6274 8.31372Z",
+                  fill: "rgba(255,255,255,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              position="absolute"
+              top="100%"
+              bottom="-70.71%"
+              left="89.73%"
+              right="-4.25%"
+              transformOrigin="top left"
+              transform="rotate(-135deg)"
+              {...getOverrideProps(overrides, "Vector")}
+            ></Icon>
+          </Flex>
+        </Flex>
       </Flex>
     </Flex>
   );

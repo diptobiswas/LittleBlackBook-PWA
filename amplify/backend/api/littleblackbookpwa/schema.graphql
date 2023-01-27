@@ -1,0 +1,51 @@
+enum Colour {
+  RED
+  BLUE
+  BLACK
+  YELLOW
+  GREEEN
+  PURPLE
+}
+
+type Resource @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Phone: AWSPhone
+  Description: String
+  Website: AWSURL
+  Address: String
+  SaveStatus: Boolean
+  Topic: Topic @hasOne
+  Organization: Organization @hasOne
+  organizations: [Organization] @manyToMany(relationName: "OrganizationResource")
+}
+
+type Emergency @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Phone: AWSPhone
+}
+
+type Events @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  DateTime: String
+  Address: String
+  Organization: Organization @hasOne
+}
+
+type Topic @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Icon: AWSURL
+  Colour: Colour
+}
+
+type Organization @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Addres: String
+  Phone: AWSPhone
+  Resources: [Resource] @manyToMany(relationName: "OrganizationResource")
+}
+ 

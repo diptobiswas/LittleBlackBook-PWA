@@ -6,10 +6,21 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image } from "@aws-amplify/ui-react";
 export default function NavBarMobile(props) {
   const { overrides, ...rest } = props;
+  const vectorThreeSixSevenFiveFourZeroSevenOneOnClick = useNavigateAction({
+    type: "url",
+    url: "",
+  });
+  const groupThreeTwoOnClick = useNavigateAction({
+    type: "url",
+    url: "/emergency",
+  });
   return (
     <Flex
       gap="39px"
@@ -61,6 +72,9 @@ export default function NavBarMobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          vectorThreeSixSevenFiveFourZeroSevenOneOnClick();
+        }}
         {...getOverrideProps(overrides, "Vector36754071")}
       ></Icon>
       <Flex
@@ -73,6 +87,9 @@ export default function NavBarMobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          groupThreeTwoOnClick();
+        }}
         {...getOverrideProps(overrides, "Group 32")}
       >
         <Icon
