@@ -13,9 +13,8 @@ export declare type FeaturedCardmobileOverridesProps = {
     "Group 43"?: PrimitiveOverrideProps<FlexProps>;
     background?: PrimitiveOverrideProps<ImageProps>;
     gradient?: PrimitiveOverrideProps<ViewProps>;
-    "Frame 42"?: PrimitiveOverrideProps<FlexProps>;
     Featured_Title?: PrimitiveOverrideProps<TextProps>;
-    FeaturedLink?: PrimitiveOverrideProps<FlexProps>;
+    FeaturedLink?: PrimitiveOverrideProps<ViewProps>;
     "Learn More"?: PrimitiveOverrideProps<TextProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;

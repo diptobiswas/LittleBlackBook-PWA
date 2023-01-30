@@ -19,7 +19,7 @@ function Home() {
     })
   
     const DiscoverBar= useBreakpointValue({
-      small: <DiscoverMobile width={'100vw'}></DiscoverMobile>,
+      small: <DiscoverMobile width={'100vw'} align={'center'}></DiscoverMobile>,
       large: <></>
     })
   

@@ -6,17 +6,28 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Text, View } from "@aws-amplify/ui-react";
 export default function DiscoverMobile(props) {
   const { overrides, ...rest } = props;
+  const groupTwoEightOnClick = useNavigateAction({
+    type: "url",
+    url: "/by-topic",
+  });
+  const groupTwoNineOnClick = useNavigateAction({
+    type: "url",
+    url: "/by-organization",
+  });
   return (
     <Flex
       gap="14px"
       direction="row"
-      width="unset"
+      width="341px"
       height="unset"
-      justifyContent="center"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
@@ -54,6 +65,9 @@ export default function DiscoverMobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          groupTwoEightOnClick();
+        }}
         {...getOverrideProps(overrides, "Group 28")}
       >
         <View
@@ -109,6 +123,9 @@ export default function DiscoverMobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          groupTwoNineOnClick();
+        }}
         {...getOverrideProps(overrides, "Group 29")}
       >
         <View

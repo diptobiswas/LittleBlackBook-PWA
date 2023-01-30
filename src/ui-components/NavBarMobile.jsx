@@ -13,21 +13,33 @@ import {
 import { Flex, Icon, Image } from "@aws-amplify/ui-react";
 export default function NavBarMobile(props) {
   const { overrides, ...rest } = props;
+  const vectorThreeSixSevenFiveFourOneZeroFourOnClick = useNavigateAction({
+    type: "url",
+    url: "/home",
+  });
   const vectorThreeSixSevenFiveFourZeroSevenOneOnClick = useNavigateAction({
     type: "url",
-    url: "",
+    url: "/search",
   });
   const groupThreeTwoOnClick = useNavigateAction({
     type: "url",
     url: "/emergency",
   });
+  const vectorThreeSixSevenFiveFourTwoSevenFiveOnClick = useNavigateAction({
+    type: "url",
+    url: "/saved",
+  });
+  const profileIconOnClick = useNavigateAction({
+    type: "url",
+    url: "/profile",
+  });
   return (
     <Flex
-      gap="39px"
+      gap="10px"
       direction="row"
-      width="unset"
-      height="unset"
-      justifyContent="center"
+      width="390.94px"
+      height="70px"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
       boxShadow="0px -4px 15px rgba(0, 0, 0, 0.10000000149011612)"
@@ -53,6 +65,9 @@ export default function NavBarMobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          vectorThreeSixSevenFiveFourOneZeroFourOnClick();
+        }}
         {...getOverrideProps(overrides, "Vector36754104")}
       ></Icon>
       <Icon
@@ -154,6 +169,9 @@ export default function NavBarMobile(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          vectorThreeSixSevenFiveFourTwoSevenFiveOnClick();
+        }}
         {...getOverrideProps(overrides, "Vector36754275")}
       ></Icon>
       <Image
@@ -167,6 +185,9 @@ export default function NavBarMobile(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         objectFit="contain"
+        onClick={() => {
+          profileIconOnClick();
+        }}
         {...getOverrideProps(overrides, "ProfileIcon")}
       ></Image>
     </Flex>

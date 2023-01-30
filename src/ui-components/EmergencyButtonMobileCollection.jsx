@@ -6,54 +6,43 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Events } from "../models";
+import { Emergency } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import EventCardExpanded from "./EventCardExpanded";
+import EmergencyButtonMobile from "./EmergencyButtonMobile";
 import { Collection } from "@aws-amplify/ui-react";
-export default function EventCardExpandedCollection(props) {
+export default function EmergencyButtonMobileCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Events,
+    model: Emergency,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
       setItems(itemsProp);
       return;
     }
-    async function setItemsFromDataStore() {
-      var loaded = await Promise.all(
-        itemsDataStore.map(async (item) => ({
-          ...item,
-          Organization: await item.Organization,
-        }))
-      );
-      setItems(loaded);
-    }
-    setItemsFromDataStore();
+    setItems(itemsDataStore);
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
       type="list"
-      isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={3}
-      direction="row"
-      alignItems="stretch"
+      direction="column"
+      justifyContent="left"
       items={items || []}
-      {...getOverrideProps(overrides, "EventCardExpandedCollection")}
+      {...getOverrideProps(overrides, "EmergencyButtonMobileCollection")}
       {...rest}
     >
       {(item, index) => (
-        <EventCardExpanded
-          events={item}
+        <EmergencyButtonMobile
+          emergency={item}
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></EventCardExpanded>
+        ></EmergencyButtonMobile>
       )}
     </Collection>
   );

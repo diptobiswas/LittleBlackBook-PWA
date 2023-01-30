@@ -5,19 +5,22 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Events } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EventCardDefaultOverridesProps = {
-    EventCardDefault?: PrimitiveOverrideProps<ViewProps>;
-    background?: PrimitiveOverrideProps<ViewProps>;
-    datetimeBox?: PrimitiveOverrideProps<ViewProps>;
+    EventCardDefault?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 45"?: PrimitiveOverrideProps<FlexProps>;
     day?: PrimitiveOverrideProps<TextProps>;
     mon?: PrimitiveOverrideProps<TextProps>;
+    "Frame 44"?: PrimitiveOverrideProps<FlexProps>;
     EventName?: PrimitiveOverrideProps<TextProps>;
     EventAddress?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type EventCardDefaultProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type EventCardDefaultProps = React.PropsWithChildren<Partial<FlexProps> & {
+    events?: Events;
+} & {
     overrides?: EventCardDefaultOverridesProps | undefined | null;
 }>;
 export default function EventCardDefault(props: EventCardDefaultProps): React.ReactElement;

@@ -24,23 +24,27 @@ export default function EventsCreateForm(props) {
   } = props;
   const initialValues = {
     Name: "",
-    DateTime: "",
     Address: "",
+    Day: "",
+    Month: "",
   };
   const [Name, setName] = React.useState(initialValues.Name);
-  const [DateTime, setDateTime] = React.useState(initialValues.DateTime);
   const [Address, setAddress] = React.useState(initialValues.Address);
+  const [Day, setDay] = React.useState(initialValues.Day);
+  const [Month, setMonth] = React.useState(initialValues.Month);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.Name);
-    setDateTime(initialValues.DateTime);
     setAddress(initialValues.Address);
+    setDay(initialValues.Day);
+    setMonth(initialValues.Month);
     setErrors({});
   };
   const validations = {
     Name: [],
-    DateTime: [],
     Address: [],
+    Day: [],
+    Month: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -68,8 +72,9 @@ export default function EventsCreateForm(props) {
         event.preventDefault();
         let modelFields = {
           Name,
-          DateTime,
           Address,
+          Day,
+          Month,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -125,8 +130,9 @@ export default function EventsCreateForm(props) {
           if (onChange) {
             const modelFields = {
               Name: value,
-              DateTime,
               Address,
+              Day,
+              Month,
             };
             const result = onChange(modelFields);
             value = result?.Name ?? value;
@@ -142,32 +148,6 @@ export default function EventsCreateForm(props) {
         {...getOverrideProps(overrides, "Name")}
       ></TextField>
       <TextField
-        label="Date time"
-        isRequired={false}
-        isReadOnly={false}
-        value={DateTime}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              Name,
-              DateTime: value,
-              Address,
-            };
-            const result = onChange(modelFields);
-            value = result?.DateTime ?? value;
-          }
-          if (errors.DateTime?.hasError) {
-            runValidationTasks("DateTime", value);
-          }
-          setDateTime(value);
-        }}
-        onBlur={() => runValidationTasks("DateTime", DateTime)}
-        errorMessage={errors.DateTime?.errorMessage}
-        hasError={errors.DateTime?.hasError}
-        {...getOverrideProps(overrides, "DateTime")}
-      ></TextField>
-      <TextField
         label="Address"
         isRequired={false}
         isReadOnly={false}
@@ -177,8 +157,9 @@ export default function EventsCreateForm(props) {
           if (onChange) {
             const modelFields = {
               Name,
-              DateTime,
               Address: value,
+              Day,
+              Month,
             };
             const result = onChange(modelFields);
             value = result?.Address ?? value;
@@ -192,6 +173,60 @@ export default function EventsCreateForm(props) {
         errorMessage={errors.Address?.errorMessage}
         hasError={errors.Address?.hasError}
         {...getOverrideProps(overrides, "Address")}
+      ></TextField>
+      <TextField
+        label="Day"
+        isRequired={false}
+        isReadOnly={false}
+        value={Day}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Address,
+              Day: value,
+              Month,
+            };
+            const result = onChange(modelFields);
+            value = result?.Day ?? value;
+          }
+          if (errors.Day?.hasError) {
+            runValidationTasks("Day", value);
+          }
+          setDay(value);
+        }}
+        onBlur={() => runValidationTasks("Day", Day)}
+        errorMessage={errors.Day?.errorMessage}
+        hasError={errors.Day?.hasError}
+        {...getOverrideProps(overrides, "Day")}
+      ></TextField>
+      <TextField
+        label="Month"
+        isRequired={false}
+        isReadOnly={false}
+        value={Month}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Address,
+              Day,
+              Month: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Month ?? value;
+          }
+          if (errors.Month?.hasError) {
+            runValidationTasks("Month", value);
+          }
+          setMonth(value);
+        }}
+        onBlur={() => runValidationTasks("Month", Month)}
+        errorMessage={errors.Month?.errorMessage}
+        hasError={errors.Month?.hasError}
+        {...getOverrideProps(overrides, "Month")}
       ></TextField>
       <Flex
         justifyContent="space-between"

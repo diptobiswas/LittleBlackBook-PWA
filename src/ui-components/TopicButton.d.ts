@@ -5,16 +5,19 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Topic } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
+import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TopicButtonOverridesProps = {
     TopicButton?: PrimitiveOverrideProps<FlexProps>;
-    "Group 34"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 34"?: PrimitiveOverrideProps<FlexProps>;
+    Brain?: PrimitiveOverrideProps<ImageProps>;
     Topic_Name?: PrimitiveOverrideProps<TextProps>;
-    Vector?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type TopicButtonProps = React.PropsWithChildren<Partial<FlexProps> & {
+    topic?: Topic;
+} & {
     overrides?: TopicButtonOverridesProps | undefined | null;
 }>;
 export default function TopicButton(props: TopicButtonProps): React.ReactElement;

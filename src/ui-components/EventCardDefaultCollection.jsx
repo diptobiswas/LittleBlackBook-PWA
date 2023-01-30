@@ -6,15 +6,44 @@
 
 /* eslint-disable */
 import * as React from "react";
+import { Events } from "../models";
+import {
+  getOverrideProps,
+  useDataStoreBinding,
+} from "@aws-amplify/ui-react/internal";
 import EventCardDefault from "./EventCardDefault";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Collection } from "@aws-amplify/ui-react";
 export default function EventCardDefaultCollection(props) {
-  const { items, overrideItems, overrides, ...rest } = props;
+  const { items: itemsProp, overrideItems, overrides, ...rest } = props;
+  const [items, setItems] = React.useState(undefined);
+  const itemsDataStore = useDataStoreBinding({
+    type: "collection",
+    model: Events,
+  }).items;
+  React.useEffect(() => {
+    if (itemsProp !== undefined) {
+      setItems(itemsProp);
+      return;
+    }
+    async function setItemsFromDataStore() {
+      var loaded = await Promise.all(
+        itemsDataStore.map(async (item) => ({
+          ...item,
+          Organization: await item.Organization,
+        }))
+      );
+      setItems(loaded);
+    }
+    setItemsFromDataStore();
+  }, [itemsProp, itemsDataStore]);
   return (
     <Collection
       type="list"
+      isPaginated={true}
+      searchPlaceholder="Search..."
+      itemsPerPage={3}
       direction="column"
+      alignItems="stretch"
       justifyContent="left"
       items={items || []}
       {...getOverrideProps(overrides, "EventCardDefaultCollection")}
@@ -22,6 +51,7 @@ export default function EventCardDefaultCollection(props) {
     >
       {(item, index) => (
         <EventCardDefault
+          events={item}
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></EventCardDefault>

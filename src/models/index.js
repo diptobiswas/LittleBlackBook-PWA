@@ -11,7 +11,7 @@ const Colour = {
   "PURPLE": "PURPLE"
 };
 
-const { Resource, Topic, Organization, Emergency, Events, OrganizationResource } = initSchema(schema);
+const { Resource, Topic, Organization, Emergency, Events } = initSchema(schema);
 
 export {
   Resource,
@@ -19,6 +19,5 @@ export {
   Organization,
   Emergency,
   Events,
-  OrganizationResource,
   Colour
 };

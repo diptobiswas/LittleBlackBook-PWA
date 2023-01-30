@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Icon } from "@aws-amplify/ui-react";
 export default function Logo(props) {
   const { overrides, ...rest } = props;
+  const logoOnClick = useNavigateAction({ type: "url", url: "/home" });
   return (
     <Icon
       width="224px"
@@ -114,6 +118,9 @@ export default function Logo(props) {
           style: { transform: "translate(0%, 0%)" },
         },
       ]}
+      onClick={() => {
+        logoOnClick();
+      }}
       {...getOverrideProps(overrides, "Logo")}
       {...rest}
     ></Icon>

@@ -5,8 +5,8 @@
  **************************************************************************/
 
 import * as React from "react";
-import { EventCardDefaultProps } from "./EventCardDefault";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { EventCardDefaultProps } from "./EventCardDefault";
 import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EventCardDefaultCollectionOverridesProps = {

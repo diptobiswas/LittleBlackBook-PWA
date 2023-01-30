@@ -8,15 +8,107 @@
 import * as React from "react";
 import {
   getOverrideProps,
+  getOverridesFromVariants,
+  mergeVariantsAndOverrides,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import Logo from "./Logo";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavbarDesktop(props) {
-  const { overrides, ...rest } = props;
-  const vectorThreeSixSevenFiveThreeNineFourFourOnClick = useNavigateAction({
+  const { overrides: overridesProp, ...rest } = props;
+  const variants = [
+    {
+      overrides: {
+        logo: {},
+        SearchBar: {},
+        Vector36754019: {},
+        "Placeholder for Search": {},
+        "Group 30": {},
+        SirenBackground: {},
+        Vector36753944: {},
+        "Group 32": {},
+        ProfileBackground: {},
+        ServiceIcon: {},
+        "Group 33": {},
+        NavbarDesktop: {},
+      },
+      variantValues: { property1: "Default" },
+    },
+    {
+      overrides: {
+        logo: {},
+        SearchBar: { width: "665px" },
+        Vector36754019: { top: "10.5px", left: "619px" },
+        "Placeholder for Search": { top: "16.5px" },
+        "Group 30": { width: "665px" },
+        SirenBackground: {
+          width: "50px",
+          height: "50px",
+          viewBox: { minX: 0, minY: 0, width: 50, height: 50 },
+          paths: [
+            {
+              d: "M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z",
+              fill: "rgba(212,0,0,1)",
+              fillRule: "nonzero",
+            },
+          ],
+        },
+        Vector36753944: {
+          width: "32.81px",
+          height: "32.81px",
+          viewBox: { minX: 0, minY: 0, width: 32.8125, height: 32.8125 },
+          paths: [
+            {
+              d: "M30.4688 32.8125L2.34375 32.8125L2.34375 30.4688C2.34375 28.527 3.91758 26.9531 5.85938 26.9531L26.9531 26.9531C28.8949 26.9531 30.4688 28.527 30.4688 30.4688L30.4688 32.8125ZM16.4062 4.6875C15.7582 4.6875 15.2344 4.1625 15.2344 3.51562L15.2344 1.17188C15.2344 0.525 15.7582 0 16.4062 0C17.0543 0 17.5781 0.525 17.5781 1.17188L17.5781 3.51562C17.5781 4.1625 17.0543 4.6875 16.4062 4.6875ZM7.29141 8.46328C6.99141 8.46328 6.69141 8.34844 6.46289 8.11992L4.80586 6.46289C4.34766 6.00469 4.34766 5.26406 4.80586 4.80586C5.26406 4.34766 6.00469 4.34766 6.46289 4.80586L8.11992 6.46289C8.57812 6.92109 8.57812 7.66172 8.11992 8.11992C7.89023 8.34844 7.59141 8.46328 7.29141 8.46328ZM25.5211 8.46328C25.2211 8.46328 24.9211 8.34844 24.6926 8.11992C24.2344 7.66172 24.2344 6.92109 24.6926 6.46289L26.3496 4.80586C26.8078 4.34766 27.5484 4.34766 28.0066 4.80586C28.4648 5.26406 28.4648 6.00469 28.0066 6.46289L26.3496 8.11992C26.1211 8.34844 25.8211 8.46328 25.5211 8.46328ZM3.51562 17.5781L1.17188 17.5781C0.523828 17.5781 0 17.0531 0 16.4062C0 15.7594 0.523828 15.2344 1.17188 15.2344L3.51562 15.2344C4.16367 15.2344 4.6875 15.7594 4.6875 16.4062C4.6875 17.0531 4.16367 17.5781 3.51562 17.5781ZM31.6406 17.5781L29.2969 17.5781C28.6488 17.5781 28.125 17.0531 28.125 16.4062C28.125 15.7594 28.6488 15.2344 29.2969 15.2344L31.6406 15.2344C32.2887 15.2344 32.8125 15.7594 32.8125 16.4062C32.8125 17.0531 32.2887 17.5781 31.6406 17.5781ZM25.7812 24.6094L25.7812 16.4062C25.7812 11.2371 21.5754 7.03125 16.4062 7.03125C11.2371 7.03125 7.03125 11.2371 7.03125 16.4062L7.03125 24.6094L25.7812 24.6094ZM16.4461 11.5734C16.6078 10.9465 17.2477 10.5727 17.8734 10.732C19.9348 11.2652 21.5473 12.8777 22.0805 14.9402C22.2434 15.5672 21.866 16.2059 21.2402 16.3687C21.1418 16.3945 21.0422 16.4062 20.9449 16.4062C20.4246 16.4062 19.9477 16.0559 19.8117 15.5273C19.4918 14.2887 18.5227 13.3219 17.2875 13.002C16.6605 12.8402 16.2844 12.2004 16.4461 11.5734Z",
+              fill: "rgba(255,255,255,1)",
+              fillRule: "nonzero",
+            },
+          ],
+        },
+        "Group 32": { width: "50px", height: "50px" },
+        ProfileBackground: {
+          width: "50px",
+          height: "50px",
+          viewBox: { minX: 0, minY: 0, width: 50, height: 50 },
+          paths: [
+            {
+              d: "M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z",
+              fill: "rgba(255,255,255,1)",
+              fillRule: "nonzero",
+            },
+          ],
+        },
+        ServiceIcon: {
+          viewBox: {
+            minX: 0,
+            minY: 0,
+            width: 45.71435546875,
+            height: 45.71435546875,
+          },
+          paths: [
+            {
+              d: "M45.7143 22.8571C45.7143 35.4808 35.4808 45.7143 22.8571 45.7143C10.2335 45.7143 0 35.4808 0 22.8571C0 10.2335 10.2335 0 22.8571 0C35.4808 0 45.7143 10.2335 45.7143 22.8571Z",
+              fillRule: "nonzero",
+            },
+          ],
+        },
+        "Group 33": { width: "50px", height: "50px" },
+        NavbarDesktop: {},
+      },
+      variantValues: { property1: "medium" },
+    },
+  ];
+  const overrides = mergeVariantsAndOverrides(
+    getOverridesFromVariants(variants, props),
+    overridesProp || {}
+  );
+  const groupThreeTwoOnClick = useNavigateAction({
     type: "url",
-    url: "",
+    url: "/emergency",
+  });
+  const groupThreeThreeOnClick = useNavigateAction({
+    type: "url",
+    url: "/profile",
   });
   return (
     <Flex
@@ -29,6 +121,7 @@ export default function NavbarDesktop(props) {
       position="relative"
       padding="13px 44px 13px 44px"
       backgroundColor="rgba(0,0,0,1)"
+      display="flex"
       {...getOverrideProps(overrides, "NavbarDesktop")}
       {...rest}
     >
@@ -133,6 +226,9 @@ export default function NavbarDesktop(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          groupThreeTwoOnClick();
+        }}
         {...getOverrideProps(overrides, "Group 32")}
       >
         <Icon
@@ -177,9 +273,6 @@ export default function NavbarDesktop(props) {
           bottom="24.52%"
           left="17.19%"
           right="17.19%"
-          onClick={() => {
-            vectorThreeSixSevenFiveThreeNineFourFourOnClick();
-          }}
           {...getOverrideProps(overrides, "Vector36753944")}
         ></Icon>
       </Flex>
@@ -193,6 +286,9 @@ export default function NavbarDesktop(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          groupThreeThreeOnClick();
+        }}
         {...getOverrideProps(overrides, "Group 33")}
       >
         <Icon

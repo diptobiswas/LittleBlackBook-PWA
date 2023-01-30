@@ -15,20 +15,23 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type EventsUpdateFormInputValues = {
     Name?: string;
-    DateTime?: string;
     Address?: string;
+    Day?: string;
+    Month?: string;
 };
 export declare type EventsUpdateFormValidationValues = {
     Name?: ValidationFunction<string>;
-    DateTime?: ValidationFunction<string>;
     Address?: ValidationFunction<string>;
+    Day?: ValidationFunction<string>;
+    Month?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EventsUpdateFormOverridesProps = {
     EventsUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
     Name?: PrimitiveOverrideProps<TextFieldProps>;
-    DateTime?: PrimitiveOverrideProps<TextFieldProps>;
     Address?: PrimitiveOverrideProps<TextFieldProps>;
+    Day?: PrimitiveOverrideProps<TextFieldProps>;
+    Month?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type EventsUpdateFormProps = React.PropsWithChildren<{
     overrides?: EventsUpdateFormOverridesProps | undefined | null;

@@ -25,18 +25,22 @@ export default function EmergencyCreateForm(props) {
   const initialValues = {
     Name: "",
     Phone: "",
+    Icon: "",
   };
   const [Name, setName] = React.useState(initialValues.Name);
   const [Phone, setPhone] = React.useState(initialValues.Phone);
+  const [Icon, setIcon] = React.useState(initialValues.Icon);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.Name);
     setPhone(initialValues.Phone);
+    setIcon(initialValues.Icon);
     setErrors({});
   };
   const validations = {
     Name: [],
     Phone: [{ type: "Phone" }],
+    Icon: [{ type: "URL" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -65,6 +69,7 @@ export default function EmergencyCreateForm(props) {
         let modelFields = {
           Name,
           Phone,
+          Icon,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -121,6 +126,7 @@ export default function EmergencyCreateForm(props) {
             const modelFields = {
               Name: value,
               Phone,
+              Icon,
             };
             const result = onChange(modelFields);
             value = result?.Name ?? value;
@@ -147,6 +153,7 @@ export default function EmergencyCreateForm(props) {
             const modelFields = {
               Name,
               Phone: value,
+              Icon,
             };
             const result = onChange(modelFields);
             value = result?.Phone ?? value;
@@ -160,6 +167,32 @@ export default function EmergencyCreateForm(props) {
         errorMessage={errors.Phone?.errorMessage}
         hasError={errors.Phone?.hasError}
         {...getOverrideProps(overrides, "Phone")}
+      ></TextField>
+      <TextField
+        label="Icon"
+        isRequired={false}
+        isReadOnly={false}
+        value={Icon}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Phone,
+              Icon: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Icon ?? value;
+          }
+          if (errors.Icon?.hasError) {
+            runValidationTasks("Icon", value);
+          }
+          setIcon(value);
+        }}
+        onBlur={() => runValidationTasks("Icon", Icon)}
+        errorMessage={errors.Icon?.errorMessage}
+        hasError={errors.Icon?.hasError}
+        {...getOverrideProps(overrides, "Icon")}
       ></TextField>
       <Flex
         justifyContent="space-between"

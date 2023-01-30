@@ -5,6 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Events } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
@@ -19,6 +20,8 @@ export declare type EventCardExpandedOverridesProps = {
     Day_and_Month?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type EventCardExpandedProps = React.PropsWithChildren<Partial<ViewProps> & {
+    events?: Events;
+} & {
     overrides?: EventCardExpandedOverridesProps | undefined | null;
 }>;
 export default function EventCardExpanded(props: EventCardExpandedProps): React.ReactElement;

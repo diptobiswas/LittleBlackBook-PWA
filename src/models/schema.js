@@ -88,22 +88,6 @@ export const schema = {
                         ]
                     }
                 },
-                "organizations": {
-                    "name": "organizations",
-                    "isArray": true,
-                    "type": {
-                        "model": "OrganizationResource"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "resource"
-                        ]
-                    }
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -266,22 +250,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Resources": {
-                    "name": "Resources",
-                    "isArray": true,
-                    "type": {
-                        "model": "OrganizationResource"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "organization"
-                        ]
-                    }
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -348,6 +316,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "Icon": {
+                    "name": "Icon",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -407,13 +382,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "DateTime": {
-                    "name": "DateTime",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "Address": {
                     "name": "Address",
                     "isArray": false,
@@ -438,6 +406,20 @@ export const schema = {
                             "eventsOrganizationId"
                         ]
                     }
+                },
+                "Day": {
+                    "name": "Day",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Month": {
+                    "name": "Month",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -487,104 +469,6 @@ export const schema = {
                     }
                 }
             ]
-        },
-        "OrganizationResource": {
-            "name": "OrganizationResource",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "resourceId": {
-                    "name": "resourceId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "organizationId": {
-                    "name": "organizationId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "resource": {
-                    "name": "resource",
-                    "isArray": false,
-                    "type": {
-                        "model": "Resource"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetNames": [
-                            "resourceId"
-                        ]
-                    }
-                },
-                "organization": {
-                    "name": "organization",
-                    "isArray": false,
-                    "type": {
-                        "model": "Organization"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetNames": [
-                            "organizationId"
-                        ]
-                    }
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "OrganizationResources",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byResource",
-                        "fields": [
-                            "resourceId"
-                        ]
-                    }
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byOrganization",
-                        "fields": [
-                            "organizationId"
-                        ]
-                    }
-                }
-            ]
         }
     },
     "enums": {
@@ -602,5 +486,5 @@ export const schema = {
     },
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "358f670e911d83de404eb6ffeb72fb1d"
+    "version": "ab65f7bf8219e8ddab0312893debcd73"
 };

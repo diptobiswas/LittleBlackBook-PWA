@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled, AsyncItem, AsyncCollection } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled, AsyncItem } from "@aws-amplify/datastore";
 
 export enum Colour {
   RED = "RED",
@@ -27,7 +27,6 @@ type EagerResource = {
   readonly SaveStatus?: boolean | null;
   readonly Topic?: Topic | null;
   readonly Organization?: Organization | null;
-  readonly organizations?: (OrganizationResource | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly resourceTopicId?: string | null;
@@ -48,7 +47,6 @@ type LazyResource = {
   readonly SaveStatus?: boolean | null;
   readonly Topic: AsyncItem<Topic | undefined>;
   readonly Organization: AsyncItem<Organization | undefined>;
-  readonly organizations: AsyncCollection<OrganizationResource>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly resourceTopicId?: string | null;
@@ -102,7 +100,6 @@ type EagerOrganization = {
   readonly Name?: string | null;
   readonly Addres?: string | null;
   readonly Phone?: string | null;
-  readonly Resources?: (OrganizationResource | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -116,7 +113,6 @@ type LazyOrganization = {
   readonly Name?: string | null;
   readonly Addres?: string | null;
   readonly Phone?: string | null;
-  readonly Resources: AsyncCollection<OrganizationResource>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -135,6 +131,7 @@ type EagerEmergency = {
   readonly id: string;
   readonly Name?: string | null;
   readonly Phone?: string | null;
+  readonly Icon?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -147,6 +144,7 @@ type LazyEmergency = {
   readonly id: string;
   readonly Name?: string | null;
   readonly Phone?: string | null;
+  readonly Icon?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -164,9 +162,10 @@ type EagerEvents = {
   };
   readonly id: string;
   readonly Name?: string | null;
-  readonly DateTime?: string | null;
   readonly Address?: string | null;
   readonly Organization?: Organization | null;
+  readonly Day?: string | null;
+  readonly Month?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly eventsOrganizationId?: string | null;
@@ -179,9 +178,10 @@ type LazyEvents = {
   };
   readonly id: string;
   readonly Name?: string | null;
-  readonly DateTime?: string | null;
   readonly Address?: string | null;
   readonly Organization: AsyncItem<Organization | undefined>;
+  readonly Day?: string | null;
+  readonly Month?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly eventsOrganizationId?: string | null;
@@ -191,38 +191,4 @@ export declare type Events = LazyLoading extends LazyLoadingDisabled ? EagerEven
 
 export declare const Events: (new (init: ModelInit<Events>) => Events) & {
   copyOf(source: Events, mutator: (draft: MutableModel<Events>) => MutableModel<Events> | void): Events;
-}
-
-type EagerOrganizationResource = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<OrganizationResource, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly resourceId?: string | null;
-  readonly organizationId?: string | null;
-  readonly resource: Resource;
-  readonly organization: Organization;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyOrganizationResource = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<OrganizationResource, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly resourceId?: string | null;
-  readonly organizationId?: string | null;
-  readonly resource: AsyncItem<Resource>;
-  readonly organization: AsyncItem<Organization>;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type OrganizationResource = LazyLoading extends LazyLoadingDisabled ? EagerOrganizationResource : LazyOrganizationResource
-
-export declare const OrganizationResource: (new (init: ModelInit<OrganizationResource>) => OrganizationResource) & {
-  copyOf(source: OrganizationResource, mutator: (draft: MutableModel<OrganizationResource>) => MutableModel<OrganizationResource> | void): OrganizationResource;
 }

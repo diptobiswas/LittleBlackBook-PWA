@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
 export default function EventCardExpanded(props) {
-  const { overrides, ...rest } = props;
+  const { events, overrides, ...rest } = props;
   return (
     <View
       width="340px"
@@ -172,7 +172,7 @@ export default function EventCardExpanded(props) {
         right="7.06%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Day_and_Month"
+        children={events?.Month}
         {...getOverrideProps(overrides, "Day_and_Month")}
       ></Text>
     </View>

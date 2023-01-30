@@ -6,13 +6,12 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps, ViewProps } from "@aws-amplify/ui-react";
 import { LogoProps } from "./Logo";
+import { FlexProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TopbarMobileOverridesProps = {
     TopbarMobile?: PrimitiveOverrideProps<FlexProps>;
-    "Group 36"?: PrimitiveOverrideProps<FlexProps>;
-    "Rectangle 1167"?: PrimitiveOverrideProps<ViewProps>;
+    "Frame 36"?: PrimitiveOverrideProps<FlexProps>;
     logo?: LogoProps;
 } & EscapeHatchProps;
 export declare type TopbarMobileProps = React.PropsWithChildren<Partial<FlexProps> & {

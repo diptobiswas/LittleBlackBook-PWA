@@ -6,20 +6,20 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { EventCardExpandedProps } from "./EventCardExpanded";
+import { EmergencyButtonMobileProps } from "./EmergencyButtonMobile";
 import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type EventCardExpandedCollectionOverridesProps = {
-    EventCardExpandedCollection?: PrimitiveOverrideProps<CollectionProps>;
-    EventCardExpanded?: EventCardExpandedProps;
+export declare type EmergencyButtonMobileCollectionOverridesProps = {
+    EmergencyButtonMobileCollection?: PrimitiveOverrideProps<CollectionProps>;
+    EmergencyButtonMobile?: EmergencyButtonMobileProps;
 } & EscapeHatchProps;
-export declare type EventCardExpandedCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+export declare type EmergencyButtonMobileCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: (collectionItem: {
         item: any;
         index: number;
-    }) => EventCardExpandedProps;
+    }) => EmergencyButtonMobileProps;
 } & {
-    overrides?: EventCardExpandedCollectionOverridesProps | undefined | null;
+    overrides?: EmergencyButtonMobileCollectionOverridesProps | undefined | null;
 }>;
-export default function EventCardExpandedCollection(props: EventCardExpandedCollectionProps): React.ReactElement;
+export default function EmergencyButtonMobileCollection(props: EmergencyButtonMobileCollectionProps): React.ReactElement;

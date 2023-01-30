@@ -1,10 +1,23 @@
-import {NavbarDesktop, TopbarMobile} from '../ui-components';
+import {NavbarDesktop, TopbarMobile, EmergencyTitleMobile, EmergencyTitleDesktop, EmergencyButtonMobileCollection} from '../ui-components';
 import {useBreakpointValue } from '@aws-amplify/ui-react'
 
 function Emergency() {
+
+  const EmergencyTitle = useBreakpointValue({
+    small: <EmergencyTitleMobile margin={30}></EmergencyTitleMobile>,
+    large: <EmergencyTitleDesktop margin={30}></EmergencyTitleDesktop>
+  })
+
+  const EmergencyCollection = useBreakpointValue({
+    small: <EmergencyButtonMobileCollection margin={30}></EmergencyButtonMobileCollection>,
+    large: <></>
+  })
+
+
     return (
       <div className="emergency">
-        <h1>ON EMERGENCY PAGE</h1>
+        {EmergencyTitle}
+        {EmergencyCollection}
       </div>
     );
 }

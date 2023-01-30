@@ -15,16 +15,19 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type EmergencyCreateFormInputValues = {
     Name?: string;
     Phone?: string;
+    Icon?: string;
 };
 export declare type EmergencyCreateFormValidationValues = {
     Name?: ValidationFunction<string>;
     Phone?: ValidationFunction<string>;
+    Icon?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EmergencyCreateFormOverridesProps = {
     EmergencyCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     Name?: PrimitiveOverrideProps<TextFieldProps>;
     Phone?: PrimitiveOverrideProps<TextFieldProps>;
+    Icon?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type EmergencyCreateFormProps = React.PropsWithChildren<{
     overrides?: EmergencyCreateFormOverridesProps | undefined | null;

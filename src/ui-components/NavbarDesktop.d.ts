@@ -24,6 +24,8 @@ export declare type NavbarDesktopOverridesProps = {
     ServiceIcon?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type NavbarDesktopProps = React.PropsWithChildren<Partial<FlexProps> & {
+    property1?: "Default" | "medium";
+} & {
     overrides?: NavbarDesktopOverridesProps | undefined | null;
 }>;
 export default function NavbarDesktop(props: NavbarDesktopProps): React.ReactElement;

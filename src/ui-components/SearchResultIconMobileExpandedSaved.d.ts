@@ -6,27 +6,30 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type SearchResultIconMobileExpandedSavedOverridesProps = {
-    SearchResultIconMobileExpandedSaved?: PrimitiveOverrideProps<ViewProps>;
-    MainIcon?: PrimitiveOverrideProps<ViewProps>;
-    collapse?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 1170"?: PrimitiveOverrideProps<ViewProps>;
-    Vector36753706?: PrimitiveOverrideProps<IconProps>;
-    TextGroup?: PrimitiveOverrideProps<ViewProps>;
+    SearchResultIconMobileExpandedSaved?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 46"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 44"?: PrimitiveOverrideProps<FlexProps>;
+    TextGroup?: PrimitiveOverrideProps<FlexProps>;
     "Name of Service and Location36753708"?: PrimitiveOverrideProps<TextProps>;
     "Name of Service and Location36753709"?: PrimitiveOverrideProps<TextProps>;
-    ServiceDetails?: PrimitiveOverrideProps<TextProps>;
-    ServiceAddress?: PrimitiveOverrideProps<TextProps>;
-    PhoneLink?: PrimitiveOverrideProps<ViewProps>;
-    WebButton?: PrimitiveOverrideProps<ViewProps>;
-    Vector36753714?: PrimitiveOverrideProps<IconProps>;
+    "Group 44"?: PrimitiveOverrideProps<FlexProps>;
     WebsiteLink?: PrimitiveOverrideProps<ViewProps>;
     PhoneButton?: PrimitiveOverrideProps<ViewProps>;
     Vector36753717?: PrimitiveOverrideProps<IconProps>;
+    PhoneLink?: PrimitiveOverrideProps<ViewProps>;
+    WebButton?: PrimitiveOverrideProps<ViewProps>;
+    Vector36753714?: PrimitiveOverrideProps<IconProps>;
+    "Frame 45"?: PrimitiveOverrideProps<FlexProps>;
+    ServiceDetails?: PrimitiveOverrideProps<TextProps>;
+    ServiceAddress?: PrimitiveOverrideProps<TextProps>;
+    collapse?: PrimitiveOverrideProps<FlexProps>;
+    "Rectangle 1170"?: PrimitiveOverrideProps<ViewProps>;
+    Vector36753706?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type SearchResultIconMobileExpandedSavedProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type SearchResultIconMobileExpandedSavedProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: SearchResultIconMobileExpandedSavedOverridesProps | undefined | null;
 }>;
 export default function SearchResultIconMobileExpandedSaved(props: SearchResultIconMobileExpandedSavedProps): React.ReactElement;
