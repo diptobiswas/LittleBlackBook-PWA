@@ -17,12 +17,14 @@ export declare type EventsCreateFormInputValues = {
     Address?: string;
     Day?: string;
     Month?: string;
+    Image?: string;
 };
 export declare type EventsCreateFormValidationValues = {
     Name?: ValidationFunction<string>;
     Address?: ValidationFunction<string>;
     Day?: ValidationFunction<string>;
     Month?: ValidationFunction<string>;
+    Image?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EventsCreateFormOverridesProps = {
@@ -31,6 +33,7 @@ export declare type EventsCreateFormOverridesProps = {
     Address?: PrimitiveOverrideProps<TextFieldProps>;
     Day?: PrimitiveOverrideProps<TextFieldProps>;
     Month?: PrimitiveOverrideProps<TextFieldProps>;
+    Image?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type EventsCreateFormProps = React.PropsWithChildren<{
     overrides?: EventsCreateFormOverridesProps | undefined | null;

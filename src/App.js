@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Emergency from './pages/Emergency';
 import Main from './pages/Main';
 import Search from './pages/Search';
+import Saved from './pages/Saved';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route index path="home"element={<Home/>} />
           <Route path="search" element={<Search/>} />
           <Route path="emergency" element={<Emergency/>} />
+          <Route path="saved" element={<Saved/>} />
           <Route path="*" element={<NoMatch />} />
         </Route>
     </Routes>

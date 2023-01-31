@@ -10,6 +10,7 @@ export { default as EventCardExpandedCollection } from "./EventCardExpandedColle
 export { default as TopicIconCollection } from "./TopicIconCollection";
 export { default as EmergencyButtonDesktop } from "./EmergencyButtonDesktop";
 export { default as EmergencyTitleDesktop } from "./EmergencyTitleDesktop";
+export { default as SavedTitleMobile } from "./SavedTitleMobile";
 export { default as SearchResultIconMobile } from "./SearchResultIconMobile";
 export { default as EmergencyButtonMobile } from "./EmergencyButtonMobile";
 export { default as FeaturedCardDesktop } from "./FeaturedCardDesktop";
@@ -25,6 +26,7 @@ export { default as NavbarDesktop } from "./NavbarDesktop";
 export { default as EmergencyButtonDesktopCollection } from "./EmergencyButtonDesktopCollection";
 export { default as SearchResultIconMobileExpanded } from "./SearchResultIconMobileExpanded";
 export { default as EventCardExpanded } from "./EventCardExpanded";
+export { default as SavedTitleDesktop } from "./SavedTitleDesktop";
 export { default as SearchBarMobile } from "./SearchBarMobile";
 export { default as FeaturedCardmobile } from "./FeaturedCardmobile";
 export { default as TopicIcon } from "./TopicIcon";

@@ -196,6 +196,7 @@ type EagerEvents = {
   readonly Organization?: Organization | null;
   readonly Day?: string | null;
   readonly Month?: string | null;
+  readonly Image?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly eventsOrganizationId?: string | null;
@@ -212,6 +213,7 @@ type LazyEvents = {
   readonly Organization: AsyncItem<Organization | undefined>;
   readonly Day?: string | null;
   readonly Month?: string | null;
+  readonly Image?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly eventsOrganizationId?: string | null;

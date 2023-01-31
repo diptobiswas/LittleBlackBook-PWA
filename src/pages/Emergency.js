@@ -1,4 +1,4 @@
-import {NavbarDesktop, EmergencyButtonDesktopCollection, EmergencyTitleMobile, EmergencyTitleDesktop, EmergencyButtonMobileCollection} from '../ui-components';
+import {EmergencyButtonDesktopCollection, EmergencyTitleMobile, EmergencyTitleDesktop, EmergencyButtonMobileCollection} from '../ui-components';
 import {useBreakpointValue } from '@aws-amplify/ui-react'
 
 function Emergency() {
@@ -10,7 +10,7 @@ function Emergency() {
 
   const EmergencyCollection = useBreakpointValue({
     small: <EmergencyButtonMobileCollection margin={30}></EmergencyButtonMobileCollection>,
-    large: <EmergencyButtonDesktopCollection margin={30}></EmergencyButtonDesktopCollection>
+    large: <EmergencyButtonDesktopCollection margin={'auto'}></EmergencyButtonDesktopCollection>
   })
 
 

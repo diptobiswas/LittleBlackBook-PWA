@@ -20,6 +20,8 @@ export default function EventCardExpanded(props) {
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
+      href={`${"/"}${events?.id}`}
+      as="a"
       {...getOverrideProps(overrides, "EventCardExpanded")}
       {...rest}
     >
@@ -56,6 +58,7 @@ export default function EventCardExpanded(props) {
         borderRadius="10px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src={events?.Image}
         {...getOverrideProps(overrides, "eventImage")}
       ></Image>
       <View
