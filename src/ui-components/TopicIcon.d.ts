@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Resource, Topic } from "../models";
+import { Topic } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
@@ -17,7 +17,6 @@ export declare type TopicIconOverridesProps = {
     Topic_Name?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type TopicIconProps = React.PropsWithChildren<Partial<FlexProps> & {
-    resource?: Resource;
     topic?: Topic;
 } & {
     overrides?: TopicIconOverridesProps | undefined | null;

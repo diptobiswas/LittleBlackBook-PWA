@@ -23,6 +23,8 @@ export default function EmergencyButtonMobile(props) {
       borderRadius="10px"
       padding="12px 29px 12px 29px"
       backgroundColor="rgba(255,255,255,1)"
+      as="a"
+      href={`${"tel:"}${emergency?.Phone}`}
       {...getOverrideProps(overrides, "EmergencyButtonMobile")}
       {...rest}
     >

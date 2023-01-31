@@ -6,19 +6,19 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Topic } from "../models";
+import { Emergency } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import TopicIcon from "./TopicIcon";
+import EmergencyButtonDesktop from "./EmergencyButtonDesktop";
 import { Collection } from "@aws-amplify/ui-react";
-export default function TopicIconCollection(props) {
+export default function EmergencyButtonDesktopCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Topic,
+    model: Emergency,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
@@ -31,23 +31,23 @@ export default function TopicIconCollection(props) {
     <Collection
       type="grid"
       searchPlaceholder="Search..."
-      templateColumns="1fr 1fr"
-      autoFlow="row"
+      templateRows="1fr 1fr"
+      autoFlow="column"
       alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
-      {...getOverrideProps(overrides, "TopicIconCollection")}
+      {...getOverrideProps(overrides, "EmergencyButtonDesktopCollection")}
       {...rest}
     >
       {(item, index) => (
-        <TopicIcon
-          topic={item}
+        <EmergencyButtonDesktop
+          emergency={item}
           height="auto"
-          width="auto"
+          width="500px"
           margin="0 10px 20px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></TopicIcon>
+        ></EmergencyButtonDesktop>
       )}
     </Collection>
   );

@@ -1,10 +1,12 @@
 import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardmobile} from '../ui-components';
-import { useBreakpointValue } from '@aws-amplify/ui-react'
+import { SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
 
 function Home() {
   
     const MobileSearchBar = useBreakpointValue({
-      small: <SearchBarMobile margin={30}></SearchBarMobile>,
+      small: <SearchField marginLeft={110} marginTop={30} marginRight={110}
+              placeholder="Search for resources"
+              />,
       large: <></>
     })
   
@@ -14,12 +16,12 @@ function Home() {
     })
   
     const EventCard= useBreakpointValue({
-      small: <EventCardDefaultCollection margin={30}></EventCardDefaultCollection>,
-      large: <EventCardExpandedCollection margin={30}></EventCardExpandedCollection>
+      small: <EventCardDefaultCollection margin={'auto'}></EventCardDefaultCollection>,
+      large: <EventCardExpandedCollection margin={'auto'} ></EventCardExpandedCollection>
     })
   
     const DiscoverBar= useBreakpointValue({
-      small: <DiscoverMobile width={'100vw'} align={'center'}></DiscoverMobile>,
+      small: <DiscoverMobile margin={'auto'}></DiscoverMobile>,
       large: <></>
     })
   
@@ -31,7 +33,6 @@ function Home() {
     return (
       <div className="home">
         {MobileSearchBar}
-        {DiscoverBar}
         {FeaturedCard}
         {EventCard}
       </div>

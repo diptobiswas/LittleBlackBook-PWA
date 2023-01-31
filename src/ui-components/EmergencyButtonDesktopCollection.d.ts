@@ -6,20 +6,20 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TopicIconProps } from "./TopicIcon";
+import { EmergencyButtonDesktopProps } from "./EmergencyButtonDesktop";
 import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type TopicIconCollectionOverridesProps = {
-    TopicIconCollection?: PrimitiveOverrideProps<CollectionProps>;
-    TopicIcon?: TopicIconProps;
+export declare type EmergencyButtonDesktopCollectionOverridesProps = {
+    EmergencyButtonDesktopCollection?: PrimitiveOverrideProps<CollectionProps>;
+    EmergencyButtonDesktop?: EmergencyButtonDesktopProps;
 } & EscapeHatchProps;
-export declare type TopicIconCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+export declare type EmergencyButtonDesktopCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: (collectionItem: {
         item: any;
         index: number;
-    }) => TopicIconProps;
+    }) => EmergencyButtonDesktopProps;
 } & {
-    overrides?: TopicIconCollectionOverridesProps | undefined | null;
+    overrides?: EmergencyButtonDesktopCollectionOverridesProps | undefined | null;
 }>;
-export default function TopicIconCollection(props: TopicIconCollectionProps): React.ReactElement;
+export default function EmergencyButtonDesktopCollection(props: EmergencyButtonDesktopCollectionProps): React.ReactElement;

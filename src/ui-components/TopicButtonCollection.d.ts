@@ -6,20 +6,20 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TopicIconProps } from "./TopicIcon";
+import { TopicButtonProps } from "./TopicButton";
 import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type TopicIconCollectionOverridesProps = {
-    TopicIconCollection?: PrimitiveOverrideProps<CollectionProps>;
-    TopicIcon?: TopicIconProps;
+export declare type TopicButtonCollectionOverridesProps = {
+    TopicButtonCollection?: PrimitiveOverrideProps<CollectionProps>;
+    TopicButton?: TopicButtonProps;
 } & EscapeHatchProps;
-export declare type TopicIconCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+export declare type TopicButtonCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: (collectionItem: {
         item: any;
         index: number;
-    }) => TopicIconProps;
+    }) => TopicButtonProps;
 } & {
-    overrides?: TopicIconCollectionOverridesProps | undefined | null;
+    overrides?: TopicButtonCollectionOverridesProps | undefined | null;
 }>;
-export default function TopicIconCollection(props: TopicIconCollectionProps): React.ReactElement;
+export default function TopicButtonCollection(props: TopicButtonCollectionProps): React.ReactElement;

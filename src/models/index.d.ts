@@ -13,6 +13,36 @@ export enum Colour {
 
 
 
+type EagerFeaturedContent = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<FeaturedContent, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Title?: string | null;
+  readonly Description?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyFeaturedContent = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<FeaturedContent, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Title?: string | null;
+  readonly Description?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type FeaturedContent = LazyLoading extends LazyLoadingDisabled ? EagerFeaturedContent : LazyFeaturedContent
+
+export declare const FeaturedContent: (new (init: ModelInit<FeaturedContent>) => FeaturedContent) & {
+  copyOf(source: FeaturedContent, mutator: (draft: MutableModel<FeaturedContent>) => MutableModel<FeaturedContent> | void): FeaturedContent;
+}
+
 type EagerResource = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Resource, 'id'>;

@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function TopicIcon(props) {
-  const { resource, topic, overrides, ...rest } = props;
+  const { topic, overrides, ...rest } = props;
   return (
     <Flex
       gap="11px"

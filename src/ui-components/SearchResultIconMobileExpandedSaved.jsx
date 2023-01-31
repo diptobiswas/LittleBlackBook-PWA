@@ -29,7 +29,7 @@ export default function SearchResultIconMobileExpandedSaved(props) {
       <Flex
         gap="25px"
         direction="column"
-        width="290px"
+        width="301px"
         height="unset"
         justifyContent="center"
         alignItems="flex-start"
