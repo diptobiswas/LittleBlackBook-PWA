@@ -1,3 +1,22 @@
+type Resource @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Address: String
+  Description: String
+  Phone: AWSPhone
+  Website: AWSURL
+  organizationID: ID! @index(name: "byOrganization")
+  topicID: ID! @index(name: "byTopic")
+  SaveStatus: String
+}
+
+type FeaturedContent @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Title: String
+  Description: String
+  image: AWSURL
+}
+
 enum Colour {
   RED
   BLUE
@@ -7,31 +26,22 @@ enum Colour {
   PURPLE
 }
 
-type Resource @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  Name: String
-  Phone: AWSPhone
-  Description: String
-  Website: AWSURL
-  Address: String
-  SaveStatus: Boolean
-  Topic: Topic @hasOne
-  Organization: Organization @hasOne
-  organizations: [Organization] @manyToMany(relationName: "OrganizationResource")
-}
-
 type Emergency @model @auth(rules: [{allow: public}]) {
   id: ID!
   Name: String
   Phone: AWSPhone
+  Icon: AWSURL
 }
 
 type Events @model @auth(rules: [{allow: public}]) {
   id: ID!
   Name: String
-  DateTime: String
   Address: String
   Organization: Organization @hasOne
+  Day: String
+  Month: String
+  Image: AWSURL
+  Description: String
 }
 
 type Topic @model @auth(rules: [{allow: public}]) {
@@ -39,6 +49,7 @@ type Topic @model @auth(rules: [{allow: public}]) {
   Name: String
   Icon: AWSURL
   Colour: Colour
+  Resources: [Resource] @hasMany(indexName: "byTopic", fields: ["id"])
 }
 
 type Organization @model @auth(rules: [{allow: public}]) {
@@ -46,6 +57,6 @@ type Organization @model @auth(rules: [{allow: public}]) {
   Name: String
   Addres: String
   Phone: AWSPhone
-  Resources: [Resource] @manyToMany(relationName: "OrganizationResource")
+  Resources: [Resource] @hasMany(indexName: "byOrganization", fields: ["id"])
 }
  

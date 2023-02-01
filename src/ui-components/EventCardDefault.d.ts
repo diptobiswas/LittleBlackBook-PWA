@@ -8,6 +8,7 @@ import * as React from "react";
 import { Events } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, TextProps } from "@aws-amplify/ui-react";
+import { SyntheticEvent } from "react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EventCardDefaultOverridesProps = {
     EventCardDefault?: PrimitiveOverrideProps<FlexProps>;
@@ -20,6 +21,7 @@ export declare type EventCardDefaultOverridesProps = {
 } & EscapeHatchProps;
 export declare type EventCardDefaultProps = React.PropsWithChildren<Partial<FlexProps> & {
     events?: Events;
+    as?: (event: SyntheticEvent) => void;
 } & {
     overrides?: EventCardDefaultOverridesProps | undefined | null;
 }>;

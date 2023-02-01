@@ -27,17 +27,25 @@ export default function EventsCreateForm(props) {
     Address: "",
     Day: "",
     Month: "",
+    Image: "",
+    Description: "",
   };
   const [Name, setName] = React.useState(initialValues.Name);
   const [Address, setAddress] = React.useState(initialValues.Address);
   const [Day, setDay] = React.useState(initialValues.Day);
   const [Month, setMonth] = React.useState(initialValues.Month);
+  const [Image, setImage] = React.useState(initialValues.Image);
+  const [Description, setDescription] = React.useState(
+    initialValues.Description
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.Name);
     setAddress(initialValues.Address);
     setDay(initialValues.Day);
     setMonth(initialValues.Month);
+    setImage(initialValues.Image);
+    setDescription(initialValues.Description);
     setErrors({});
   };
   const validations = {
@@ -45,6 +53,8 @@ export default function EventsCreateForm(props) {
     Address: [],
     Day: [],
     Month: [],
+    Image: [{ type: "URL" }],
+    Description: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -75,6 +85,8 @@ export default function EventsCreateForm(props) {
           Address,
           Day,
           Month,
+          Image,
+          Description,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -133,6 +145,8 @@ export default function EventsCreateForm(props) {
               Address,
               Day,
               Month,
+              Image,
+              Description,
             };
             const result = onChange(modelFields);
             value = result?.Name ?? value;
@@ -160,6 +174,8 @@ export default function EventsCreateForm(props) {
               Address: value,
               Day,
               Month,
+              Image,
+              Description,
             };
             const result = onChange(modelFields);
             value = result?.Address ?? value;
@@ -187,6 +203,8 @@ export default function EventsCreateForm(props) {
               Address,
               Day: value,
               Month,
+              Image,
+              Description,
             };
             const result = onChange(modelFields);
             value = result?.Day ?? value;
@@ -214,6 +232,8 @@ export default function EventsCreateForm(props) {
               Address,
               Day,
               Month: value,
+              Image,
+              Description,
             };
             const result = onChange(modelFields);
             value = result?.Month ?? value;
@@ -227,6 +247,64 @@ export default function EventsCreateForm(props) {
         errorMessage={errors.Month?.errorMessage}
         hasError={errors.Month?.hasError}
         {...getOverrideProps(overrides, "Month")}
+      ></TextField>
+      <TextField
+        label="Image"
+        isRequired={false}
+        isReadOnly={false}
+        value={Image}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Address,
+              Day,
+              Month,
+              Image: value,
+              Description,
+            };
+            const result = onChange(modelFields);
+            value = result?.Image ?? value;
+          }
+          if (errors.Image?.hasError) {
+            runValidationTasks("Image", value);
+          }
+          setImage(value);
+        }}
+        onBlur={() => runValidationTasks("Image", Image)}
+        errorMessage={errors.Image?.errorMessage}
+        hasError={errors.Image?.hasError}
+        {...getOverrideProps(overrides, "Image")}
+      ></TextField>
+      <TextField
+        label="Description"
+        isRequired={false}
+        isReadOnly={false}
+        value={Description}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Address,
+              Day,
+              Month,
+              Image,
+              Description: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Description ?? value;
+          }
+          if (errors.Description?.hasError) {
+            runValidationTasks("Description", value);
+          }
+          setDescription(value);
+        }}
+        onBlur={() => runValidationTasks("Description", Description)}
+        errorMessage={errors.Description?.errorMessage}
+        hasError={errors.Description?.hasError}
+        {...getOverrideProps(overrides, "Description")}
       ></TextField>
       <Flex
         justifyContent="space-between"

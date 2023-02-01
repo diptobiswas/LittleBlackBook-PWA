@@ -15,11 +15,12 @@ export default function TopbarMobile(props) {
     <Flex
       gap="10px"
       direction="row"
-      width="unset"
+      width="314px"
       height="95px"
       justifyContent="flex-start"
       alignItems="center"
       position="relative"
+      boxShadow="0px 4px 15px rgba(0, 0, 0, 0.10000000149011612)"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(0,0,0,1)"
       {...getOverrideProps(overrides, "TopbarMobile")}

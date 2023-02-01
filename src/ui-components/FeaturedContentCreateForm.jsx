@@ -25,20 +25,24 @@ export default function FeaturedContentCreateForm(props) {
   const initialValues = {
     Title: "",
     Description: "",
+    image: "",
   };
   const [Title, setTitle] = React.useState(initialValues.Title);
   const [Description, setDescription] = React.useState(
     initialValues.Description
   );
+  const [image, setImage] = React.useState(initialValues.image);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitle(initialValues.Title);
     setDescription(initialValues.Description);
+    setImage(initialValues.image);
     setErrors({});
   };
   const validations = {
     Title: [],
     Description: [],
+    image: [{ type: "URL" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -67,6 +71,7 @@ export default function FeaturedContentCreateForm(props) {
         let modelFields = {
           Title,
           Description,
+          image,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -123,6 +128,7 @@ export default function FeaturedContentCreateForm(props) {
             const modelFields = {
               Title: value,
               Description,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.Title ?? value;
@@ -148,6 +154,7 @@ export default function FeaturedContentCreateForm(props) {
             const modelFields = {
               Title,
               Description: value,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.Description ?? value;
@@ -161,6 +168,32 @@ export default function FeaturedContentCreateForm(props) {
         errorMessage={errors.Description?.errorMessage}
         hasError={errors.Description?.hasError}
         {...getOverrideProps(overrides, "Description")}
+      ></TextField>
+      <TextField
+        label="Image"
+        isRequired={false}
+        isReadOnly={false}
+        value={image}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Title,
+              Description,
+              image: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.image ?? value;
+          }
+          if (errors.image?.hasError) {
+            runValidationTasks("image", value);
+          }
+          setImage(value);
+        }}
+        onBlur={() => runValidationTasks("image", image)}
+        errorMessage={errors.image?.errorMessage}
+        hasError={errors.image?.hasError}
+        {...getOverrideProps(overrides, "image")}
       ></TextField>
       <Flex
         justifyContent="space-between"

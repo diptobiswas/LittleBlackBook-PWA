@@ -5,20 +5,22 @@
  **************************************************************************/
 
 import * as React from "react";
+import { FeaturedContent } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type FeaturedCardmobileOverridesProps = {
-    FeaturedCardmobile?: PrimitiveOverrideProps<FlexProps>;
-    "Group 43"?: PrimitiveOverrideProps<FlexProps>;
-    background?: PrimitiveOverrideProps<ImageProps>;
-    gradient?: PrimitiveOverrideProps<ViewProps>;
-    Featured_Title?: PrimitiveOverrideProps<TextProps>;
+export declare type FeaturedCardMobileOverridesProps = {
+    FeaturedCardMobile?: PrimitiveOverrideProps<FlexProps>;
+    featured_image?: PrimitiveOverrideProps<ImageProps>;
+    "Group 45"?: PrimitiveOverrideProps<FlexProps>;
     FeaturedLink?: PrimitiveOverrideProps<ViewProps>;
     "Learn More"?: PrimitiveOverrideProps<TextProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
+    Featured_Title?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type FeaturedCardmobileProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: FeaturedCardmobileOverridesProps | undefined | null;
+export declare type FeaturedCardMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
+    featuredContent?: FeaturedContent;
+} & {
+    overrides?: FeaturedCardMobileOverridesProps | undefined | null;
 }>;
-export default function FeaturedCardmobile(props: FeaturedCardmobileProps): React.ReactElement;
+export default function FeaturedCardMobile(props: FeaturedCardMobileProps): React.ReactElement;

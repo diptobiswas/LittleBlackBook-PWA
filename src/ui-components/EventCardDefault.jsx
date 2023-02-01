@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Text } from "@aws-amplify/ui-react";
 export default function EventCardDefault(props) {
-  const { events, overrides, ...rest } = props;
+  const { events, as, overrides, ...rest } = props;
   return (
     <Flex
       gap="0"
@@ -23,6 +23,8 @@ export default function EventCardDefault(props) {
       borderRadius="10px"
       padding="9px 20px 9px 20px"
       backgroundColor="rgba(255,255,255,1)"
+      href={`${"/"}${events?.id}`}
+      as="a"
       {...getOverrideProps(overrides, "EventCardDefault")}
       {...rest}
     >
@@ -86,7 +88,7 @@ export default function EventCardDefault(props) {
         ></Text>
       </Flex>
       <Flex
-        gap="0"
+        gap="5px"
         direction="column"
         width="212px"
         height="unset"
