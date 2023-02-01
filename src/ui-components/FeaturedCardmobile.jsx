@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
 export default function FeaturedCardMobile(props) {
   const { featuredContent, overrides, ...rest } = props;
   return (
@@ -21,7 +21,7 @@ export default function FeaturedCardMobile(props) {
       position="relative"
       boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
       borderRadius="10px"
-      padding="0px 0px 15px 0px"
+      padding="0px 0px 20px 0px"
       backgroundColor="rgba(0,0,0,1)"
       {...getOverrideProps(overrides, "FeaturedCardMobile")}
       {...rest}
@@ -43,18 +43,40 @@ export default function FeaturedCardMobile(props) {
         {...getOverrideProps(overrides, "featured_image")}
       ></Image>
       <Flex
-        padding="0px 0px 0px 0px"
-        width="290px"
-        height="56.51px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
+        gap="5px"
+        direction="column"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
+        alignItems="flex-start"
         shrink="0"
         position="relative"
-        {...getOverrideProps(overrides, "Group 45")}
+        padding="0px 25px 0px 25px"
+        {...getOverrideProps(overrides, "Frame 45")}
       >
-        <View
+        <Text
+          fontFamily="Inter"
+          fontSize="32px"
+          fontWeight="700"
+          color="rgba(255,255,255,1)"
+          lineHeight="28px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.17px"
+          width="290px"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={featuredContent?.Title}
+          {...getOverrideProps(overrides, "Featured_Title")}
+        ></Text>
+        <Flex
           padding="0px 0px 0px 0px"
           width="128.65px"
           height="23.51px"
@@ -62,9 +84,8 @@ export default function FeaturedCardMobile(props) {
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
-          position="absolute"
-          top="33px"
-          left="0px"
+          shrink="0"
+          position="relative"
           {...getOverrideProps(overrides, "FeaturedLink")}
         >
           <Text
@@ -121,30 +142,7 @@ export default function FeaturedCardMobile(props) {
             transform="rotate(-138.33deg)"
             {...getOverrideProps(overrides, "Vector")}
           ></Icon>
-        </View>
-        <Text
-          fontFamily="Inter"
-          fontSize="32px"
-          fontWeight="700"
-          color="rgba(255,255,255,1)"
-          lineHeight="28px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.17px"
-          width="290px"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          position="absolute"
-          top="0px"
-          left="0px"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children={featuredContent?.Title}
-          {...getOverrideProps(overrides, "Featured_Title")}
-        ></Text>
+        </Flex>
       </Flex>
     </Flex>
   );

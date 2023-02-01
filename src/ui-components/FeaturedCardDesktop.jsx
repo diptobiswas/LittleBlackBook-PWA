@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
 export default function FeaturedCardDesktop(props) {
   const { featuredContent, overrides, ...rest } = props;
   return (
@@ -43,18 +43,40 @@ export default function FeaturedCardDesktop(props) {
         {...getOverrideProps(overrides, "featuredimage")}
       ></Image>
       <Flex
-        padding="0px 0px 0px 0px"
-        width="598px"
-        height="88.69px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
+        gap="10px"
+        direction="column"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
+        alignItems="flex-start"
         shrink="0"
         position="relative"
-        {...getOverrideProps(overrides, "Group 46")}
+        padding="0px 25px 0px 25px"
+        {...getOverrideProps(overrides, "Frame 46")}
       >
-        <View
+        <Text
+          fontFamily="Inter"
+          fontSize="48px"
+          fontWeight="700"
+          color="rgba(255,255,255,1)"
+          lineHeight="48px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.33px"
+          width="598px"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={featuredContent?.Title}
+          {...getOverrideProps(overrides, "Featured_Title")}
+        ></Text>
+        <Flex
           padding="0px 0px 0px 0px"
           width="159px"
           height="30.69px"
@@ -62,9 +84,8 @@ export default function FeaturedCardDesktop(props) {
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
-          position="absolute"
-          top="58px"
-          left="0px"
+          shrink="0"
+          position="relative"
           {...getOverrideProps(overrides, "FeaturedLink")}
         >
           <Text
@@ -121,30 +142,7 @@ export default function FeaturedCardDesktop(props) {
             transform="rotate(-134.55deg)"
             {...getOverrideProps(overrides, "Vector")}
           ></Icon>
-        </View>
-        <Text
-          fontFamily="Inter"
-          fontSize="48px"
-          fontWeight="700"
-          color="rgba(255,255,255,1)"
-          lineHeight="48px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.33px"
-          width="598px"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          position="absolute"
-          top="0px"
-          left="0px"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children={featuredContent?.Title}
-          {...getOverrideProps(overrides, "Featured_Title")}
-        ></Text>
+        </Flex>
       </Flex>
     </Flex>
   );

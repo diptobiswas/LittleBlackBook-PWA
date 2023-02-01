@@ -25,7 +25,6 @@ export { default as DiscoverMobile } from "./DiscoverMobile";
 export { default as EmergencyButtonMobileCollection } from "./EmergencyButtonMobileCollection";
 export { default as OrganizationButtonMobileCollection } from "./OrganizationButtonMobileCollection";
 export { default as TopicIconDesktopCollection } from "./TopicIconDesktopCollection";
-export { default as OrganizationButtonCollection } from "./OrganizationButtonCollection";
 export { default as NavbarDesktop } from "./NavbarDesktop";
 export { default as EmergencyButtonDesktopCollection } from "./EmergencyButtonDesktopCollection";
 export { default as EventCardExpanded } from "./EventCardExpanded";

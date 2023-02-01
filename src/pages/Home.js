@@ -10,7 +10,9 @@ function Home() {
       small: <SearchField marginLeft={110} marginTop={30} marginRight={110}
               placeholder="Search for resources"
               />,
-      large: <></>
+      large: <SearchField marginLeft={110} marginTop={10} marginRight={110}
+              placeholder="Search for resources"
+              />
     })
   
     const FeaturedCardDesktop = useBreakpointValue({
@@ -39,8 +41,8 @@ function Home() {
     return (
       <div className="home">
         {MobileSearchBar}
-        <Flex display={'horizontal direction'}>
-          {FeaturedCardDesktop}
+        <Flex display={'horizontal direction'} width={'100vh'} margin={'auto'}>
+            {FeaturedCardDesktop}
             {TopicIcons}
         </Flex>
         {FeaturedCardMobile}

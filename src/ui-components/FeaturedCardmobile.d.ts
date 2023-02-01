@@ -7,16 +7,16 @@
 import * as React from "react";
 import { FeaturedContent } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type FeaturedCardMobileOverridesProps = {
     FeaturedCardMobile?: PrimitiveOverrideProps<FlexProps>;
     featured_image?: PrimitiveOverrideProps<ImageProps>;
-    "Group 45"?: PrimitiveOverrideProps<FlexProps>;
-    FeaturedLink?: PrimitiveOverrideProps<ViewProps>;
+    "Frame 45"?: PrimitiveOverrideProps<FlexProps>;
+    Featured_Title?: PrimitiveOverrideProps<TextProps>;
+    FeaturedLink?: PrimitiveOverrideProps<FlexProps>;
     "Learn More"?: PrimitiveOverrideProps<TextProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
-    Featured_Title?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type FeaturedCardMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
     featuredContent?: FeaturedContent;

@@ -9,14 +9,14 @@ function Search() {
   })
 
   const OrganizationIcons = useBreakpointValue({
-    small: <OrganizationButtonMobileCollection> margin={30}</OrganizationButtonMobileCollection>,
-    large: <OrganizationButtonDesktopCollection> margin={30}</OrganizationButtonDesktopCollection>
+    small: <OrganizationButtonMobileCollection> margin={'auto'}</OrganizationButtonMobileCollection>,
+    large: <OrganizationButtonDesktopCollection> margin={'auto'}</OrganizationButtonDesktopCollection>
   })
 
 
     return (
       <div className="search">
-        <SearchField
+        <SearchField marginLeft={110} marginTop={30} marginRight={110} marginBottom={20}
             placeholder="Search for resources"
         />
         {Topics}

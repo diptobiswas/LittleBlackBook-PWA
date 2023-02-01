@@ -41,7 +41,7 @@ export default function TopicIconDesktopCollection(props) {
       type="grid"
       isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={4}
+      itemsPerPage={6}
       templateColumns="1fr 1fr"
       autoFlow="row"
       alignItems="center"

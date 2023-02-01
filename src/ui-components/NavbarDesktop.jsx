@@ -49,9 +49,9 @@ export default function NavbarDesktop(props) {
     <Flex
       gap="56px"
       direction="row"
-      width="unset"
+      width="649px"
       height="95px"
-      justifyContent="flex-start"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
       padding="13px 44px 13px 44px"
