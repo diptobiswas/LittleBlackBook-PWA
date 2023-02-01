@@ -11,9 +11,9 @@ import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import TopicButton from "./TopicButton";
+import TopicIcon from "./TopicIcon";
 import { Collection } from "@aws-amplify/ui-react";
-export default function TopicButtonCollection(props) {
+export default function TopicIconDesktopCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
@@ -39,24 +39,26 @@ export default function TopicButtonCollection(props) {
   return (
     <Collection
       type="grid"
+      isPaginated={true}
       searchPlaceholder="Search..."
-      templateColumns="1fr 1fr 1fr"
+      itemsPerPage={4}
+      templateColumns="1fr 1fr"
       autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      alignItems="center"
+      justifyContent="center"
       items={items || []}
-      {...getOverrideProps(overrides, "TopicButtonCollection")}
+      {...getOverrideProps(overrides, "TopicIconDesktopCollection")}
       {...rest}
     >
       {(item, index) => (
-        <TopicButton
+        <TopicIcon
           topic={item}
           height="auto"
-          width="340px"
+          width="auto"
           margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></TopicButton>
+        ></TopicIcon>
       )}
     </Collection>
   );

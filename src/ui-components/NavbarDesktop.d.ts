@@ -7,24 +7,22 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { LogoProps } from "./Logo";
-import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavbarDesktopOverridesProps = {
     NavbarDesktop?: PrimitiveOverrideProps<FlexProps>;
     logo?: LogoProps;
-    "Group 30"?: PrimitiveOverrideProps<FlexProps>;
-    SearchBar?: PrimitiveOverrideProps<ViewProps>;
-    Vector36754019?: PrimitiveOverrideProps<IconProps>;
-    "Placeholder for Search"?: PrimitiveOverrideProps<TextProps>;
-    "Group 32"?: PrimitiveOverrideProps<FlexProps>;
+    "Group 48"?: PrimitiveOverrideProps<FlexProps>;
+    Vector37853004?: PrimitiveOverrideProps<IconProps>;
+    "Group 32"?: PrimitiveOverrideProps<ViewProps>;
     SirenBackground?: PrimitiveOverrideProps<IconProps>;
     Vector36753944?: PrimitiveOverrideProps<IconProps>;
-    "Group 33"?: PrimitiveOverrideProps<FlexProps>;
+    "Group 33"?: PrimitiveOverrideProps<ViewProps>;
     ProfileBackground?: PrimitiveOverrideProps<IconProps>;
     ServiceIcon?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type NavbarDesktopProps = React.PropsWithChildren<Partial<FlexProps> & {
-    property1?: "Default" | "medium";
+    property1?: "Default";
 } & {
     overrides?: NavbarDesktopOverridesProps | undefined | null;
 }>;

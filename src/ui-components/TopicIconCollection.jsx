@@ -25,7 +25,16 @@ export default function TopicIconCollection(props) {
       setItems(itemsProp);
       return;
     }
-    setItems(itemsDataStore);
+    async function setItemsFromDataStore() {
+      var loaded = await Promise.all(
+        itemsDataStore.map(async (item) => ({
+          ...item,
+          Resources: await item.Resources.toArray(),
+        }))
+      );
+      setItems(loaded);
+    }
+    setItemsFromDataStore();
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection

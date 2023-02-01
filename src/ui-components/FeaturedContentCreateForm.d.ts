@@ -15,16 +15,19 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type FeaturedContentCreateFormInputValues = {
     Title?: string;
     Description?: string;
+    image?: string;
 };
 export declare type FeaturedContentCreateFormValidationValues = {
     Title?: ValidationFunction<string>;
     Description?: ValidationFunction<string>;
+    image?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type FeaturedContentCreateFormOverridesProps = {
     FeaturedContentCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     Title?: PrimitiveOverrideProps<TextFieldProps>;
     Description?: PrimitiveOverrideProps<TextFieldProps>;
+    image?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type FeaturedContentCreateFormProps = React.PropsWithChildren<{
     overrides?: FeaturedContentCreateFormOverridesProps | undefined | null;

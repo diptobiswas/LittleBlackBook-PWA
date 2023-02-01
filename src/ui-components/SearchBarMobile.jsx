@@ -54,7 +54,7 @@ export default function SearchBarMobile(props) {
         viewBox={{
           minX: 0,
           minY: 0,
-          width: 27.4150390625,
+          width: 27.415283203125,
           height: 27.416015625,
         }}
         paths={[

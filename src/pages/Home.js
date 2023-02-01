@@ -1,5 +1,8 @@
-import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardmobile} from '../ui-components';
-import { SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
+import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, 
+  EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, 
+  TopicIconDesktopCollection, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardMobile, 
+  FeaturedCardDesktopCollection, FeaturedCardMobileCollection, OrganizationButtonDesktopCollection} from '../ui-components';
+import { Flex, SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
 
 function Home() {
   
@@ -10,14 +13,18 @@ function Home() {
       large: <></>
     })
   
-    const FeaturedCard = useBreakpointValue({
-      small: <FeaturedCardmobile margin={30} ></FeaturedCardmobile>,
-      large: <FeaturedCardDesktop margin={30}></FeaturedCardDesktop>
+    const FeaturedCardDesktop = useBreakpointValue({
+      large: <FeaturedCardDesktopCollection margin={'auto'}></FeaturedCardDesktopCollection>
+    })
+
+    const FeaturedCardMobile = useBreakpointValue({
+      small: <FeaturedCardMobileCollection margin={'auto'}></FeaturedCardMobileCollection>,
+      large: <></>
     })
   
     const EventCard= useBreakpointValue({
       small: <EventCardDefaultCollection margin={'auto'}></EventCardDefaultCollection>,
-      large: <EventCardExpandedCollection margin={'auto'} ></EventCardExpandedCollection>
+      large: <EventCardExpandedCollection margin={'auto'}></EventCardExpandedCollection>
     })
   
     const DiscoverBar= useBreakpointValue({
@@ -25,15 +32,18 @@ function Home() {
       large: <></>
     })
   
-    const Icons= useBreakpointValue({
-      small: <TopicIcon margin={30}></TopicIcon>,
-      large: <></>
+    const TopicIcons= useBreakpointValue({
+      large: <TopicIconDesktopCollection margin={30}></TopicIconDesktopCollection>,
     })
     
     return (
       <div className="home">
         {MobileSearchBar}
-        {FeaturedCard}
+        <Flex display={'horizontal direction'}>
+          {FeaturedCardDesktop}
+            {TopicIcons}
+        </Flex>
+        {FeaturedCardMobile}
         {EventCard}
       </div>
     );

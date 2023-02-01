@@ -6,19 +6,19 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Topic } from "../models";
+import { Organization } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import TopicButton from "./TopicButton";
+import OrganizationButton from "./OrganizationButton";
 import { Collection } from "@aws-amplify/ui-react";
-export default function TopicButtonCollection(props) {
+export default function OrganizationButtonMobileCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Topic,
+    model: Organization,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
@@ -38,25 +38,21 @@ export default function TopicButtonCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
+      type="list"
       searchPlaceholder="Search..."
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
+      direction="column"
       justifyContent="stretch"
       items={items || []}
-      {...getOverrideProps(overrides, "TopicButtonCollection")}
+      {...getOverrideProps(overrides, "OrganizationButtonMobileCollection")}
       {...rest}
     >
       {(item, index) => (
-        <TopicButton
-          topic={item}
-          height="auto"
-          width="340px"
+        <OrganizationButton
+          organization={item}
           margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></TopicButton>
+        ></OrganizationButton>
       )}
     </Collection>
   );

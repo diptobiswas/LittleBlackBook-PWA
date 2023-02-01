@@ -6,57 +6,45 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Topic } from "../models";
+import { FeaturedContent } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import TopicButton from "./TopicButton";
+import FeaturedCardMobile from "./FeaturedCardMobile";
 import { Collection } from "@aws-amplify/ui-react";
-export default function TopicButtonCollection(props) {
+export default function FeaturedCardMobileCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Topic,
+    model: FeaturedContent,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
       setItems(itemsProp);
       return;
     }
-    async function setItemsFromDataStore() {
-      var loaded = await Promise.all(
-        itemsDataStore.map(async (item) => ({
-          ...item,
-          Resources: await item.Resources.toArray(),
-        }))
-      );
-      setItems(loaded);
-    }
-    setItemsFromDataStore();
+    setItems(itemsDataStore);
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
+      type="list"
       searchPlaceholder="Search..."
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      direction="row"
+      alignItems="center"
       items={items || []}
-      {...getOverrideProps(overrides, "TopicButtonCollection")}
+      {...getOverrideProps(overrides, "FeaturedCardMobileCollection")}
       {...rest}
     >
       {(item, index) => (
-        <TopicButton
-          topic={item}
-          height="auto"
-          width="340px"
+        <FeaturedCardMobile
+          featuredContent={item}
+          width="auto"
           margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></TopicButton>
+        ></FeaturedCardMobile>
       )}
     </Collection>
   );

@@ -88,7 +88,7 @@ export default function EventCardDefault(props) {
         ></Text>
       </Flex>
       <Flex
-        gap="0"
+        gap="5px"
         direction="column"
         width="212px"
         height="unset"

@@ -6,35 +6,26 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Topic } from "../models";
+import { Resource } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import TopicButton from "./TopicButton";
+import ResourceCard from "./ResourceCard";
 import { Collection } from "@aws-amplify/ui-react";
-export default function TopicButtonCollection(props) {
+export default function SavedResourceCardCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Topic,
+    model: Resource,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
       setItems(itemsProp);
       return;
     }
-    async function setItemsFromDataStore() {
-      var loaded = await Promise.all(
-        itemsDataStore.map(async (item) => ({
-          ...item,
-          Resources: await item.Resources.toArray(),
-        }))
-      );
-      setItems(loaded);
-    }
-    setItemsFromDataStore();
+    setItems(itemsDataStore);
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
@@ -45,18 +36,18 @@ export default function TopicButtonCollection(props) {
       alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
-      {...getOverrideProps(overrides, "TopicButtonCollection")}
+      {...getOverrideProps(overrides, "SavedResourceCardCollection")}
       {...rest}
     >
       {(item, index) => (
-        <TopicButton
-          topic={item}
+        <ResourceCard
+          resource={item}
           height="auto"
-          width="340px"
-          margin="10px 10px 10px 10px"
+          width="auto"
+          margin="0 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></TopicButton>
+        ></ResourceCard>
       )}
     </Collection>
   );

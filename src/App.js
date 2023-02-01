@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Emergency from './pages/Emergency';
 import Main from './pages/Main';
 import Search from './pages/Search';
-import Saved from './pages/Saved';
+import { EventCardExpanded } from './ui-components';
 
 function App() {
   return (
