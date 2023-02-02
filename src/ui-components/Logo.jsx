@@ -13,7 +13,7 @@ import {
 import { Icon } from "@aws-amplify/ui-react";
 export default function Logo(props) {
   const { overrides, ...rest } = props;
-  const logoOnClick = useNavigateAction({ type: "url", url: "/home" });
+  const logoOnClick = useNavigateAction({ type: "url", url: "/" });
   return (
     <Icon
       width="224px"

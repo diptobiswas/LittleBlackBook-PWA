@@ -33,8 +33,8 @@ export default function SavedResourceCardCollection(props) {
       searchPlaceholder="Search..."
       templateColumns="1fr 1fr 1fr"
       autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      alignItems="center"
+      justifyContent="center"
       items={items || []}
       {...getOverrideProps(overrides, "SavedResourceCardCollection")}
       {...rest}
@@ -44,7 +44,7 @@ export default function SavedResourceCardCollection(props) {
           resource={item}
           height="auto"
           width="auto"
-          margin="0 10px 10px 10px"
+          margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></ResourceCard>

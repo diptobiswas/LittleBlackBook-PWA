@@ -37,6 +37,10 @@ export default function NavbarDesktop(props) {
     getOverridesFromVariants(variants, props),
     overridesProp || {}
   );
+  const vectorThreeSevenEightFiveThreeZeroZeroFourOnClick = useNavigateAction({
+    type: "url",
+    url: "/Saved",
+  });
   const groupThreeTwoOnClick = useNavigateAction({
     type: "url",
     url: "/emergency",
@@ -103,6 +107,9 @@ export default function NavbarDesktop(props) {
           position="absolute"
           top="14.5px"
           left="0px"
+          onClick={() => {
+            vectorThreeSevenEightFiveThreeZeroZeroFourOnClick();
+          }}
           {...getOverrideProps(overrides, "Vector37853004")}
         ></Icon>
         <View

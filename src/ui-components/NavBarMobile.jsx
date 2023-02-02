@@ -15,7 +15,7 @@ export default function NavBarMobile(props) {
   const { overrides, ...rest } = props;
   const vectorThreeSixSevenFiveFourOneZeroFourOnClick = useNavigateAction({
     type: "url",
-    url: "/home",
+    url: "/",
   });
   const vectorThreeSixSevenFiveFourZeroSevenOneOnClick = useNavigateAction({
     type: "url",
