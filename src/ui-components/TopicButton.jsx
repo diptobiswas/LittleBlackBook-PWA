@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function TopicButton(props) {
   const { topic, overrides, ...rest } = props;
+  const topicButtonOnClick = useNavigateAction({
+    type: "url",
+    url: "/Resources",
+  });
   return (
     <Flex
       gap="10px"
@@ -23,6 +30,9 @@ export default function TopicButton(props) {
       borderRadius="10px"
       padding="12px 29px 12px 29px"
       backgroundColor="rgba(255,255,255,1)"
+      onClick={() => {
+        topicButtonOnClick();
+      }}
       {...getOverrideProps(overrides, "TopicButton")}
       {...rest}
     >

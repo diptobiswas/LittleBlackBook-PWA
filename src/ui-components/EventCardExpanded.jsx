@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function EventCardExpanded(props) {
   const { events, overrides, ...rest } = props;
+  const eventCardExpandedOnClick = useNavigateAction({
+    type: "url",
+    url: `${"/"}${events?.Name}`,
+  });
   return (
     <Flex
       gap="10px"
@@ -20,8 +27,9 @@ export default function EventCardExpanded(props) {
       alignItems="center"
       position="relative"
       padding="2px 0px 2px 0px"
-      href={`${"/"}${events?.id}`}
-      as="a"
+      onClick={() => {
+        eventCardExpandedOnClick();
+      }}
       {...getOverrideProps(overrides, "EventCardExpanded")}
       {...rest}
     >
@@ -148,7 +156,7 @@ export default function EventCardExpanded(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="EventDescription"
+            children={events?.Description}
             {...getOverrideProps(overrides, "EventDescription")}
           ></Text>
         </Flex>

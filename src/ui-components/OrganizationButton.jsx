@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Text } from "@aws-amplify/ui-react";
 export default function OrganizationButton(props) {
   const { organization, overrides, ...rest } = props;
+  const organizationButtonOnClick = useNavigateAction({
+    type: "url",
+    url: "/Resources",
+  });
   return (
     <Flex
       gap="10px"
@@ -23,6 +30,9 @@ export default function OrganizationButton(props) {
       borderRadius="10px"
       padding="12px 29px 12px 29px"
       backgroundColor="rgba(255,255,255,1)"
+      onClick={() => {
+        organizationButtonOnClick();
+      }}
       {...getOverrideProps(overrides, "OrganizationButton")}
       {...rest}
     >

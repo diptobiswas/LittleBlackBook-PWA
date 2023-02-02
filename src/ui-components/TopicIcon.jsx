@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function TopicIcon(props) {
   const { topic, overrides, ...rest } = props;
+  const iconOnClick = useNavigateAction({ type: "url", url: "/Resources" });
   return (
     <Flex
       gap="11px"
@@ -33,6 +37,9 @@ export default function TopicIcon(props) {
         justifyContent="unset"
         shrink="0"
         position="relative"
+        onClick={() => {
+          iconOnClick();
+        }}
         {...getOverrideProps(overrides, "icon")}
       >
         <View

@@ -38,12 +38,12 @@ export default function EventCardExpandedCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="list"
-      isPaginated={true}
+      type="grid"
       searchPlaceholder="Search..."
-      itemsPerPage={3}
-      direction="row"
+      templateColumns="1fr 1fr 1fr"
+      autoFlow="row"
       alignItems="stretch"
+      justifyContent="stretch"
       items={items || []}
       {...getOverrideProps(overrides, "EventCardExpandedCollection")}
       {...rest}
@@ -51,6 +51,9 @@ export default function EventCardExpandedCollection(props) {
       {(item, index) => (
         <EventCardExpanded
           events={item}
+          height="auto"
+          width="auto"
+          margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></EventCardExpanded>

@@ -10,6 +10,7 @@ import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
+  useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function ResourceCard(props) {
@@ -105,6 +106,14 @@ export default function ResourceCard(props) {
     getOverridesFromVariants(variants, props),
     overridesProp || {}
   );
+  const [frameFourFiveHidden, setFrameFourFiveHidden] =
+    useStateMutationAction(undefined);
+  const serviceAddressOnClick = () => {
+    setFrameFourFiveHidden(resource?.Description);
+  };
+  const rectangleOneOneSevenZeroOnClick = () => {
+    setFrameFourFiveHidden(resource?.id);
+  };
   return (
     <Flex
       gap="25px"
@@ -353,6 +362,7 @@ export default function ResourceCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           display="flex"
+          hidden={frameFourFiveHidden}
           {...getOverrideProps(overrides, "Frame 45")}
         >
           <Text
@@ -396,7 +406,10 @@ export default function ResourceCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={resource?.Address}
+            children="ServiceAddress"
+            onClick={() => {
+              serviceAddressOnClick();
+            }}
             {...getOverrideProps(overrides, "ServiceAddress")}
           ></Text>
         </Flex>
@@ -479,6 +492,9 @@ export default function ResourceCard(props) {
           borderRadius="0px 0px 10px 10px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(240,240,240,1)"
+          onClick={() => {
+            rectangleOneOneSevenZeroOnClick();
+          }}
           {...getOverrideProps(overrides, "Rectangle 1170")}
         ></View>
         <Icon

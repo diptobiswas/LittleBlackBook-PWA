@@ -48,7 +48,7 @@ function Home() {
         {FeaturedCardMobile}
         {EventCard}
       </div>
-    );
-}
+    )
+};
 
 export default Home;
