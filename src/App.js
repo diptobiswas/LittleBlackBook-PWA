@@ -7,6 +7,8 @@ import Main from './pages/Main';
 import Search from './pages/Search';
 import Saved from './pages/Saved';
 import Event from './pages/Event';
+import Resources from './pages/Resources';
+import Profile from './pages/Profile';
 import { EventCardExpanded } from './ui-components';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
           <Route path="search" element={<Search/>} />
           <Route path="emergency" element={<Emergency/>} />
           <Route path="saved" element={<Saved/>} />
+          <Route path="Resources" element={<Resources/>} />
+          <Route path="profile" element={<Profile/>} />
           <Route path="event/:slug" element={<Event/>} />
           <Route path="*" element={<NoMatch />} />
         </Route>
