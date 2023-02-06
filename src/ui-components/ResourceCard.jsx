@@ -108,11 +108,13 @@ export default function ResourceCard(props) {
   );
   const [frameFourFiveHidden, setFrameFourFiveHidden] =
     useStateMutationAction(undefined);
+  const [serviceDetailsHidden, setServiceDetailsHidden] =
+    useStateMutationAction(undefined);
   const serviceAddressOnClick = () => {
     setFrameFourFiveHidden(resource?.Description);
   };
   const rectangleOneOneSevenZeroOnClick = () => {
-    setFrameFourFiveHidden(resource?.id);
+    setServiceDetailsHidden(true);
   };
   return (
     <Flex
@@ -385,6 +387,7 @@ export default function ResourceCard(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children={resource?.Description}
+            hidden={serviceDetailsHidden}
             {...getOverrideProps(overrides, "ServiceDetails")}
           ></Text>
           <Text

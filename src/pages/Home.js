@@ -5,12 +5,11 @@ import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpand
 import { Flex, SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
 
 function Home() {
-  
     const MobileSearchBar = useBreakpointValue({
-      small: <SearchField marginLeft={110} marginTop={30} marginRight={110}
+      small: <SearchField padding={30}
               placeholder="Search for resources"
               />,
-      large: <SearchField marginLeft={110} marginTop={10} marginRight={110}
+      large: <SearchField padding={30}
               placeholder="Search for resources"
               />
     })
@@ -41,7 +40,7 @@ function Home() {
     return (
       <div className="home">
         {MobileSearchBar}
-        <Flex display={'horizontal direction'} width={'100vh'} margin={'auto'}>
+        <Flex display={'horizontal direction'} justifyContent={'center'}>
             {FeaturedCardDesktop}
             {TopicIcons}
         </Flex>

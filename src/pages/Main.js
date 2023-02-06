@@ -6,8 +6,8 @@ import { Outlet, Link} from "react-router-dom";
 function Main() {
   
   const MobileDesktopSwitch = useBreakpointValue({
-    small: <TopbarMobile width={'100vw'} position={'sticky'} top='0'></TopbarMobile>,
-    large: <NavbarDesktop width={'100vw'} position={'sticky'} top='0'></NavbarDesktop>
+    small: <TopbarMobile width={'100vw'} position={'sticky'} top='0' style={{zIndex : 999}}></TopbarMobile>,
+    large: <NavbarDesktop width={'100vw'} position={'sticky'} top='0' style={{zIndex : 999}}></NavbarDesktop>
   });
   const MobileNavbar=useBreakpointValue({
     small: <NavBarMobile width={'100vw'} position={'fixed'} bottom='0'></NavBarMobile>,
@@ -15,7 +15,7 @@ function Main() {
   });
 
   return (
-    <div className="main">
+    <div>
       {MobileDesktopSwitch}
         <Outlet/>
      {MobileNavbar}
