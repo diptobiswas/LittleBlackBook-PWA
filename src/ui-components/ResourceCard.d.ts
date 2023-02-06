@@ -35,8 +35,9 @@ export declare type ResourceCardOverridesProps = {
 } & EscapeHatchProps;
 export declare type ResourceCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     resource?: Resource;
+    variant?: String;
 } & {
-    property1?: "expanded_saved" | "expanded_unsaved" | "small";
+    variant?: "expanded_saved" | "expanded_unsaved" | "small";
 } & {
     overrides?: ResourceCardOverridesProps | undefined | null;
 }>;

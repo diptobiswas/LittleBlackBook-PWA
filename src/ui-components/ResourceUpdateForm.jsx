@@ -6,13 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import {
-  Button,
-  Flex,
-  Grid,
-  SwitchField,
-  TextField,
-} from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Resource } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -31,19 +25,19 @@ export default function ResourceUpdateForm(props) {
   } = props;
   const initialValues = {
     Name: "",
-    Phone: "",
-    Description: "",
-    Website: "",
     Address: "",
-    SaveStatus: false,
+    Description: "",
+    Phone: "",
+    Website: "",
+    SaveStatus: "",
   };
   const [Name, setName] = React.useState(initialValues.Name);
-  const [Phone, setPhone] = React.useState(initialValues.Phone);
+  const [Address, setAddress] = React.useState(initialValues.Address);
   const [Description, setDescription] = React.useState(
     initialValues.Description
   );
+  const [Phone, setPhone] = React.useState(initialValues.Phone);
   const [Website, setWebsite] = React.useState(initialValues.Website);
-  const [Address, setAddress] = React.useState(initialValues.Address);
   const [SaveStatus, setSaveStatus] = React.useState(initialValues.SaveStatus);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
@@ -51,10 +45,10 @@ export default function ResourceUpdateForm(props) {
       ? { ...initialValues, ...resourceRecord }
       : initialValues;
     setName(cleanValues.Name);
-    setPhone(cleanValues.Phone);
-    setDescription(cleanValues.Description);
-    setWebsite(cleanValues.Website);
     setAddress(cleanValues.Address);
+    setDescription(cleanValues.Description);
+    setPhone(cleanValues.Phone);
+    setWebsite(cleanValues.Website);
     setSaveStatus(cleanValues.SaveStatus);
     setErrors({});
   };
@@ -71,10 +65,10 @@ export default function ResourceUpdateForm(props) {
   React.useEffect(resetStateValues, [resourceRecord]);
   const validations = {
     Name: [],
-    Phone: [{ type: "Phone" }],
-    Description: [],
-    Website: [{ type: "URL" }],
     Address: [],
+    Description: [],
+    Phone: [{ type: "Phone" }],
+    Website: [{ type: "URL" }],
     SaveStatus: [],
   };
   const runValidationTasks = async (
@@ -103,10 +97,10 @@ export default function ResourceUpdateForm(props) {
         event.preventDefault();
         let modelFields = {
           Name,
-          Phone,
-          Description,
-          Website,
           Address,
+          Description,
+          Phone,
+          Website,
           SaveStatus,
         };
         const validationResponses = await Promise.all(
@@ -164,10 +158,10 @@ export default function ResourceUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               Name: value,
-              Phone,
-              Description,
-              Website,
               Address,
+              Description,
+              Phone,
+              Website,
               SaveStatus,
             };
             const result = onChange(modelFields);
@@ -184,34 +178,33 @@ export default function ResourceUpdateForm(props) {
         {...getOverrideProps(overrides, "Name")}
       ></TextField>
       <TextField
-        label="Phone"
+        label="Address"
         isRequired={false}
         isReadOnly={false}
-        type="tel"
-        value={Phone}
+        value={Address}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               Name,
-              Phone: value,
+              Address: value,
               Description,
+              Phone,
               Website,
-              Address,
               SaveStatus,
             };
             const result = onChange(modelFields);
-            value = result?.Phone ?? value;
+            value = result?.Address ?? value;
           }
-          if (errors.Phone?.hasError) {
-            runValidationTasks("Phone", value);
+          if (errors.Address?.hasError) {
+            runValidationTasks("Address", value);
           }
-          setPhone(value);
+          setAddress(value);
         }}
-        onBlur={() => runValidationTasks("Phone", Phone)}
-        errorMessage={errors.Phone?.errorMessage}
-        hasError={errors.Phone?.hasError}
-        {...getOverrideProps(overrides, "Phone")}
+        onBlur={() => runValidationTasks("Address", Address)}
+        errorMessage={errors.Address?.errorMessage}
+        hasError={errors.Address?.hasError}
+        {...getOverrideProps(overrides, "Address")}
       ></TextField>
       <TextField
         label="Description"
@@ -223,10 +216,10 @@ export default function ResourceUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               Name,
-              Phone,
-              Description: value,
-              Website,
               Address,
+              Description: value,
+              Phone,
+              Website,
               SaveStatus,
             };
             const result = onChange(modelFields);
@@ -243,6 +236,36 @@ export default function ResourceUpdateForm(props) {
         {...getOverrideProps(overrides, "Description")}
       ></TextField>
       <TextField
+        label="Phone"
+        isRequired={false}
+        isReadOnly={false}
+        type="tel"
+        value={Phone}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Address,
+              Description,
+              Phone: value,
+              Website,
+              SaveStatus,
+            };
+            const result = onChange(modelFields);
+            value = result?.Phone ?? value;
+          }
+          if (errors.Phone?.hasError) {
+            runValidationTasks("Phone", value);
+          }
+          setPhone(value);
+        }}
+        onBlur={() => runValidationTasks("Phone", Phone)}
+        errorMessage={errors.Phone?.errorMessage}
+        hasError={errors.Phone?.hasError}
+        {...getOverrideProps(overrides, "Phone")}
+      ></TextField>
+      <TextField
         label="Website"
         isRequired={false}
         isReadOnly={false}
@@ -252,10 +275,10 @@ export default function ResourceUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               Name,
-              Phone,
-              Description,
-              Website: value,
               Address,
+              Description,
+              Phone,
+              Website: value,
               SaveStatus,
             };
             const result = onChange(modelFields);
@@ -272,48 +295,19 @@ export default function ResourceUpdateForm(props) {
         {...getOverrideProps(overrides, "Website")}
       ></TextField>
       <TextField
-        label="Address"
+        label="Save status"
         isRequired={false}
         isReadOnly={false}
-        value={Address}
+        value={SaveStatus}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               Name,
-              Phone,
-              Description,
-              Website,
-              Address: value,
-              SaveStatus,
-            };
-            const result = onChange(modelFields);
-            value = result?.Address ?? value;
-          }
-          if (errors.Address?.hasError) {
-            runValidationTasks("Address", value);
-          }
-          setAddress(value);
-        }}
-        onBlur={() => runValidationTasks("Address", Address)}
-        errorMessage={errors.Address?.errorMessage}
-        hasError={errors.Address?.hasError}
-        {...getOverrideProps(overrides, "Address")}
-      ></TextField>
-      <SwitchField
-        label="Save status"
-        defaultChecked={false}
-        isDisabled={false}
-        isChecked={SaveStatus}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              Name,
-              Phone,
-              Description,
-              Website,
               Address,
+              Description,
+              Phone,
+              Website,
               SaveStatus: value,
             };
             const result = onChange(modelFields);
@@ -328,7 +322,7 @@ export default function ResourceUpdateForm(props) {
         errorMessage={errors.SaveStatus?.errorMessage}
         hasError={errors.SaveStatus?.hasError}
         {...getOverrideProps(overrides, "SaveStatus")}
-      ></SwitchField>
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

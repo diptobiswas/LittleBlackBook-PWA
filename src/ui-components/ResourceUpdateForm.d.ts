@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, SwitchFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Resource } from "../models";
 export declare type ValidationResponse = {
@@ -15,29 +15,29 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type ResourceUpdateFormInputValues = {
     Name?: string;
-    Phone?: string;
-    Description?: string;
-    Website?: string;
     Address?: string;
-    SaveStatus?: boolean;
+    Description?: string;
+    Phone?: string;
+    Website?: string;
+    SaveStatus?: string;
 };
 export declare type ResourceUpdateFormValidationValues = {
     Name?: ValidationFunction<string>;
-    Phone?: ValidationFunction<string>;
-    Description?: ValidationFunction<string>;
-    Website?: ValidationFunction<string>;
     Address?: ValidationFunction<string>;
-    SaveStatus?: ValidationFunction<boolean>;
+    Description?: ValidationFunction<string>;
+    Phone?: ValidationFunction<string>;
+    Website?: ValidationFunction<string>;
+    SaveStatus?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ResourceUpdateFormOverridesProps = {
     ResourceUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
     Name?: PrimitiveOverrideProps<TextFieldProps>;
-    Phone?: PrimitiveOverrideProps<TextFieldProps>;
-    Description?: PrimitiveOverrideProps<TextFieldProps>;
-    Website?: PrimitiveOverrideProps<TextFieldProps>;
     Address?: PrimitiveOverrideProps<TextFieldProps>;
-    SaveStatus?: PrimitiveOverrideProps<SwitchFieldProps>;
+    Description?: PrimitiveOverrideProps<TextFieldProps>;
+    Phone?: PrimitiveOverrideProps<TextFieldProps>;
+    Website?: PrimitiveOverrideProps<TextFieldProps>;
+    SaveStatus?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ResourceUpdateFormProps = React.PropsWithChildren<{
     overrides?: ResourceUpdateFormOverridesProps | undefined | null;

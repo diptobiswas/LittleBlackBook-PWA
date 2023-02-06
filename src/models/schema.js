@@ -49,14 +49,14 @@ export const schema = {
                     "name": "organizationID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "topicID": {
                     "name": "topicID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "SaveStatus": {
@@ -587,5 +587,5 @@ export const schema = {
     },
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "5cc0319fd3187ec88a68032f7b3edeb3"
+    "version": "fbe59c499f6b9dc08b800017d4bd1488"
 };

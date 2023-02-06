@@ -8,6 +8,7 @@
 import * as React from "react";
 import { Resource } from "../models";
 import {
+  createDataStorePredicate,
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
@@ -15,10 +16,17 @@ import ResourceCard from "./ResourceCard";
 import { Collection } from "@aws-amplify/ui-react";
 export default function UnsavedResourceCardCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
+  const itemsFilterObj = {
+    field: "SaveStatus",
+    operand: "false",
+    operator: "eq",
+  };
+  const itemsFilter = createDataStorePredicate(itemsFilterObj);
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
     model: Resource,
+    criteria: itemsFilter,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
@@ -29,21 +37,23 @@ export default function UnsavedResourceCardCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="list"
+      type="grid"
       searchPlaceholder="Search..."
-      direction="column"
+      itemsPerPage={6}
+      templateColumns="1fr 1fr 1fr"
+      autoFlow="row"
       alignItems="stretch"
-      justifyContent="left"
+      justifyContent="stretch"
       items={items || []}
       {...getOverrideProps(overrides, "UnsavedResourceCardCollection")}
       {...rest}
     >
       {(item, index) => (
         <ResourceCard
+          resource={item}
           height="auto"
           width="auto"
-          margin="0 0 0 0"
-          resource={item}
+          margin="10px 5px auto 5px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></ResourceCard>

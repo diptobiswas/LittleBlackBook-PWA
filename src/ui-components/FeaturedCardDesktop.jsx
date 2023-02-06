@@ -39,6 +39,7 @@ export default function FeaturedCardDesktop(props) {
         borderRadius="20px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src={featuredContent?.image}
         {...getOverrideProps(overrides, "featuredimage")}
       ></Image>
       <Flex

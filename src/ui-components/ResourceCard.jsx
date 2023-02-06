@@ -14,7 +14,7 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function ResourceCard(props) {
-  const { resource, overrides: overridesProp, ...rest } = props;
+  const { resource, variant, overrides: overridesProp, ...rest } = props;
   const variants = [
     {
       overrides: {
@@ -41,7 +41,7 @@ export default function ResourceCard(props) {
         collapse: {},
         ResourceCard: {},
       },
-      variantValues: { property1: "expanded_saved" },
+      variantValues: { variant: "expanded_saved" },
     },
     {
       overrides: {
@@ -68,7 +68,7 @@ export default function ResourceCard(props) {
         collapse: {},
         ResourceCard: {},
       },
-      variantValues: { property1: "expanded_unsaved" },
+      variantValues: { variant: "expanded_unsaved" },
     },
     {
       overrides: {
@@ -99,22 +99,17 @@ export default function ResourceCard(props) {
           padding: "15px 0px 15px 0px",
         },
       },
-      variantValues: { property1: "small" },
+      variantValues: { variant: "small" },
     },
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
     overridesProp || {}
   );
-  const [frameFourFiveHidden, setFrameFourFiveHidden] =
-    useStateMutationAction(undefined);
-  const [serviceDetailsHidden, setServiceDetailsHidden] =
-    useStateMutationAction(undefined);
-  const serviceAddressOnClick = () => {
-    setFrameFourFiveHidden(resource?.Description);
-  };
-  const rectangleOneOneSevenZeroOnClick = () => {
-    setServiceDetailsHidden(true);
+  const [saveforofflineaccessDisplay, setSaveforofflineaccessDisplay] =
+    useStateMutationAction("block");
+  const rectangleOneOneSevenOneOnClick = () => {
+    setSaveforofflineaccessDisplay("none");
   };
   return (
     <Flex
@@ -364,7 +359,6 @@ export default function ResourceCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           display="flex"
-          hidden={frameFourFiveHidden}
           {...getOverrideProps(overrides, "Frame 45")}
         >
           <Text
@@ -387,7 +381,6 @@ export default function ResourceCard(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children={resource?.Description}
-            hidden={serviceDetailsHidden}
             {...getOverrideProps(overrides, "ServiceDetails")}
           ></Text>
           <Text
@@ -409,10 +402,7 @@ export default function ResourceCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="ServiceAddress"
-            onClick={() => {
-              serviceAddressOnClick();
-            }}
+            children={resource?.Address}
             {...getOverrideProps(overrides, "ServiceAddress")}
           ></Text>
         </Flex>
@@ -441,6 +431,9 @@ export default function ResourceCard(props) {
             borderRadius="10px"
             padding="0px 0px 0px 0px"
             backgroundColor="rgba(240,240,240,1)"
+            onClick={() => {
+              rectangleOneOneSevenOneOnClick();
+            }}
             {...getOverrideProps(overrides, "Rectangle 1171")}
           ></View>
           <Text
@@ -450,7 +443,7 @@ export default function ResourceCard(props) {
             color="rgba(0,0,0,1)"
             lineHeight="12px"
             textAlign="center"
-            display="block"
+            display={saveforofflineaccessDisplay}
             direction="column"
             justifyContent="unset"
             letterSpacing="0.01px"
@@ -495,9 +488,6 @@ export default function ResourceCard(props) {
           borderRadius="0px 0px 10px 10px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(240,240,240,1)"
-          onClick={() => {
-            rectangleOneOneSevenZeroOnClick();
-          }}
           {...getOverrideProps(overrides, "Rectangle 1170")}
         ></View>
         <Icon

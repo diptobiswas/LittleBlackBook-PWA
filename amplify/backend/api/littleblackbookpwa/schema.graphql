@@ -5,8 +5,8 @@ type Resource @model @auth(rules: [{allow: public}]) {
   Description: String
   Phone: AWSPhone
   Website: AWSURL
-  organizationID: ID! @index(name: "byOrganization")
-  topicID: ID! @index(name: "byTopic")
+  organizationID: ID @index(name: "byOrganization")
+  topicID: ID @index(name: "byTopic")
   SaveStatus: String
 }
 

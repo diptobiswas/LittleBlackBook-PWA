@@ -24,8 +24,8 @@ type EagerResource = {
   readonly Description?: string | null;
   readonly Phone?: string | null;
   readonly Website?: string | null;
-  readonly organizationID: string;
-  readonly topicID: string;
+  readonly organizationID?: string | null;
+  readonly topicID?: string | null;
   readonly SaveStatus?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -42,8 +42,8 @@ type LazyResource = {
   readonly Description?: string | null;
   readonly Phone?: string | null;
   readonly Website?: string | null;
-  readonly organizationID: string;
-  readonly topicID: string;
+  readonly organizationID?: string | null;
+  readonly topicID?: string | null;
   readonly SaveStatus?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;

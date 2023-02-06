@@ -8,6 +8,7 @@
 import * as React from "react";
 import { Resource } from "../models";
 import {
+  createDataStorePredicate,
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
@@ -15,10 +16,17 @@ import ResourceCard from "./ResourceCard";
 import { Collection } from "@aws-amplify/ui-react";
 export default function SavedResourceCardCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
+  const itemsFilterObj = {
+    field: "SaveStatus",
+    operand: "true",
+    operator: "eq",
+  };
+  const itemsFilter = createDataStorePredicate(itemsFilterObj);
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
     model: Resource,
+    criteria: itemsFilter,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
@@ -29,12 +37,13 @@ export default function SavedResourceCardCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
+      type="list"
+      isPaginated={true}
       searchPlaceholder="Search..."
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
+      itemsPerPage={6}
+      direction="column"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="left"
       items={items || []}
       {...getOverrideProps(overrides, "SavedResourceCardCollection")}
       {...rest}

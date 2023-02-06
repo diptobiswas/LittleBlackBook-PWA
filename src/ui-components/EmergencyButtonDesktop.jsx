@@ -23,6 +23,8 @@ export default function EmergencyButtonDesktop(props) {
       borderRadius="20px"
       padding="30px 46px 30px 30px"
       backgroundColor="rgba(255,255,255,1)"
+      as="a"
+      href={`${"tel:"}${emergency?.Phone}`}
       {...getOverrideProps(overrides, "EmergencyButtonDesktop")}
       {...rest}
     >

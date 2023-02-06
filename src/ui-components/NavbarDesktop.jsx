@@ -61,7 +61,6 @@ export default function NavbarDesktop(props) {
       padding="13px 44px 13px 44px"
       backgroundColor="rgba(0,0,0,1)"
       display="flex"
-      
       {...getOverrideProps(overrides, "NavbarDesktop")}
       {...rest}
     >
