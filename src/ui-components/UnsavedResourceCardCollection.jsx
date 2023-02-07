@@ -38,6 +38,7 @@ export default function UnsavedResourceCardCollection(props) {
   return (
     <Collection
       type="grid"
+      isSearchable={true}
       searchPlaceholder="Search..."
       itemsPerPage={6}
       templateColumns="1fr 1fr 1fr"

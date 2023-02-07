@@ -11,9 +11,9 @@ import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import EventCardExpanded from "./EventCardExpanded";
+import EventPageDesktop from "./EventPageDesktop";
 import { Collection } from "@aws-amplify/ui-react";
-export default function EventCardExpandedCollection(props) {
+export default function EventPageDesktopCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
@@ -38,27 +38,23 @@ export default function EventCardExpandedCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
+      type="list"
       isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={3}
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      itemsPerPage={1}
+      direction="column"
+      justifyContent="center"
       items={items || []}
-      {...getOverrideProps(overrides, "EventCardExpandedCollection")}
+      {...getOverrideProps(overrides, "EventPageDesktopCollection")}
       {...rest}
     >
       {(item, index) => (
-        <EventCardExpanded
+        <EventPageDesktop
           events={item}
-          height="auto"
-          width="auto"
           margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></EventCardExpanded>
+        ></EventPageDesktop>
       )}
     </Collection>
   );

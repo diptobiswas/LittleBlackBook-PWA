@@ -37,13 +37,15 @@ export default function SavedResourceCardCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="list"
+      type="grid"
+      isSearchable={true}
       isPaginated={true}
       searchPlaceholder="Search..."
       itemsPerPage={6}
-      direction="column"
-      alignItems="center"
-      justifyContent="left"
+      templateColumns="1fr 1fr 1fr"
+      autoFlow="row"
+      alignItems="stretch"
+      justifyContent="stretch"
       items={items || []}
       {...getOverrideProps(overrides, "SavedResourceCardCollection")}
       {...rest}
@@ -53,7 +55,7 @@ export default function SavedResourceCardCollection(props) {
           resource={item}
           height="auto"
           width="auto"
-          margin="10px 10px 10px 10px"
+          margin="10px 10px auto 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></ResourceCard>

@@ -31,8 +31,8 @@ export default function EmergencyButtonDesktopCollection(props) {
     <Collection
       type="grid"
       searchPlaceholder="Search..."
-      templateRows="1fr 1fr"
-      autoFlow="column"
+      templateColumns="1fr 1fr 1fr"
+      autoFlow="row"
       alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
@@ -42,9 +42,7 @@ export default function EmergencyButtonDesktopCollection(props) {
       {(item, index) => (
         <EmergencyButtonDesktop
           emergency={item}
-          height="auto"
-          width="500px"
-          margin="0 10px 20px 10px"
+          margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></EmergencyButtonDesktop>

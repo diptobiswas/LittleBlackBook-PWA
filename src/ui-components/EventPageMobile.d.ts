@@ -5,6 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Events } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
@@ -24,6 +25,8 @@ export declare type EventPageMobileOverridesProps = {
     "Event Address"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type EventPageMobileProps = React.PropsWithChildren<Partial<ViewProps> & {
+    events?: Events;
+} & {
     overrides?: EventPageMobileOverridesProps | undefined | null;
 }>;
 export default function EventPageMobile(props: EventPageMobileProps): React.ReactElement;

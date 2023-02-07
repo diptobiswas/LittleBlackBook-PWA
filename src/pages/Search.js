@@ -1,5 +1,5 @@
 import {TopicButtonCollection, TopicIconCollection, OrganizationButton, OrganizationButtonMobileCollection, OrganizationButtonDesktopCollection} from '../ui-components';
-import {useBreakpointValue, SearchField } from '@aws-amplify/ui-react'
+import {Flex, useBreakpointValue, SearchField } from '@aws-amplify/ui-react'
 
 function Search() {
 
@@ -16,11 +16,12 @@ function Search() {
 
     return (
       <div className="search">
-        <SearchField marginLeft={110} marginTop={30} marginRight={110} marginBottom={20}
+        <SearchField padding={30}
             placeholder="Search for resources"
         />
         {Topics}
         {OrganizationIcons}
+        <Flex height={100}></Flex>
       </div>
     );
 }

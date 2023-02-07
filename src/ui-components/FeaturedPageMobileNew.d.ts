@@ -9,16 +9,16 @@ import { FeaturedContent } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type FeaturedPageMobileOverridesProps = {
-    FeaturedPageMobile?: PrimitiveOverrideProps<FlexProps>;
+export declare type FeaturedPageMobileNewOverridesProps = {
+    FeaturedPageMobileNew?: PrimitiveOverrideProps<FlexProps>;
     featuredimage?: PrimitiveOverrideProps<ImageProps>;
     "Frame 57"?: PrimitiveOverrideProps<FlexProps>;
     Featured_Title?: PrimitiveOverrideProps<TextProps>;
     "Featured Details"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type FeaturedPageMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type FeaturedPageMobileNewProps = React.PropsWithChildren<Partial<FlexProps> & {
     featuredContent?: FeaturedContent;
 } & {
-    overrides?: FeaturedPageMobileOverridesProps | undefined | null;
+    overrides?: FeaturedPageMobileNewOverridesProps | undefined | null;
 }>;
-export default function FeaturedPageMobile(props: FeaturedPageMobileProps): React.ReactElement;
+export default function FeaturedPageMobileNew(props: FeaturedPageMobileNewProps): React.ReactElement;

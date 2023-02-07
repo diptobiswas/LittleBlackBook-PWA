@@ -6,59 +6,44 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Events } from "../models";
+import { FeaturedContent } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import EventCardExpanded from "./EventCardExpanded";
+import FeaturedPageMobileNew from "./FeaturedPageMobileNew";
 import { Collection } from "@aws-amplify/ui-react";
-export default function EventCardExpandedCollection(props) {
+export default function FeaturedPageMobileNewCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Events,
+    model: FeaturedContent,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
       setItems(itemsProp);
       return;
     }
-    async function setItemsFromDataStore() {
-      var loaded = await Promise.all(
-        itemsDataStore.map(async (item) => ({
-          ...item,
-          Organization: await item.Organization,
-        }))
-      );
-      setItems(loaded);
-    }
-    setItemsFromDataStore();
+    setItems(itemsDataStore);
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
-      isPaginated={true}
+      type="list"
       searchPlaceholder="Search..."
-      itemsPerPage={3}
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      direction="column"
+      justifyContent="center"
       items={items || []}
-      {...getOverrideProps(overrides, "EventCardExpandedCollection")}
+      {...getOverrideProps(overrides, "FeaturedPageMobileNewCollection")}
       {...rest}
     >
       {(item, index) => (
-        <EventCardExpanded
-          events={item}
-          height="auto"
-          width="auto"
-          margin="10px 10px 10px 10px"
+        <FeaturedPageMobileNew
+          featuredContent={item}
+          margin="0px 0px 10px 0px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></EventCardExpanded>
+        ></FeaturedPageMobileNew>
       )}
     </Collection>
   );

@@ -8,60 +8,60 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
-export default function FeaturedPageDesktop(props) {
+export default function FeaturedPageMobileNew(props) {
   const { featuredContent, overrides, ...rest } = props;
   return (
     <Flex
-      gap="32px"
+      gap="23px"
       direction="column"
-      width="1054px"
-      height="694px"
+      width="390px"
+      height="844px"
       justifyContent="flex-start"
       alignItems="flex-start"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "FeaturedPageDesktop")}
+      {...getOverrideProps(overrides, "FeaturedPageMobileNew")}
       {...rest}
     >
       <Image
-        width="1054px"
-        height="500px"
+        width="390px"
+        height="357px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         shrink="0"
         position="relative"
-        borderRadius="20px"
+        borderRadius="12.442397117614746px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
         src={featuredContent?.image}
         {...getOverrideProps(overrides, "featuredimage")}
       ></Image>
       <Flex
-        gap="32px"
+        gap="15px"
         direction="column"
-        width="1054px"
+        width="340px"
         height="unset"
         justifyContent="center"
         alignItems="center"
         shrink="0"
         position="relative"
-        padding="0px 30px 0px 30px"
-        {...getOverrideProps(overrides, "Frame 49")}
+        padding="0px 10px 0px 10px"
+        {...getOverrideProps(overrides, "Frame 57")}
       >
         <Text
           fontFamily="Inter"
-          fontSize="48px"
+          fontSize="29.861751556396484px"
           fontWeight="700"
           color="rgba(0,0,0,1)"
-          lineHeight="58.09090805053711px"
+          lineHeight="36.13950729370117px"
           textAlign="left"
           display="block"
           direction="column"
           justifyContent="unset"
-          letterSpacing="0.33px"
-          width="981px"
+          letterSpacing="0.15px"
+          width="328px"
           height="unset"
           gap="unset"
           alignItems="unset"
@@ -74,16 +74,16 @@ export default function FeaturedPageDesktop(props) {
         ></Text>
         <Text
           fontFamily="Inter"
-          fontSize="24px"
+          fontSize="14.930875778198242px"
           fontWeight="400"
           color="rgba(0,0,0,1)"
-          lineHeight="29.045454025268555px"
+          lineHeight="18.069753646850586px"
           textAlign="left"
           display="block"
           direction="column"
           justifyContent="unset"
-          letterSpacing="0.09px"
-          width="968px"
+          letterSpacing="0px"
+          width="328px"
           height="unset"
           gap="unset"
           alignItems="unset"

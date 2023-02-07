@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Text } from "@aws-amplify/ui-react";
 export default function EventCardDefault(props) {
-  const { events, as, overrides, ...rest } = props;
+  const { events, overrides, ...rest } = props;
+  const eventCardDefaultOnClick = useNavigateAction({
+    type: "url",
+    url: "/Event",
+  });
   return (
     <Flex
       gap="0"
@@ -23,8 +30,9 @@ export default function EventCardDefault(props) {
       borderRadius="10px"
       padding="9px 20px 9px 20px"
       backgroundColor="rgba(255,255,255,1)"
-      href={`${"/"}${events?.id}`}
-      as="a"
+      onClick={() => {
+        eventCardDefaultOnClick();
+      }}
       {...getOverrideProps(overrides, "EventCardDefault")}
       {...rest}
     >

@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function EventPageDesktop(props) {
-  const { overrides, ...rest } = props;
+  const { events, overrides, ...rest } = props;
   return (
     <View
       width="1054px"
@@ -38,6 +38,7 @@ export default function EventPageDesktop(props) {
         borderRadius="20px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src={events?.Image}
         {...getOverrideProps(overrides, "featuredimage37652974")}
       ></Image>
       <Flex
@@ -74,7 +75,7 @@ export default function EventPageDesktop(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Event Name"
+          children={events?.Name}
           {...getOverrideProps(overrides, "Event Name")}
         ></Text>
         <Text
@@ -96,7 +97,7 @@ export default function EventPageDesktop(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Event Description"
+          children={events?.Description}
           {...getOverrideProps(overrides, "Event Description")}
         ></Text>
       </Flex>
@@ -156,7 +157,7 @@ export default function EventPageDesktop(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Event Address"
+          children={events?.Address}
           {...getOverrideProps(overrides, "Event Address")}
         ></Text>
       </Flex>
@@ -224,7 +225,7 @@ export default function EventPageDesktop(props) {
             left="44px"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="X"
+            children={events?.Day}
             {...getOverrideProps(overrides, "X")}
           ></Text>
         </Flex>
@@ -247,7 +248,7 @@ export default function EventPageDesktop(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Mon"
+          children={events?.Month}
           {...getOverrideProps(overrides, "Mon")}
         ></Text>
       </Flex>

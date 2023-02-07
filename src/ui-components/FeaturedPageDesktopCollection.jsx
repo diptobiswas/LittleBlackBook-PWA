@@ -6,59 +6,44 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Events } from "../models";
+import { FeaturedContent } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import EventCardExpanded from "./EventCardExpanded";
+import FeaturedPageDesktop from "./FeaturedPageDesktop";
 import { Collection } from "@aws-amplify/ui-react";
-export default function EventCardExpandedCollection(props) {
+export default function FeaturedPageDesktopCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Events,
+    model: FeaturedContent,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
       setItems(itemsProp);
       return;
     }
-    async function setItemsFromDataStore() {
-      var loaded = await Promise.all(
-        itemsDataStore.map(async (item) => ({
-          ...item,
-          Organization: await item.Organization,
-        }))
-      );
-      setItems(loaded);
-    }
-    setItemsFromDataStore();
+    setItems(itemsDataStore);
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
-      isPaginated={true}
+      type="list"
       searchPlaceholder="Search..."
-      itemsPerPage={3}
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      direction="column"
+      justifyContent="center"
       items={items || []}
-      {...getOverrideProps(overrides, "EventCardExpandedCollection")}
+      {...getOverrideProps(overrides, "FeaturedPageDesktopCollection")}
       {...rest}
     >
       {(item, index) => (
-        <EventCardExpanded
-          events={item}
-          height="auto"
-          width="auto"
+        <FeaturedPageDesktop
+          featuredContent={item}
           margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></EventCardExpanded>
+        ></FeaturedPageDesktop>
       )}
     </Collection>
   );

@@ -8,24 +8,24 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
-export default function FeaturedPageDesktop(props) {
+export default function FeaturedPageDesktopNew(props) {
   const { featuredContent, overrides, ...rest } = props;
   return (
     <Flex
       gap="32px"
       direction="column"
-      width="1054px"
-      height="694px"
+      width="1444px"
+      height="1024px"
       justifyContent="flex-start"
       alignItems="flex-start"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "FeaturedPageDesktop")}
+      {...getOverrideProps(overrides, "FeaturedPageDesktopNew")}
       {...rest}
     >
       <Image
-        width="1054px"
-        height="500px"
+        width="1444px"
+        height="651px"
         display="block"
         gap="unset"
         alignItems="unset"

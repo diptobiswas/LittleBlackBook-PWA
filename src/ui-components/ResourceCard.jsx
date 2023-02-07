@@ -10,6 +10,7 @@ import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
+  useNavigateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
@@ -36,7 +37,6 @@ export default function ResourceCard(props) {
         "Save for offline access": {},
         SaveButton: {},
         "Frame 46": {},
-        "Rectangle 1170": {},
         Vector37513076: {},
         collapse: {},
         ResourceCard: {},
@@ -63,7 +63,6 @@ export default function ResourceCard(props) {
         "Save for offline access": {},
         SaveButton: { display: "block" },
         "Frame 46": {},
-        "Rectangle 1170": {},
         Vector37513076: {},
         collapse: {},
         ResourceCard: {},
@@ -89,8 +88,7 @@ export default function ResourceCard(props) {
         "Rectangle 1171": {},
         "Save for offline access": {},
         SaveButton: {},
-        "Frame 46": { width: "unset", padding: "5px 0px 5px 0px" },
-        "Rectangle 1170": {},
+        "Frame 46": { padding: "5px 0px 5px 0px" },
         Vector37513076: {},
         collapse: { display: "none" },
         ResourceCard: {
@@ -108,6 +106,14 @@ export default function ResourceCard(props) {
   );
   const [saveforofflineaccessDisplay, setSaveforofflineaccessDisplay] =
     useStateMutationAction("block");
+  const websiteLinkOnClick = useNavigateAction({
+    type: "url",
+    url: resource?.Website,
+  });
+  const phoneLinkOnClick = useNavigateAction({
+    type: "url",
+    url: `${"tel:"}${resource?.Phone}`,
+  });
   const rectangleOneOneSevenOneOnClick = () => {
     setSaveforofflineaccessDisplay("none");
   };
@@ -134,7 +140,7 @@ export default function ResourceCard(props) {
         width="301px"
         height="unset"
         justifyContent="center"
-        alignItems="flex-start"
+        alignItems="center"
         shrink="0"
         position="relative"
         padding="5px 0px 0px 0px"
@@ -241,6 +247,9 @@ export default function ResourceCard(props) {
               position="absolute"
               top="0px"
               left="0px"
+              onClick={() => {
+                websiteLinkOnClick();
+              }}
               {...getOverrideProps(overrides, "WebsiteLink")}
             >
               <View
@@ -299,6 +308,9 @@ export default function ResourceCard(props) {
               position="absolute"
               top="0px"
               left="56.92px"
+              onClick={() => {
+                phoneLinkOnClick();
+              }}
               {...getOverrideProps(overrides, "PhoneLink")}
             >
               <View
@@ -462,34 +474,21 @@ export default function ResourceCard(props) {
         </Flex>
       </Flex>
       <Flex
-        padding="0px 0px 0px 0px"
-        width="340px"
-        height="30px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
+        gap="10px"
+        direction="column"
+        width="unset"
+        height="unset"
+        justifyContent="center"
+        alignItems="center"
         shrink="0"
+        alignSelf="stretch"
         position="relative"
+        borderRadius="0px 0px 10px 10px"
+        padding="10px 162px 10px 162px"
+        backgroundColor="rgba(240,240,240,1)"
+        display="flex"
         {...getOverrideProps(overrides, "collapse")}
       >
-        <View
-          width="340px"
-          height="30px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          position="absolute"
-          top="0%"
-          bottom="0%"
-          left="0%"
-          right="0%"
-          borderRadius="0px 0px 10px 10px"
-          padding="0px 0px 0px 0px"
-          backgroundColor="rgba(240,240,240,1)"
-          {...getOverrideProps(overrides, "Rectangle 1170")}
-        ></View>
         <Icon
           width="15px"
           height="8.57px"
@@ -505,11 +504,8 @@ export default function ResourceCard(props) {
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
-          position="absolute"
-          top="36.67%"
-          bottom="34.76%"
-          left="47.65%"
-          right="47.94%"
+          shrink="0"
+          position="relative"
           {...getOverrideProps(overrides, "Vector37513076")}
         ></Icon>
       </Flex>

@@ -4,22 +4,22 @@ import {useBreakpointValue } from '@aws-amplify/ui-react'
 function Emergency() {
 
   const EmergencyTitle = useBreakpointValue({
-    small: <EmergencyTitleMobile margin={30}></EmergencyTitleMobile>,
+    small: <EmergencyTitleMobile margin={30} height={'auto'}></EmergencyTitleMobile>,
     large: <EmergencyTitleDesktop margin={30}></EmergencyTitleDesktop>
   })
 
   const EmergencyCollection = useBreakpointValue({
-    small: <EmergencyButtonMobileCollection margin={30}></EmergencyButtonMobileCollection>,
+    small: <EmergencyButtonMobileCollection margin={'auto'} marginBlockEnd={100}></EmergencyButtonMobileCollection>,
     large: <EmergencyButtonDesktopCollection margin={'auto'}></EmergencyButtonDesktopCollection>
   })
 
 
-    return (
-      <div className="emergency">
-        {EmergencyTitle}
-        {EmergencyCollection}
-      </div>
-    );
+  return (
+    <div className="emergency">
+      {EmergencyTitle}
+      {EmergencyCollection}
+    </div>
+  );
 }
 
 export default Emergency;

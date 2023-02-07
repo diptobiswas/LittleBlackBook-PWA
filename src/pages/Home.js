@@ -1,19 +1,21 @@
 import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, 
   EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, 
   TopicIconDesktopCollection, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardMobile, 
-  FeaturedCardDesktopCollection, FeaturedCardMobileCollection, OrganizationButtonDesktopCollection} from '../ui-components';
+  FeaturedCardDesktopCollection, FeaturedCardMobileCollection, OrganizationButtonDesktopCollection,
+  UnsavedResourceCardCollection, UnsavedResourceCardCollectionMobile } from '../ui-components';
 import { Flex, SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
+import SearchResource from '../custom-components/SearchResource';
+import { Storage, API, graphqlOperation } from 'aws-amplify';
+import { searchResources, listResources } from '../graphql/queries';
+
+import React, { useState, useEffect } from "react";
 
 function Home() {
-    const MobileSearchBar = useBreakpointValue({
-      small: <SearchField padding={30}
-              placeholder="Search for resources"
-              />,
-      large: <SearchField padding={30}
-              placeholder="Search for resources"
-              />
+    const ResourceCollection = useBreakpointValue({
+      small: <UnsavedResourceCardCollectionMobile></UnsavedResourceCardCollectionMobile>,
+      large: <UnsavedResourceCardCollection margin={'auto'}></UnsavedResourceCardCollection>
     })
-  
+
     const FeaturedCardDesktop = useBreakpointValue({
       large: <FeaturedCardDesktopCollection margin={'auto'}></FeaturedCardDesktopCollection>
     })
@@ -39,13 +41,17 @@ function Home() {
     
     return (
       <div className="home">
-        {MobileSearchBar}
+        <Flex height={20}></Flex>
         <Flex display={'horizontal direction'} justifyContent={'center'}>
             {FeaturedCardDesktop}
             {TopicIcons}
         </Flex>
         {FeaturedCardMobile}
+        <Flex height={30}></Flex>
         {EventCard}
+        <Flex height={50}></Flex>
+        {ResourceCollection}
+        <Flex height={100}></Flex>
       </div>
     )
 };

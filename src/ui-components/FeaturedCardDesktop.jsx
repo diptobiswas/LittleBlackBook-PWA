@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
 export default function FeaturedCardDesktop(props) {
   const { featuredContent, overrides, ...rest } = props;
+  const featuredCardDesktopOnClick = useNavigateAction({
+    type: "url",
+    url: "/Featured",
+  });
   return (
     <Flex
       gap="30px"
@@ -23,6 +30,9 @@ export default function FeaturedCardDesktop(props) {
       borderRadius="20px"
       padding="0px 0px 40px 0px"
       backgroundColor="rgba(0,0,0,1)"
+      onClick={() => {
+        featuredCardDesktopOnClick();
+      }}
       {...getOverrideProps(overrides, "FeaturedCardDesktop")}
       {...rest}
     >

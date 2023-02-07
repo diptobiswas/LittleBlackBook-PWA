@@ -6,59 +6,55 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Events } from "../models";
+import { Resource } from "../models";
 import {
+  createDataStorePredicate,
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import EventCardExpanded from "./EventCardExpanded";
+import ResourceCard from "./ResourceCard";
 import { Collection } from "@aws-amplify/ui-react";
-export default function EventCardExpandedCollection(props) {
+export default function UnsavedResourceCardCollectionMobile(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
+  const itemsFilterObj = {
+    field: "SaveStatus",
+    operand: "false",
+    operator: "eq",
+  };
+  const itemsFilter = createDataStorePredicate(itemsFilterObj);
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Events,
+    model: Resource,
+    criteria: itemsFilter,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
       setItems(itemsProp);
       return;
     }
-    async function setItemsFromDataStore() {
-      var loaded = await Promise.all(
-        itemsDataStore.map(async (item) => ({
-          ...item,
-          Organization: await item.Organization,
-        }))
-      );
-      setItems(loaded);
-    }
-    setItemsFromDataStore();
+    setItems(itemsDataStore);
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
+      type="list"
+      isSearchable="true"
       isPaginated={true}
-      searchPlaceholder="Search..."
-      itemsPerPage={3}
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      searchPlaceholder="Search Resources"
+      itemsPerPage={4}
+      direction="column"
+      justifyContent="center"
       items={items || []}
-      {...getOverrideProps(overrides, "EventCardExpandedCollection")}
+      {...getOverrideProps(overrides, "UnsavedResourceCardCollectionMobile")}
       {...rest}
     >
       {(item, index) => (
-        <EventCardExpanded
-          events={item}
-          height="auto"
-          width="auto"
-          margin="10px 10px 10px 10px"
+        <ResourceCard
+          resource={item}
+          margin="0 auto 0 auto"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></EventCardExpanded>
+        ></ResourceCard>
       )}
     </Collection>
   );

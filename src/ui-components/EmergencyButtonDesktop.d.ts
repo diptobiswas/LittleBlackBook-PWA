@@ -11,6 +11,7 @@ import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EmergencyButtonDesktopOverridesProps = {
     EmergencyButtonDesktop?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 58"?: PrimitiveOverrideProps<FlexProps>;
     fire?: PrimitiveOverrideProps<ImageProps>;
     "Frame 37"?: PrimitiveOverrideProps<FlexProps>;
     "Name of service"?: PrimitiveOverrideProps<TextProps>;
