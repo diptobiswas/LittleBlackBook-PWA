@@ -102,11 +102,11 @@ export default function EventPage3Mobile(props) {
             alignItems="unset"
             position="absolute"
             top="13.62px"
-            left="20.98px"
+            left="22.98px"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="2"
-            {...getOverrideProps(overrides, "2")}
+            children="1"
+            {...getOverrideProps(overrides, "1")}
           ></Text>
         </Flex>
         <Text

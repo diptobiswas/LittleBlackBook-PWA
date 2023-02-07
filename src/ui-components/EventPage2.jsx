@@ -149,8 +149,8 @@ export default function EventPage2(props) {
         position="absolute"
         top="0%"
         bottom="70.66%"
-        left="64.47%"
-        right="-0.43%"
+        left="65.84%"
+        right="0.95%"
         borderRadius="20px"
         padding="19px 40px 19px 29px"
         backgroundColor="rgba(247,247,247,1)"
@@ -200,11 +200,11 @@ export default function EventPage2(props) {
             alignItems="unset"
             position="absolute"
             top="30px"
-            left="31px"
+            left="25px"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="12"
-            {...getOverrideProps(overrides, "12")}
+            children="28"
+            {...getOverrideProps(overrides, "28")}
           ></Text>
         </Flex>
         <Text
@@ -226,8 +226,8 @@ export default function EventPage2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Sept"
-          {...getOverrideProps(overrides, "Sept")}
+          children="Feb"
+          {...getOverrideProps(overrides, "Feb")}
         ></Text>
       </Flex>
       <Text

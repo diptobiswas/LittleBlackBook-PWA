@@ -49,13 +49,39 @@ export default function EventPage3(props) {
         justifyContent="flex-start"
         alignItems="flex-start"
         position="absolute"
-        top="59.36%"
-        bottom="-22.93%"
+        top="82.12%"
+        bottom="-21.25%"
         left="0%"
         right="38.33%"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 49")}
-      ></Flex>
+      >
+        <Text
+          fontFamily="Inter"
+          fontSize="24px"
+          fontWeight="400"
+          color="rgba(0,0,0,1)"
+          lineHeight="29.045454025268555px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.09px"
+          width="650px"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Kitchener is a Canadian city in southeastern Ontario. In the centre, THEMUSEUM features interactive art and science exhibits. Near sprawling Victoria Park, the Joseph Schneider Haus is a living-history museum recreating life in the 19th century. Part of the Waterloo Region Museum, the Doon Heritage Village evokes early-1900s life with buildings such as farmhouses and a blacksmith shop."
+          {...getOverrideProps(
+            overrides,
+            "Kitchener is a Canadian city in southeastern Ontario. In the centre, THEMUSEUM features interactive art and science exhibits. Near sprawling Victoria Park, the Joseph Schneider Haus is a living-history museum recreating life in the 19th century. Part of the Waterloo Region Museum, the Doon Heritage Village evokes early-1900s life with buildings such as farmhouses and a blacksmith shop."
+          )}
+        ></Text>
+      </Flex>
       <Text
         fontFamily="Inter"
         fontSize="36px"
@@ -72,8 +98,8 @@ export default function EventPage3(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="75.21%"
-        bottom="17.37%"
+        top="74.7%"
+        bottom="17.88%"
         left="0%"
         right="38.33%"
         padding="0px 0px 0px 0px"
@@ -202,11 +228,11 @@ export default function EventPage3(props) {
             alignItems="unset"
             position="absolute"
             top="30px"
-            left="47px"
+            left="51px"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="2"
-            {...getOverrideProps(overrides, "2")}
+            children="1"
+            {...getOverrideProps(overrides, "1")}
           ></Text>
         </Flex>
         <Text

@@ -102,11 +102,11 @@ export default function EventPage2Mobile(props) {
             alignItems="unset"
             position="absolute"
             top="13.62px"
-            left="13.98px"
+            left="10.98px"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="12"
-            {...getOverrideProps(overrides, "12")}
+            children="28"
+            {...getOverrideProps(overrides, "28")}
           ></Text>
         </Flex>
         <Text
@@ -128,8 +128,8 @@ export default function EventPage2Mobile(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Sept"
-          {...getOverrideProps(overrides, "Sept")}
+          children="Feb"
+          {...getOverrideProps(overrides, "Feb")}
         ></Text>
       </Flex>
       <Flex

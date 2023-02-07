@@ -9,13 +9,13 @@ import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EventPage2MobileOverridesProps = {
-    "12"?: PrimitiveOverrideProps<TextProps>;
+    "28"?: PrimitiveOverrideProps<TextProps>;
     EventPage2Mobile?: PrimitiveOverrideProps<ViewProps>;
     featuredimage38592758?: PrimitiveOverrideProps<ImageProps>;
     "Frame 50"?: PrimitiveOverrideProps<FlexProps>;
     "Group 49"?: PrimitiveOverrideProps<FlexProps>;
     featuredimage38592764?: PrimitiveOverrideProps<ViewProps>;
-    Sept?: PrimitiveOverrideProps<TextProps>;
+    Feb?: PrimitiveOverrideProps<TextProps>;
     "Frame 51"?: PrimitiveOverrideProps<FlexProps>;
     "7:30-10:30 PM"?: PrimitiveOverrideProps<TextProps>;
     "555 Stone Road"?: PrimitiveOverrideProps<TextProps>;

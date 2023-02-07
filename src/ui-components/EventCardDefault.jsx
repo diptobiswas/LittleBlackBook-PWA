@@ -15,7 +15,7 @@ export default function EventCardDefault(props) {
   const { events, overrides, ...rest } = props;
   const eventCardDefaultOnClick = useNavigateAction({
     type: "url",
-    url: "/Event",
+    url: `${"/"}${events?.Name}`,
   });
   return (
     <Flex

@@ -1,15 +1,17 @@
 import React from 'react';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
-import Home from './pages/Home';
-import Emergency from './pages/Emergency';
-import Main from './pages/Main';
-import Search from './pages/Search';
-import Saved from './pages/Saved';
-import Event from './pages/Event';
-import Resources from './pages/Resources';
-import Profile from './pages/Profile';
-import { EventCardExpanded } from './ui-components';
+import Home from './Home';
+import Emergency from './Emergency';
+import Main from './Main';
+import Search from './Search';
+import Saved from './Saved';
+import Resources from './Resources';
+import Profile from './Profile';
+import Featured from './Featured';
+import Event1 from './Event1';
+import Event2 from './Event2';
+import Event3 from './Event3';
 
 function App() {
   return (
@@ -21,7 +23,10 @@ function App() {
           <Route path="saved" element={<Saved/>} />
           <Route path="Resources" element={<Resources/>} />
           <Route path="profile" element={<Profile/>} />
-          <Route path="event/:slug" element={<Event/>} />
+          <Route path="Featured" element={<Featured/>} />
+          <Route path="Sarnia Sting at Kitchenr Rangers" element={<Event1/>} />
+          <Route path="Larry's Jazz Guys" element={<Event2/>} />
+          <Route path="Manduppal" element={<Event3/>} />
           <Route path="*" element={<NoMatch />} />
         </Route>
     </Routes>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, 
   EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, 
   TopicIconDesktopCollection, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardMobile, 
@@ -16,6 +17,14 @@ function Home() {
       large: <UnsavedResourceCardCollection margin={'auto'}></UnsavedResourceCardCollection>
     })
 
+=======
+import {EventCardExpandedCollection, EventCardDefaultCollection,TopicIconDesktopCollection,
+FeaturedCardDesktopCollection, FeaturedCardMobileCollection} from '../ui-components';
+import { Flex, useBreakpointValue } from '@aws-amplify/ui-react'
+
+function Home() {
+  
+>>>>>>> 29ea981d3d45e74b518054f9b17450829f1000a9
     const FeaturedCardDesktop = useBreakpointValue({
       large: <FeaturedCardDesktopCollection margin={'auto'}></FeaturedCardDesktopCollection>
     })
@@ -30,18 +39,16 @@ function Home() {
       large: <EventCardExpandedCollection margin={'auto'}></EventCardExpandedCollection>
     })
   
-    const DiscoverBar= useBreakpointValue({
-      small: <DiscoverMobile margin={'auto'}></DiscoverMobile>,
-      large: <></>
-    })
-  
     const TopicIcons= useBreakpointValue({
       large: <TopicIconDesktopCollection margin={30}></TopicIconDesktopCollection>,
     })
     
     return (
       <div className="home">
+<<<<<<< HEAD
         <Flex height={20}></Flex>
+=======
+>>>>>>> 29ea981d3d45e74b518054f9b17450829f1000a9
         <Flex display={'horizontal direction'} justifyContent={'center'}>
             {FeaturedCardDesktop}
             {TopicIcons}
