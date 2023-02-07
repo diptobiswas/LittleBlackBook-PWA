@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, 
-  EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, 
-  TopicIconDesktopCollection, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardMobile, 
-  FeaturedCardDesktopCollection, FeaturedCardMobileCollection, OrganizationButtonDesktopCollection,
+import {EventCardExpandedCollection, EventCardDefaultCollection, 
+  TopicIconDesktopCollection, 
+  FeaturedCardDesktopCollection, FeaturedCardMobileCollection, 
   UnsavedResourceCardCollection, UnsavedResourceCardCollectionMobile } from '../ui-components';
-import { Flex, SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
-import SearchResource from '../custom-components/SearchResource';
-import { Storage, API, graphqlOperation } from 'aws-amplify';
-import { searchResources, listResources } from '../graphql/queries';
+import { Flex, useBreakpointValue } from '@aws-amplify/ui-react'
 
-import React, { useState, useEffect } from "react";
+import React, {  } from "react";
 
 function Home() {
     const ResourceCollection = useBreakpointValue({
@@ -17,14 +12,6 @@ function Home() {
       large: <UnsavedResourceCardCollection margin={'auto'}></UnsavedResourceCardCollection>
     })
 
-=======
-import {EventCardExpandedCollection, EventCardDefaultCollection,TopicIconDesktopCollection,
-FeaturedCardDesktopCollection, FeaturedCardMobileCollection} from '../ui-components';
-import { Flex, useBreakpointValue } from '@aws-amplify/ui-react'
-
-function Home() {
-  
->>>>>>> 29ea981d3d45e74b518054f9b17450829f1000a9
     const FeaturedCardDesktop = useBreakpointValue({
       large: <FeaturedCardDesktopCollection margin={'auto'}></FeaturedCardDesktopCollection>
     })
@@ -45,10 +32,7 @@ function Home() {
     
     return (
       <div className="home">
-<<<<<<< HEAD
         <Flex height={20}></Flex>
-=======
->>>>>>> 29ea981d3d45e74b518054f9b17450829f1000a9
         <Flex display={'horizontal direction'} justifyContent={'center'}>
             {FeaturedCardDesktop}
             {TopicIcons}
