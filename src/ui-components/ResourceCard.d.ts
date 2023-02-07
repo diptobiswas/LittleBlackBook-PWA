@@ -29,8 +29,6 @@ export declare type ResourceCardOverridesProps = {
     SaveButton?: PrimitiveOverrideProps<FlexProps>;
     "Rectangle 1171"?: PrimitiveOverrideProps<ViewProps>;
     "Save for offline access"?: PrimitiveOverrideProps<TextProps>;
-    collapse?: PrimitiveOverrideProps<FlexProps>;
-    Vector37513076?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type ResourceCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     resource?: Resource;

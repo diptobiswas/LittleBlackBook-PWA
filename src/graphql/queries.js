@@ -155,58 +155,6 @@ export const resourcesByTopicID = /* GraphQL */ `
     }
   }
 `;
-export const searchResources = /* GraphQL */ `
-  query SearchResources(
-    $filter: SearchableResourceFilterInput
-    $sort: [SearchableResourceSortInput]
-    $limit: Int
-    $nextToken: String
-    $from: Int
-    $aggregates: [SearchableResourceAggregationInput]
-  ) {
-    searchResources(
-      filter: $filter
-      sort: $sort
-      limit: $limit
-      nextToken: $nextToken
-      from: $from
-      aggregates: $aggregates
-    ) {
-      items {
-        id
-        Name
-        Address
-        Description
-        Phone
-        Website
-        organizationID
-        topicID
-        SaveStatus
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      total
-      aggregateItems {
-        name
-        result {
-          ... on SearchableAggregateScalarResult {
-            value
-          }
-          ... on SearchableAggregateBucketResult {
-            buckets {
-              key
-              doc_count
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 export const getFeaturedContent = /* GraphQL */ `
   query GetFeaturedContent($id: ID!) {
     getFeaturedContent(id: $id) {

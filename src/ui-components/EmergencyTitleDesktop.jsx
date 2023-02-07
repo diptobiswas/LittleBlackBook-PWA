@@ -13,7 +13,7 @@ export default function EmergencyTitleDesktop(props) {
   return (
     <Flex
       gap="10px"
-      direction="column"
+      direction="row"
       width="unset"
       height="unset"
       justifyContent="center"
@@ -26,16 +26,16 @@ export default function EmergencyTitleDesktop(props) {
       {...rest}
     >
       <Flex
-        padding="0px 0px 0px 0px"
-        width="917px"
-        height="150px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
+        gap="107px"
+        direction="row"
+        width="unset"
+        height="unset"
+        justifyContent="center"
+        alignItems="center"
         shrink="0"
         position="relative"
-        {...getOverrideProps(overrides, "Group 35")}
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Frame 35")}
       >
         <Icon
           width="150px"
@@ -52,11 +52,8 @@ export default function EmergencyTitleDesktop(props) {
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
-          position="absolute"
-          top="0%"
-          bottom="0%"
-          left="0%"
-          right="83.64%"
+          shrink="0"
+          position="relative"
           {...getOverrideProps(overrides, "Vector")}
         ></Icon>
         <Text
@@ -74,11 +71,8 @@ export default function EmergencyTitleDesktop(props) {
           height="130px"
           gap="unset"
           alignItems="unset"
-          position="absolute"
-          top="6.67%"
-          bottom="6.67%"
-          left="28.03%"
-          right="0%"
+          shrink="0"
+          position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="24/7 Emergency&#xA;& Crisis Helplines"

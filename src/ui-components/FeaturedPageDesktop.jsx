@@ -24,13 +24,14 @@ export default function FeaturedPageDesktop(props) {
       {...rest}
     >
       <Image
-        width="1054px"
+        width="unset"
         height="500px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         shrink="0"
+        alignSelf="stretch"
         position="relative"
         borderRadius="20px"
         padding="0px 0px 0px 0px"

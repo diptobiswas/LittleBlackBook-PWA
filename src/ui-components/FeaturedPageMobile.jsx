@@ -24,13 +24,14 @@ export default function FeaturedPageMobile(props) {
       {...rest}
     >
       <Image
-        width="340px"
+        width="unset"
         height="311.06px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         shrink="0"
+        alignSelf="stretch"
         position="relative"
         borderRadius="12.442397117614746px"
         padding="0px 0px 0px 0px"

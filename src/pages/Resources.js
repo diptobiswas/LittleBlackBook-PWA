@@ -1,4 +1,4 @@
-import { useBreakpointValue } from "@aws-amplify/ui-react";
+import { Flex, useBreakpointValue } from "@aws-amplify/ui-react";
 import { ResourceCard, SavedResourceCardCollection, UnsavedResourceCardCollection } from "../ui-components"
 
 function Resources(){
@@ -10,6 +10,7 @@ function Resources(){
 
     return (
         <div>
+            <Flex height={20}></Flex>
             {ResourceCard2}
         </div>
     );

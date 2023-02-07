@@ -38,12 +38,14 @@ export default function EventPageDesktopCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="list"
+      type="grid"
       isPaginated={true}
       searchPlaceholder="Search..."
       itemsPerPage={1}
-      direction="column"
-      justifyContent="center"
+      templateColumns="1fr 1fr 1fr"
+      autoFlow="row"
+      alignItems="stretch"
+      justifyContent="stretch"
       items={items || []}
       {...getOverrideProps(overrides, "EventPageDesktopCollection")}
       {...rest}

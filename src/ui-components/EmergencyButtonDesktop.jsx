@@ -31,7 +31,7 @@ export default function EmergencyButtonDesktop(props) {
       <Flex
         gap="10px"
         direction="column"
-        width="130px"
+        width="unset"
         height="unset"
         justifyContent="center"
         alignItems="flex-start"
@@ -58,7 +58,7 @@ export default function EmergencyButtonDesktop(props) {
       <Flex
         gap="14px"
         direction="column"
-        width="254px"
+        width="unset"
         height="unset"
         justifyContent="flex-start"
         alignItems="flex-start"

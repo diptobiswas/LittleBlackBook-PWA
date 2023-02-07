@@ -5,6 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Profile } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { LogoProps } from "./Logo";
 import { FlexProps, IconProps, ViewProps } from "@aws-amplify/ui-react";
@@ -17,11 +18,11 @@ export declare type NavbarDesktopOverridesProps = {
     "Group 32"?: PrimitiveOverrideProps<ViewProps>;
     SirenBackground?: PrimitiveOverrideProps<IconProps>;
     Vector36753944?: PrimitiveOverrideProps<IconProps>;
-    "Group 33"?: PrimitiveOverrideProps<ViewProps>;
-    ProfileBackground?: PrimitiveOverrideProps<IconProps>;
-    ServiceIcon?: PrimitiveOverrideProps<IconProps>;
+    Vector38552802?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type NavbarDesktopProps = React.PropsWithChildren<Partial<FlexProps> & {
+    profile?: Profile;
+} & {
     property1?: "Default";
 } & {
     overrides?: NavbarDesktopOverridesProps | undefined | null;

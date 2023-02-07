@@ -15,7 +15,7 @@ export default function EventCardExpanded(props) {
   const { events, overrides, ...rest } = props;
   const eventCardExpandedOnClick = useNavigateAction({
     type: "url",
-    url: "/Event",
+    url: `${"/"}${events?.Name}`,
   });
   return (
     <Flex
@@ -26,6 +26,7 @@ export default function EventCardExpanded(props) {
       justifyContent="center"
       alignItems="center"
       position="relative"
+      boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
       padding="2px 0px 2px 0px"
       onClick={() => {
         eventCardExpandedOnClick();

@@ -1,5 +1,5 @@
 import {SavedTitleDesktop, SavedTitleMobile, SavedResourceCardCollection, SavedResourceCardCollectionMobile} from '../ui-components';
-import {useBreakpointValue, SearchField } from '@aws-amplify/ui-react'
+import {useBreakpointValue, SearchField, Flex } from '@aws-amplify/ui-react'
 
 function Saved() {
 
@@ -17,6 +17,7 @@ function Saved() {
       <div className="saved">
         {savedTitle}
         {savedResourceCollection}
+        <Flex height={100}></Flex>
       </div>
     );
 }

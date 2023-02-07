@@ -39,7 +39,6 @@ export default function EventCardExpandedCollection(props) {
   return (
     <Collection
       type="grid"
-      isPaginated={true}
       searchPlaceholder="Search..."
       itemsPerPage={3}
       templateColumns="1fr 1fr 1fr"
