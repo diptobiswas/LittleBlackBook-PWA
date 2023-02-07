@@ -5,8 +5,9 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Profile } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps, IconProps, ImageProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarMobileOverridesProps = {
     NavBarMobile?: PrimitiveOverrideProps<FlexProps>;
@@ -16,9 +17,11 @@ export declare type NavBarMobileOverridesProps = {
     SirenBackground?: PrimitiveOverrideProps<IconProps>;
     Vector36754197?: PrimitiveOverrideProps<IconProps>;
     Vector36754275?: PrimitiveOverrideProps<IconProps>;
-    ProfileIcon?: PrimitiveOverrideProps<ImageProps>;
+    Vector38552711?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type NavBarMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
+    profile?: Profile;
+} & {
     overrides?: NavBarMobileOverridesProps | undefined | null;
 }>;
 export default function NavBarMobile(props: NavBarMobileProps): React.ReactElement;

@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image, Text } from "@aws-amplify/ui-react";
 export default function FeaturedCardMobile(props) {
   const { featuredContent, overrides, ...rest } = props;
+  const featuredCardMobileOnClick = useNavigateAction({
+    type: "url",
+    url: "/Featured",
+  });
   return (
     <Flex
       gap="20px"
@@ -23,6 +30,9 @@ export default function FeaturedCardMobile(props) {
       borderRadius="10px"
       padding="0px 0px 20px 0px"
       backgroundColor="rgba(0,0,0,1)"
+      onClick={() => {
+        featuredCardMobileOnClick();
+      }}
       {...getOverrideProps(overrides, "FeaturedCardMobile")}
       {...rest}
     >

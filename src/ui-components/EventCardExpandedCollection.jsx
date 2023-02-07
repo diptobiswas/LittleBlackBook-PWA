@@ -40,6 +40,7 @@ export default function EventCardExpandedCollection(props) {
     <Collection
       type="grid"
       searchPlaceholder="Search..."
+      itemsPerPage={3}
       templateColumns="1fr 1fr 1fr"
       autoFlow="row"
       alignItems="stretch"

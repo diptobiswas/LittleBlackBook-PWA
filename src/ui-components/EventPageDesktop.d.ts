@@ -5,6 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Events } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
@@ -24,6 +25,8 @@ export declare type EventPageDesktopOverridesProps = {
     Mon?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type EventPageDesktopProps = React.PropsWithChildren<Partial<ViewProps> & {
+    events?: Events;
+} & {
     overrides?: EventPageDesktopOverridesProps | undefined | null;
 }>;
 export default function EventPageDesktop(props: EventPageDesktopProps): React.ReactElement;

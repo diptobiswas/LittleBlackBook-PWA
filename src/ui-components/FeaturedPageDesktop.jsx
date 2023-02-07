@@ -9,13 +9,13 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function FeaturedPageDesktop(props) {
-  const { overrides, ...rest } = props;
+  const { featuredContent, overrides, ...rest } = props;
   return (
     <Flex
       gap="32px"
       direction="column"
-      width="unset"
-      height="unset"
+      width="1054px"
+      height="694px"
       justifyContent="flex-start"
       alignItems="flex-start"
       position="relative"
@@ -24,17 +24,19 @@ export default function FeaturedPageDesktop(props) {
       {...rest}
     >
       <Image
-        width="1054px"
+        width="unset"
         height="500px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         shrink="0"
+        alignSelf="stretch"
         position="relative"
         borderRadius="20px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src={featuredContent?.image}
         {...getOverrideProps(overrides, "featuredimage")}
       ></Image>
       <Flex
@@ -68,7 +70,7 @@ export default function FeaturedPageDesktop(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Featured_Title"
+          children={featuredContent?.Title}
           {...getOverrideProps(overrides, "Featured_Title")}
         ></Text>
         <Text
@@ -90,7 +92,7 @@ export default function FeaturedPageDesktop(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Featured Details"
+          children={featuredContent?.Description}
           {...getOverrideProps(overrides, "Featured Details")}
         ></Text>
       </Flex>

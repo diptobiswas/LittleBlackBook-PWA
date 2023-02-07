@@ -1,3 +1,9 @@
+type Profile @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  ProfilePicture: AWSURL
+}
+
 type Resource @model @auth(rules: [{allow: public}]) {
   id: ID!
   Name: String

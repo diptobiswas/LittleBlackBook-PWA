@@ -5,6 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
+import { FeaturedContent } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
@@ -16,6 +17,8 @@ export declare type FeaturedPageMobileOverridesProps = {
     "Featured Details"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type FeaturedPageMobileProps = React.PropsWithChildren<Partial<FlexProps> & {
+    featuredContent?: FeaturedContent;
+} & {
     overrides?: FeaturedPageMobileOverridesProps | undefined | null;
 }>;
 export default function FeaturedPageMobile(props: FeaturedPageMobileProps): React.ReactElement;

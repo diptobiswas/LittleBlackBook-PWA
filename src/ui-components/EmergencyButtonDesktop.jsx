@@ -16,36 +16,49 @@ export default function EmergencyButtonDesktop(props) {
       direction="row"
       width="unset"
       height="unset"
-      justifyContent="flex-start"
+      justifyContent="center"
       alignItems="center"
       position="relative"
       boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
       borderRadius="20px"
-      padding="30px 46px 30px 30px"
+      padding="30px 30px 30px 30px"
       backgroundColor="rgba(255,255,255,1)"
       as="a"
       href={`${"tel:"}${emergency?.Phone}`}
       {...getOverrideProps(overrides, "EmergencyButtonDesktop")}
       {...rest}
     >
-      <Image
-        width="106px"
-        height="106px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
+      <Flex
+        gap="10px"
+        direction="column"
+        width="130px"
+        height="unset"
+        justifyContent="center"
+        alignItems="flex-start"
         shrink="0"
         position="relative"
-        padding="0px 0px 0px 0px"
-        objectFit="contain"
-        src={emergency?.Icon}
-        {...getOverrideProps(overrides, "fire")}
-      ></Image>
+        padding="10px 10px 10px 10px"
+        {...getOverrideProps(overrides, "Frame 58")}
+      >
+        <Image
+          width="106px"
+          height="106px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          objectFit="contain"
+          src={emergency?.Icon}
+          {...getOverrideProps(overrides, "fire")}
+        ></Image>
+      </Flex>
       <Flex
         gap="14px"
         direction="column"
-        width="unset"
+        width="254px"
         height="unset"
         justifyContent="flex-start"
         alignItems="flex-start"

@@ -13,15 +13,15 @@ export default function EmergencyButtonMobile(props) {
   return (
     <Flex
       gap="10px"
-      direction="column"
-      width="unset"
+      direction="row"
+      width="345px"
       height="unset"
       justifyContent="center"
       alignItems="center"
       position="relative"
       boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
       borderRadius="10px"
-      padding="12px 29px 12px 29px"
+      padding="12px 29px 12px 25px"
       backgroundColor="rgba(255,255,255,1)"
       as="a"
       href={`${"tel:"}${emergency?.Phone}`}
@@ -35,7 +35,9 @@ export default function EmergencyButtonMobile(props) {
         height="unset"
         justifyContent="flex-start"
         alignItems="center"
-        shrink="0"
+        grow="1"
+        shrink="1"
+        basis="0"
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 34")}
@@ -65,7 +67,7 @@ export default function EmergencyButtonMobile(props) {
           direction="column"
           justifyContent="unset"
           letterSpacing="0.13px"
-          width="unset"
+          width="200px"
           height="unset"
           gap="unset"
           alignItems="unset"

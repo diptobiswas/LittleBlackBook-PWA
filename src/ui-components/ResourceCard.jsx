@@ -6,12 +6,15 @@
 
 /* eslint-disable */
 import * as React from "react";
+import { Resource } from "../models";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-  useStateMutationAction,
+  useDataStoreUpdateAction,
+  useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
+import { schema } from "../models/schema";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function ResourceCard(props) {
   const { resource, variant, overrides: overridesProp, ...rest } = props;
@@ -36,9 +39,6 @@ export default function ResourceCard(props) {
         "Save for offline access": {},
         SaveButton: {},
         "Frame 46": {},
-        "Rectangle 1170": {},
-        Vector37513076: {},
-        collapse: {},
         ResourceCard: {},
       },
       variantValues: { variant: "expanded_saved" },
@@ -63,9 +63,6 @@ export default function ResourceCard(props) {
         "Save for offline access": {},
         SaveButton: { display: "block" },
         "Frame 46": {},
-        "Rectangle 1170": {},
-        Vector37513076: {},
-        collapse: {},
         ResourceCard: {},
       },
       variantValues: { variant: "expanded_unsaved" },
@@ -89,10 +86,7 @@ export default function ResourceCard(props) {
         "Rectangle 1171": {},
         "Save for offline access": {},
         SaveButton: {},
-        "Frame 46": { width: "unset", padding: "5px 0px 5px 0px" },
-        "Rectangle 1170": {},
-        Vector37513076: {},
-        collapse: { display: "none" },
+        "Frame 46": { padding: "5px 0px 5px 0px" },
         ResourceCard: {
           width: "340px",
           justifyContent: "center",
@@ -106,11 +100,20 @@ export default function ResourceCard(props) {
     getOverridesFromVariants(variants, props),
     overridesProp || {}
   );
-  const [saveforofflineaccessDisplay, setSaveforofflineaccessDisplay] =
-    useStateMutationAction("block");
-  const rectangleOneOneSevenOneOnClick = () => {
-    setSaveforofflineaccessDisplay("none");
-  };
+  const websiteLinkOnClick = useNavigateAction({
+    type: "url",
+    url: resource?.Website,
+  });
+  const phoneLinkOnClick = useNavigateAction({
+    type: "url",
+    url: `${"tel:"}${resource?.Phone}`,
+  });
+  const saveButtonOnClick = useDataStoreUpdateAction({
+    fields: { SaveStatus: "true" },
+    id: resource?.id,
+    model: Resource,
+    schema: schema,
+  });
   return (
     <Flex
       gap="25px"
@@ -122,7 +125,7 @@ export default function ResourceCard(props) {
       position="relative"
       boxShadow="0px 0px 15px rgba(0, 0, 0, 0.10000000149011612)"
       borderRadius="10px"
-      padding="15px 0px 0px 0px"
+      padding="15px 20px 15px 20px"
       backgroundColor="rgba(255,255,255,1)"
       display="flex"
       {...getOverrideProps(overrides, "ResourceCard")}
@@ -134,7 +137,7 @@ export default function ResourceCard(props) {
         width="301px"
         height="unset"
         justifyContent="center"
-        alignItems="flex-start"
+        alignItems="center"
         shrink="0"
         position="relative"
         padding="5px 0px 0px 0px"
@@ -241,6 +244,9 @@ export default function ResourceCard(props) {
               position="absolute"
               top="0px"
               left="0px"
+              onClick={() => {
+                websiteLinkOnClick();
+              }}
               {...getOverrideProps(overrides, "WebsiteLink")}
             >
               <View
@@ -299,6 +305,9 @@ export default function ResourceCard(props) {
               position="absolute"
               top="0px"
               left="56.92px"
+              onClick={() => {
+                phoneLinkOnClick();
+              }}
               {...getOverrideProps(overrides, "PhoneLink")}
             >
               <View
@@ -416,6 +425,9 @@ export default function ResourceCard(props) {
           justifyContent="unset"
           shrink="0"
           position="relative"
+          onClick={() => {
+            saveButtonOnClick();
+          }}
           {...getOverrideProps(overrides, "SaveButton")}
         >
           <View
@@ -431,9 +443,6 @@ export default function ResourceCard(props) {
             borderRadius="10px"
             padding="0px 0px 0px 0px"
             backgroundColor="rgba(240,240,240,1)"
-            onClick={() => {
-              rectangleOneOneSevenOneOnClick();
-            }}
             {...getOverrideProps(overrides, "Rectangle 1171")}
           ></View>
           <Text
@@ -443,7 +452,7 @@ export default function ResourceCard(props) {
             color="rgba(0,0,0,1)"
             lineHeight="12px"
             textAlign="center"
-            display={saveforofflineaccessDisplay}
+            display="block"
             direction="column"
             justifyContent="unset"
             letterSpacing="0.01px"
@@ -460,58 +469,6 @@ export default function ResourceCard(props) {
             {...getOverrideProps(overrides, "Save for offline access")}
           ></Text>
         </Flex>
-      </Flex>
-      <Flex
-        padding="0px 0px 0px 0px"
-        width="340px"
-        height="30px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        shrink="0"
-        position="relative"
-        {...getOverrideProps(overrides, "collapse")}
-      >
-        <View
-          width="340px"
-          height="30px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          position="absolute"
-          top="0%"
-          bottom="0%"
-          left="0%"
-          right="0%"
-          borderRadius="0px 0px 10px 10px"
-          padding="0px 0px 0px 0px"
-          backgroundColor="rgba(240,240,240,1)"
-          {...getOverrideProps(overrides, "Rectangle 1170")}
-        ></View>
-        <Icon
-          width="15px"
-          height="8.57px"
-          viewBox={{ minX: 0, minY: 0, width: 15, height: 8.572021484375 }}
-          paths={[
-            {
-              d: "M0.327584 8.24426C0.431376 8.34819 0.554639 8.43064 0.690322 8.48689C0.826005 8.54314 0.971446 8.5721 1.11833 8.5721C1.26521 8.5721 1.41065 8.54314 1.54633 8.48689C1.68202 8.43064 1.80528 8.34819 1.90907 8.24426L7.5 2.6469L13.0909 8.24426C13.1947 8.34819 13.318 8.43064 13.4537 8.48689C13.5893 8.54314 13.7348 8.5721 13.8817 8.5721C14.0286 8.5721 14.174 8.54314 14.3097 8.48689C14.4454 8.43064 14.5686 8.34819 14.6724 8.24426C14.8822 8.03413 15 7.74935 15 7.45244C15 7.15553 14.8822 6.87075 14.6724 6.66062L8.34646 0.328239C8.23619 0.217441 8.10383 0.131087 7.958 0.0747844C7.81217 0.0184822 7.65612 -0.00650665 7.5 0.0014413C7.34388 -0.00650665 7.18783 0.0184822 7.042 0.0747844C6.89617 0.131087 6.76381 0.217441 6.65354 0.328239L0.327584 6.66062C0.117816 6.87075 0 7.15553 0 7.45244C0 7.74935 0.117816 8.03413 0.327584 8.24426Z",
-              fill: "rgba(0,0,0,1)",
-              fillRule: "evenodd",
-            },
-          ]}
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          position="absolute"
-          top="36.67%"
-          bottom="34.76%"
-          left="47.65%"
-          right="47.94%"
-          {...getOverrideProps(overrides, "Vector37513076")}
-        ></Icon>
       </Flex>
     </Flex>
   );

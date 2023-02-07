@@ -1,18 +1,8 @@
-import {EventCardExpandedCollection, EventCardDefaultCollection, EventCardExpanded, 
-  EventCardDefault, NavbarDesktop, TopbarMobile, FeaturedCardDesktop, TopicIcon, 
-  TopicIconDesktopCollection, DiscoverMobile, NavBarMobile, SearchBarMobile, FeaturedCardMobile, 
-  FeaturedCardDesktopCollection, FeaturedCardMobileCollection, OrganizationButtonDesktopCollection} from '../ui-components';
-import { Flex, SearchField, useBreakpointValue } from '@aws-amplify/ui-react'
+import {EventCardExpandedCollection, EventCardDefaultCollection,TopicIconDesktopCollection,
+FeaturedCardDesktopCollection, FeaturedCardMobileCollection} from '../ui-components';
+import { Flex, useBreakpointValue } from '@aws-amplify/ui-react'
 
 function Home() {
-    const MobileSearchBar = useBreakpointValue({
-      small: <SearchField padding={30}
-              placeholder="Search for resources"
-              />,
-      large: <SearchField padding={30}
-              placeholder="Search for resources"
-              />
-    })
   
     const FeaturedCardDesktop = useBreakpointValue({
       large: <FeaturedCardDesktopCollection margin={'auto'}></FeaturedCardDesktopCollection>
@@ -28,18 +18,12 @@ function Home() {
       large: <EventCardExpandedCollection margin={'auto'}></EventCardExpandedCollection>
     })
   
-    const DiscoverBar= useBreakpointValue({
-      small: <DiscoverMobile margin={'auto'}></DiscoverMobile>,
-      large: <></>
-    })
-  
     const TopicIcons= useBreakpointValue({
       large: <TopicIconDesktopCollection margin={30}></TopicIconDesktopCollection>,
     })
     
     return (
       <div className="home">
-        {MobileSearchBar}
         <Flex display={'horizontal direction'} justifyContent={'center'}>
             {FeaturedCardDesktop}
             {TopicIcons}

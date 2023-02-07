@@ -39,7 +39,6 @@ export default function EventCardDefaultCollection(props) {
   return (
     <Collection
       type="list"
-      isPaginated={true}
       searchPlaceholder="Search..."
       itemsPerPage={3}
       direction="column"

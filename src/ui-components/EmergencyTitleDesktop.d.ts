@@ -10,7 +10,7 @@ import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EmergencyTitleDesktopOverridesProps = {
     EmergencyTitleDesktop?: PrimitiveOverrideProps<FlexProps>;
-    "Group 35"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 35"?: PrimitiveOverrideProps<FlexProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
     "24/7 Emergency & Crisis Helplines"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
