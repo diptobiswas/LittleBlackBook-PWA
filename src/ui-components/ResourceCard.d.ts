@@ -14,8 +14,7 @@ export declare type ResourceCardOverridesProps = {
     "Frame 46"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 44"?: PrimitiveOverrideProps<FlexProps>;
     TextGroup?: PrimitiveOverrideProps<FlexProps>;
-    "Name of Service and Location37513062"?: PrimitiveOverrideProps<TextProps>;
-    "Name of Service and Location37513063"?: PrimitiveOverrideProps<TextProps>;
+    "Name of Service and Location"?: PrimitiveOverrideProps<TextProps>;
     "Group 44"?: PrimitiveOverrideProps<FlexProps>;
     WebsiteLink?: PrimitiveOverrideProps<ViewProps>;
     PhoneButton?: PrimitiveOverrideProps<ViewProps>;

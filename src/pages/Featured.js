@@ -1,5 +1,5 @@
 import {FeaturedPageDesktopCollection, FeaturedPageMobileCollection} from '../ui-components'
-import { useBreakpointValue} from '@aws-amplify/ui-react'
+import { Flex, useBreakpointValue} from '@aws-amplify/ui-react'
 
 function Featured(){
 
@@ -10,7 +10,9 @@ function Featured(){
 
     return (
         <div>
+            <Flex height={20} ></Flex>
             {FeaturedPage}
+            <Flex height={300} ></Flex>
         </div>
     )
 }
