@@ -1,0 +1,68 @@
+type Profile @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  ProfilePicture: AWSURL
+}
+
+type Resource @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Address: String
+  Description: String
+  Phone: AWSPhone
+  Website: AWSURL
+  organizationID: ID @index(name: "byOrganization")
+  topicID: ID @index(name: "byTopic")
+  SaveStatus: String
+}
+
+type FeaturedContent @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Title: String
+  Description: String
+  image: AWSURL
+}
+
+enum Colour {
+  RED
+  BLUE
+  BLACK
+  YELLOW
+  GREEEN
+  PURPLE
+}
+
+type Emergency @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Phone: AWSPhone
+  Icon: AWSURL
+}
+
+type Events @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Address: String
+  Organization: Organization @hasOne
+  Day: String
+  Month: String
+  Image: AWSURL
+  Description: String
+}
+
+type Topic @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Icon: AWSURL
+  Colour: Colour
+  Resources: [Resource] @hasMany(indexName: "byTopic", fields: ["id"])
+}
+
+type Organization @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Addres: String
+  Phone: AWSPhone
+  Resources: [Resource] @hasMany(indexName: "byOrganization", fields: ["id"])
+}
+ 
