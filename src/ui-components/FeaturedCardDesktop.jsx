@@ -87,15 +87,15 @@ export default function FeaturedCardDesktop(props) {
           {...getOverrideProps(overrides, "Featured_Title")}
         ></Text>
         <Flex
-          padding="0px 0px 0px 0px"
-          width="159px"
-          height="30.69px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
+          gap="0"
+          direction="row"
+          width="unset"
+          height="unset"
+          justifyContent="flex-start"
+          alignItems="flex-end"
           shrink="0"
           position="relative"
+          padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "FeaturedLink")}
         >
           <Text
@@ -113,11 +113,8 @@ export default function FeaturedCardDesktop(props) {
             height="30.15px"
             gap="unset"
             alignItems="unset"
-            position="absolute"
-            top="0%"
-            bottom="1.74%"
-            left="0%"
-            right="14.56%"
+            shrink="0"
+            position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Learn More"
@@ -143,13 +140,8 @@ export default function FeaturedCardDesktop(props) {
             gap="unset"
             alignItems="unset"
             justifyContent="unset"
-            position="absolute"
-            top="100%"
-            bottom="-53.76%"
-            left="92.72%"
-            right="-3.1%"
-            transformOrigin="top left"
-            transform="rotate(-134.55deg)"
+            shrink="0"
+            position="relative"
             {...getOverrideProps(overrides, "Vector")}
           ></Icon>
         </Flex>

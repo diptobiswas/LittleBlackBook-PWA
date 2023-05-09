@@ -31,7 +31,7 @@ export default function TopicCreateForm(props) {
   const initialValues = {
     Name: "",
     Icon: "",
-    Colour: undefined,
+    Colour: "",
   };
   const [Name, setName] = React.useState(initialValues.Name);
   const [Icon, setIcon] = React.useState(initialValues.Icon);
@@ -53,9 +53,10 @@ export default function TopicCreateForm(props) {
     currentValue,
     getDisplayValue
   ) => {
-    const value = getDisplayValue
-      ? getDisplayValue(currentValue)
-      : currentValue;
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {

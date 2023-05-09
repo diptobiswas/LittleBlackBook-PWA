@@ -14,7 +14,7 @@ import { DataStore } from "aws-amplify";
 export default function EmergencyUpdateForm(props) {
   const {
     id: idProp,
-    emergency,
+    emergency: emergencyModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -41,16 +41,17 @@ export default function EmergencyUpdateForm(props) {
     setIcon(cleanValues.Icon);
     setErrors({});
   };
-  const [emergencyRecord, setEmergencyRecord] = React.useState(emergency);
+  const [emergencyRecord, setEmergencyRecord] =
+    React.useState(emergencyModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(Emergency, idProp)
-        : emergency;
+        : emergencyModelProp;
       setEmergencyRecord(record);
     };
     queryData();
-  }, [idProp, emergency]);
+  }, [idProp, emergencyModelProp]);
   React.useEffect(resetStateValues, [emergencyRecord]);
   const validations = {
     Name: [],
@@ -62,9 +63,10 @@ export default function EmergencyUpdateForm(props) {
     currentValue,
     getDisplayValue
   ) => {
-    const value = getDisplayValue
-      ? getDisplayValue(currentValue)
-      : currentValue;
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -221,7 +223,7 @@ export default function EmergencyUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || emergency)}
+          isDisabled={!(idProp || emergencyModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -233,7 +235,7 @@ export default function EmergencyUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || emergency) ||
+              !(idProp || emergencyModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

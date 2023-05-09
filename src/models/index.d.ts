@@ -191,40 +191,6 @@ export declare const Events: (new (init: ModelInit<Events>) => Events) & {
   copyOf(source: Events, mutator: (draft: MutableModel<Events>) => MutableModel<Events> | void): Events;
 }
 
-type EagerOrganization = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Organization, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly Name?: string | null;
-  readonly Addres?: string | null;
-  readonly Phone?: string | null;
-  readonly Resources?: (Resource | null)[] | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyOrganization = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Organization, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly Name?: string | null;
-  readonly Addres?: string | null;
-  readonly Phone?: string | null;
-  readonly Resources: AsyncCollection<Resource>;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Organization = LazyLoading extends LazyLoadingDisabled ? EagerOrganization : LazyOrganization
-
-export declare const Organization: (new (init: ModelInit<Organization>) => Organization) & {
-  copyOf(source: Organization, mutator: (draft: MutableModel<Organization>) => MutableModel<Organization> | void): Organization;
-}
-
 type EagerTopic = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Topic, 'id'>;
@@ -257,4 +223,38 @@ export declare type Topic = LazyLoading extends LazyLoadingDisabled ? EagerTopic
 
 export declare const Topic: (new (init: ModelInit<Topic>) => Topic) & {
   copyOf(source: Topic, mutator: (draft: MutableModel<Topic>) => MutableModel<Topic> | void): Topic;
+}
+
+type EagerOrganization = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Organization, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Name?: string | null;
+  readonly Addres?: string | null;
+  readonly Phone?: string | null;
+  readonly Resources?: (Resource | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyOrganization = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Organization, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Name?: string | null;
+  readonly Addres?: string | null;
+  readonly Phone?: string | null;
+  readonly Resources: AsyncCollection<Resource>;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Organization = LazyLoading extends LazyLoadingDisabled ? EagerOrganization : LazyOrganization
+
+export declare const Organization: (new (init: ModelInit<Organization>) => Organization) & {
+  copyOf(source: Organization, mutator: (draft: MutableModel<Organization>) => MutableModel<Organization> | void): Organization;
 }

@@ -14,7 +14,7 @@ import { DataStore } from "aws-amplify";
 export default function FeaturedContentUpdateForm(props) {
   const {
     id: idProp,
-    featuredContent,
+    featuredContent: featuredContentModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -43,17 +43,18 @@ export default function FeaturedContentUpdateForm(props) {
     setImage(cleanValues.image);
     setErrors({});
   };
-  const [featuredContentRecord, setFeaturedContentRecord] =
-    React.useState(featuredContent);
+  const [featuredContentRecord, setFeaturedContentRecord] = React.useState(
+    featuredContentModelProp
+  );
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(FeaturedContent, idProp)
-        : featuredContent;
+        : featuredContentModelProp;
       setFeaturedContentRecord(record);
     };
     queryData();
-  }, [idProp, featuredContent]);
+  }, [idProp, featuredContentModelProp]);
   React.useEffect(resetStateValues, [featuredContentRecord]);
   const validations = {
     Title: [],
@@ -65,9 +66,10 @@ export default function FeaturedContentUpdateForm(props) {
     currentValue,
     getDisplayValue
   ) => {
-    const value = getDisplayValue
-      ? getDisplayValue(currentValue)
-      : currentValue;
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -223,7 +225,7 @@ export default function FeaturedContentUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || featuredContent)}
+          isDisabled={!(idProp || featuredContentModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -235,7 +237,7 @@ export default function FeaturedContentUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || featuredContent) ||
+              !(idProp || featuredContentModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

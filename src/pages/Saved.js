@@ -1,5 +1,5 @@
 import {SavedTitleDesktop, SavedTitleMobile, SavedResourceCardCollection, SavedResourceCardCollectionMobile} from '../ui-components';
-import {useBreakpointValue, SearchField, Flex } from '@aws-amplify/ui-react'
+import {useBreakpointValue, Flex } from '@aws-amplify/ui-react'
 
 function Saved() {
 

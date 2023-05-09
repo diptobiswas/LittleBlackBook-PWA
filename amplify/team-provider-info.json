@@ -20,6 +20,12 @@
       },
       "api": {
         "littleblackbookpwa": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2abavuw5al0im",
+          "type": "manual"
+        }
       }
     }
   }

@@ -14,7 +14,7 @@ import { DataStore } from "aws-amplify";
 export default function ProfileUpdateForm(props) {
   const {
     id: idProp,
-    profile,
+    profile: profileModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -40,14 +40,16 @@ export default function ProfileUpdateForm(props) {
     setProfilePicture(cleanValues.ProfilePicture);
     setErrors({});
   };
-  const [profileRecord, setProfileRecord] = React.useState(profile);
+  const [profileRecord, setProfileRecord] = React.useState(profileModelProp);
   React.useEffect(() => {
     const queryData = async () => {
-      const record = idProp ? await DataStore.query(Profile, idProp) : profile;
+      const record = idProp
+        ? await DataStore.query(Profile, idProp)
+        : profileModelProp;
       setProfileRecord(record);
     };
     queryData();
-  }, [idProp, profile]);
+  }, [idProp, profileModelProp]);
   React.useEffect(resetStateValues, [profileRecord]);
   const validations = {
     Name: [],
@@ -58,9 +60,10 @@ export default function ProfileUpdateForm(props) {
     currentValue,
     getDisplayValue
   ) => {
-    const value = getDisplayValue
-      ? getDisplayValue(currentValue)
-      : currentValue;
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -187,7 +190,7 @@ export default function ProfileUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || profile)}
+          isDisabled={!(idProp || profileModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -199,7 +202,7 @@ export default function ProfileUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || profile) ||
+              !(idProp || profileModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

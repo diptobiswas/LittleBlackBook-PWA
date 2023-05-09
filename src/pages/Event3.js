@@ -1,5 +1,5 @@
 import {EventPage3, EventPage3Mobile} from '../ui-components'
-import { useBreakpointValue } from '@aws-amplify/ui-react'
+import { useBreakpointValue,Flex } from '@aws-amplify/ui-react'
 
 function Event3(){
     const EventPage=useBreakpointValue({
@@ -9,7 +9,9 @@ function Event3(){
 
     return (
         <div>
+            <Flex height={20}></Flex>
             {EventPage}
+            <Flex height={20}></Flex>
         </div>
     )
 }

@@ -24,9 +24,9 @@ function App() {
           <Route path="Resources" element={<Resources/>} />
           <Route path="profile" element={<Profile/>} />
           <Route path="Featured" element={<Featured/>} />
-          <Route path="Sarnia Sting at Kitchenr Rangers" element={<Event1/>} />
-          <Route path="Larry's Jazz Guys" element={<Event2/>} />
-          <Route path="Manduppal" element={<Event3/>} />
+          <Route path="Sarnia Sting at Kitchener Rangers" element={<Event1/>} />
+          <Route path="Larry's Jazz Performance" element={<Event2/>} />
+          <Route path="Learn about Plants with Malvin" element={<Event3/>} />
           <Route path="*" element={<NoMatch />} />
         </Route>
     </Routes>
@@ -35,7 +35,7 @@ function App() {
 function NoMatch() {
   return (
     <div>
-      <h2>Nothing to see here!</h2>
+      <h2>404: Page not Found</h2>
       <p>
         <Link to="/">Go to the home page</Link>
       </p>

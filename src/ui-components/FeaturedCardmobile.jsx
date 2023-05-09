@@ -87,15 +87,15 @@ export default function FeaturedCardMobile(props) {
           {...getOverrideProps(overrides, "Featured_Title")}
         ></Text>
         <Flex
-          padding="0px 0px 0px 0px"
-          width="128.65px"
-          height="23.51px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
+          gap="0"
+          direction="row"
+          width="unset"
+          height="unset"
+          justifyContent="flex-start"
+          alignItems="flex-end"
           shrink="0"
           position="relative"
+          padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "FeaturedLink")}
         >
           <Text
@@ -113,28 +113,25 @@ export default function FeaturedCardMobile(props) {
             height="18.18px"
             gap="unset"
             alignItems="unset"
-            position="absolute"
-            top="21.27%"
-            bottom="1.41%"
-            left="0%"
-            right="23.15%"
+            shrink="0"
+            position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Learn More"
             {...getOverrideProps(overrides, "Learn More")}
           ></Text>
           <Icon
-            width="17.68px"
+            width="19.24px"
             height="17.68px"
             viewBox={{
               minX: 0,
               minY: 0,
-              width: 26.41650390625,
-              height: 23.5146484375,
+              width: 27.578369140625,
+              height: 24.548828125,
             }}
             paths={[
               {
-                d: "M17.6832 8.8416L16.1249 7.28327L9.9468 13.4503L9.9468 0L7.7364 0L7.7364 13.4503L1.56938 7.27222L0 8.8416L8.8416 17.6832L17.6832 8.8416Z",
+                d: "M19.2385 8.8416L17.5431 7.28327L10.8217 13.4503L10.8217 0L8.41685 0L8.41685 13.4503L1.70742 7.27222L0 8.8416L9.61926 17.6832L19.2385 8.8416Z",
                 fill: "rgba(255,255,255,1)",
                 fillRule: "nonzero",
               },
@@ -143,13 +140,8 @@ export default function FeaturedCardMobile(props) {
             gap="unset"
             alignItems="unset"
             justifyContent="unset"
-            position="absolute"
-            top="100%"
-            bottom="-75.2%"
-            left="89.73%"
-            right="-3.48%"
-            transformOrigin="top left"
-            transform="rotate(-138.33deg)"
+            shrink="0"
+            position="relative"
             {...getOverrideProps(overrides, "Vector")}
           ></Icon>
         </Flex>
